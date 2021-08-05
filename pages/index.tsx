@@ -1,7 +1,15 @@
-import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
+import SearchAppBar from "../components/SearchAppBar";
+import Button from "@material-ui/core/Button";
 
 export default function Home() {
-  return <h1>Papertoshi</h1>;
+  return (
+    <>
+      <SearchAppBar />
+      <h1>Papertoshi</h1>
+
+      <Button variant="contained" color="primary">
+        Hello World
+      </Button>
+    </>
+  );
 }
