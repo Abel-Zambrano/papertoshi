@@ -1,15 +1,17 @@
-import SearchAppBar from "../components/SearchAppBar";
+import SearchAppBar from "../components/header/SearchAppBar";
 import Button from "@material-ui/core/Button";
+import Page from "../components/Page";
 
 export default function Home() {
   return (
     <>
-      <SearchAppBar />
-      <h1>Papertoshi</h1>
+      <Page>
+        <h1>Papertoshi</h1>
 
-      <Button variant="contained" color="primary">
-        Hello World
-      </Button>
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
+      </Page>
     </>
   );
 }
