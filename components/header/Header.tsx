@@ -3,7 +3,7 @@ import SearchAppBar from "./SearchAppBar";
 const Header = () => {
   return (
     <>
-      <SearchAppBar />
+      <h1>Nav Bar</h1>
     </>
   );
 };
