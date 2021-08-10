@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <>
       <Page>
-        <h1>Papertoshi</h1>
+        <h1>Page Content</h1>
       </Page>
     </>
   );

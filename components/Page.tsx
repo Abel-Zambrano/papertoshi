@@ -8,7 +8,7 @@ type Props = {
 const Page = ({ children }: Props) => {
   return (
     <>
-      <Header className="header" title="Header" />
+      <Header className="header" title="Papertoshi" />
       <div>{children}</div>
       <Footer />
     </>
