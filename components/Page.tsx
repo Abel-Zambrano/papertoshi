@@ -1,13 +1,18 @@
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
-import styled, { createGlobalStyle } from "styled-components";
 
-export default function Page({ children, className }) {
+type Props = {
+  children?: any;
+};
+
+const Page = ({ children }: Props) => {
   return (
     <>
-      <Header className={className} />
+      <Header className="header" title="Header" />
       <div>{children}</div>
       <Footer />
     </>
   );
-}
+};
+
+export default Page;

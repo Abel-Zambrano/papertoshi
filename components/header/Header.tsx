@@ -1,10 +1,24 @@
-import SearchAppBar from "./SearchAppBar";
+import styled from "styled-components";
 
-const Header = () => {
+const MyHeader = styled.nav`
+  display: flex;
+  background-color: blue;
+
+  .header {
+    color: red;
+  }
+`;
+
+type Props = {
+  className: string;
+  title: string;
+};
+
+const Header = ({ className, title }: Props) => {
   return (
-    <>
-      <h1>Nav Bar</h1>
-    </>
+    <MyHeader>
+      <h1 className={className}>{title}</h1>
+    </MyHeader>
   );
 };
 

@@ -5,10 +5,6 @@ export default function Home() {
     <>
       <Page>
         <h1>Papertoshi</h1>
-
-        <p variant="contained" color="primary">
-          Hello World
-        </p>
       </Page>
     </>
   );
