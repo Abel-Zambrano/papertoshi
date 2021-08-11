@@ -1,10 +1,18 @@
+import styled from "styled-components";
 import Page from "../components/Page";
+
+const MyPage = styled.div`
+  background-color: var(--black-light);
+  height: 100vh;
+`;
 
 export default function Home() {
   return (
     <>
       <Page>
-        <h1>Page Content</h1>
+        <MyPage>
+          <h1 style={{ color: "white" }}>Page Content</h1>
+        </MyPage>
       </Page>
     </>
   );
