@@ -11,6 +11,8 @@ const MyNavLinks = styled.div`
     list-style: none;
 
     &-item {
+      font-size: 1.2rem;
+      color: var(--white);
       text-transform: capitalize;
       margin: 0 10px;
     }

@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
 const Div = styled.div`
   display: flex;
@@ -10,6 +10,11 @@ const MyTitle = styled.h1`
   font-size: 2rem;
   font-weight: 300;
   letter-spacing: 0.1rem;
+  color: var(--white);
+
+  &#primary-light {
+    color: var(--primary-light);
+  }
 `;
 
 type Props = {
@@ -20,7 +25,7 @@ type Props = {
 export default function Title({ color, title }: Props) {
   return (
     <Div>
-      <MyTitle theme={color}>{title}</MyTitle>
+      <MyTitle id={color}>{title}</MyTitle>
     </Div>
   );
 }

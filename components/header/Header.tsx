@@ -14,7 +14,7 @@ const MyHeader = styled.nav`
 export default function Header() {
   return (
     <MyHeader>
-      <Title title="Papertoshi" />
+      <Title color="primary-light" title="Papertoshi" />
       <AssetTotal />
       <NavLinks />
     </MyHeader>

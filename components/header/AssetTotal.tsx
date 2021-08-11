@@ -15,7 +15,7 @@ const MyAssetTotal = styled.div`
 export default function AssetTotal() {
   return (
     <MyAssetTotal>
-      <Title title="Total" />
+      <Title title="$12,358" />
     </MyAssetTotal>
   );
 }
