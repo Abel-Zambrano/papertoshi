@@ -57,7 +57,7 @@ export default function Page({ children }: Props) {
   return (
     <Container>
       <GlobalStyles />
-      <Header className="header" title="Papertoshi" />
+      <Header />
       <Content>{children}</Content>
       <Footer />
     </Container>
