@@ -1,27 +1,22 @@
 import styled from "styled-components";
+import Title from "../Title";
+import AssetTotal from "./AssetTotal";
 import NavLinks from "./NavLinks";
 
 const MyHeader = styled.nav`
   display: flex;
-  background-color: blue;
-
-  .header {
-    color: red;
-  }
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--black-dark);
+  height: 60px;
 `;
 
-type Props = {
-  className?: string;
-  title: string;
-};
-
-const Header = ({ className, title }: Props) => {
+export default function Header() {
   return (
     <MyHeader>
-      <h1 className={className}>{title}</h1>
+      <Title title="Papertoshi" />
+      <AssetTotal />
       <NavLinks />
     </MyHeader>
   );
-};
-
-export default Header;
+}

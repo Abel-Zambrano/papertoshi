@@ -4,9 +4,20 @@ import links from "../../data/links";
 
 const MyNavLinks = styled.div`
   display: flex;
+
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    &-item {
+      text-transform: capitalize;
+      margin: 0 10px;
+    }
+  }
 `;
 
-const NavLinks = () => {
+export default function NavLinks() {
   return (
     <MyNavLinks>
       <ul className="nav-list">
@@ -22,6 +33,4 @@ const NavLinks = () => {
       </ul>
     </MyNavLinks>
   );
-};
-
-export default NavLinks;
+}

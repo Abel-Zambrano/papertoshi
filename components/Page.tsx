@@ -6,16 +6,16 @@ const GlobalStyles = createGlobalStyle`
 :root {
   --black-dark: rgb(22, 22, 22);
   --black-light: rgb(29, 29, 29);
-  --white: #fff;
+  --white: #ffffff;
   --off-white: #f2f2f2;
-  --primary-blue: #0262bc;
-  --primary-orange:  #ffa64d;
-  --gray-blue: rgb(90, 99, 125);
+  --primary: #5841d8;
+  --primary-light: #8f80e5;
+  --primary-dark: #3723a9;
 }
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    letter-spacing: 0.1rem;
+    /* letter-spacing: 0.1rem; */ // Todo: remove if not needed
     scroll-behavior: smooth;
 }
 body {
@@ -57,7 +57,7 @@ export default function Page({ children }: Props) {
   return (
     <Container>
       <GlobalStyles />
-      <Header title="Papertoshi" />
+      <Header className="header" title="Papertoshi" />
       <Content>{children}</Content>
       <Footer />
     </Container>
