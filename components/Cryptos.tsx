@@ -17,8 +17,6 @@ export default function Cryptos() {
     }
   };
 
-  console.log(coins[0].atl);
-
   useEffect(() => {
     getData();
   }, []);
@@ -26,7 +24,21 @@ export default function Cryptos() {
   return (
     <div>
       <h1>Crypto List</h1>
-      <div>{}</div>
+      <div>
+        <ul>
+          {coins.map(({ id, sympbol, name, image, current_price }) => {
+            return (
+              <li key={id}>
+                <div>
+                  <h2>{name}</h2>
+                  <h3>{current_price}</h3>
+                  <img src={image} alt={name} />
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
