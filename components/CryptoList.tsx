@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Image from "next/image";
 
 const MyCryptoList = styled.div``;
 
@@ -10,7 +11,7 @@ type ListProps = {
   id: string;
   symbol: string;
   name: string;
-  image: string;
+  image: any;
   current_price: number;
 };
 
@@ -24,7 +25,7 @@ export default function CryptoList({ crypto }: CryptoProps) {
               <div>
                 <h2>{symbol}</h2>
                 <h3>{current_price}</h3>
-                <img src={image} alt={name} />
+                <Image src={image} alt={name} />
               </div>
             </li>
           );
