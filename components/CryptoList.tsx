@@ -2,8 +2,11 @@ import styled from "styled-components";
 
 const MyCryptoList = styled.div``;
 
-type Props = {
-  crypto: [];
+type CryptoProps = {
+  crypto: any;
+};
+
+type ListProps = {
   id: string;
   symbol: string;
   name: string;
@@ -11,11 +14,11 @@ type Props = {
   current_price: number;
 };
 
-export default function CryptoList({ crypto }: Props) {
+export default function CryptoList({ crypto }: CryptoProps) {
   return (
     <MyCryptoList>
       <ul>
-        {crypto.map(({ id, symbol, name, image, current_price }: Props) => {
+        {crypto.map(({ id, symbol, name, image, current_price }: ListProps) => {
           return (
             <li key={id}>
               <div>
