@@ -1,6 +1,17 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import axios from "axios";
 import CryptoList from "./CryptoList";
+
+const MyCrypto = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--black-dark);
+  width: 80vw;
+  margin: 50px 0;
+`;
 
 export default function Cryptos() {
   const [coins, setCoins] = useState([]);
@@ -22,9 +33,8 @@ export default function Cryptos() {
   }, []);
 
   return (
-    <div>
-      <h1>Crypto List</h1>
+    <MyCrypto>
       <CryptoList crypto={coins} />
-    </div>
+    </MyCrypto>
   );
 }

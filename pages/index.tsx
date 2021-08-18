@@ -3,8 +3,10 @@ import Cryptos from "../components/Cryptos";
 import Page from "../components/Page";
 
 const MyPage = styled.div`
+  display: flex;
+  justify-content: center;
   background-color: var(--black-light);
-  height: 100vh;
+  height: 100%;
 `;
 
 export default function Home() {
@@ -12,7 +14,6 @@ export default function Home() {
     <>
       <Page>
         <MyPage>
-          <h1 style={{ color: "white" }}>Page Content</h1>
           <Cryptos />
         </MyPage>
       </Page>

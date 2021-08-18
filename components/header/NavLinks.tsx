@@ -9,12 +9,13 @@ const MyNavLinks = styled.div`
     display: flex;
     justify-content: space-between;
     list-style: none;
+    width: 200px;
 
     &-item {
       font-size: 1.2rem;
       color: var(--white);
       text-transform: capitalize;
-      margin: 0 10px;
+      /* margin: 0 10px; */
     }
   }
 `;
@@ -26,9 +27,7 @@ export default function NavLinks() {
         {links.map(({ id, name, url }) => {
           return (
             <li key={id} className="nav-list-item">
-              <Link href={url}>
-                <a>{name}</a>
-              </Link>
+              <Link href={url}>{name}</Link>
             </li>
           );
         })}
