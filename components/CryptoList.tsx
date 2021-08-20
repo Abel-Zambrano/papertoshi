@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
+import TableHeader from "./TableHeader";
+import TableLabel from "./TableLabel";
 
 const MyCryptoList = styled.ol`
   display: flex;
@@ -16,6 +18,10 @@ const CryptoItem = styled.li`
   color: var(--white);
   padding: 10px 0;
   border-bottom: 2px solid var(--black-light);
+`;
+
+const WhiteLabel = styled(TableLabel)`
+  color: white;
 `;
 
 const Container = styled.div`
@@ -55,33 +61,36 @@ type ListProps = {
 
 export default function CryptoList({ crypto }: CryptoProps) {
   return (
-    <MyCryptoList>
-      {crypto.map(
-        ({
-          id,
-          symbol,
-          name,
-          image,
-          current_price,
-          price_change_percentage_24h,
-          market_cap,
-        }: ListProps) => {
-          return (
-            <CryptoItem key={id}>
-              <Container>
-                <Image src={image} alt={name} width={30} height={30} />
-                <div className="name-container">
-                  <h2 className="name-container-name">{name}</h2>
-                  <p className="name-container-symbol">{symbol}</p>
-                </div>
-              </Container>
-              <p>{`$${current_price}`}</p>
-              <p>{`${price_change_percentage_24h} %`}</p>
-              <p>{`$${market_cap}`}</p>
-            </CryptoItem>
-          );
-        }
-      )}
-    </MyCryptoList>
+    <>
+      <TableHeader />
+      <MyCryptoList>
+        {crypto.map(
+          ({
+            id,
+            symbol,
+            name,
+            image,
+            current_price,
+            price_change_percentage_24h,
+            market_cap,
+          }: ListProps) => {
+            return (
+              <CryptoItem key={id}>
+                <Container>
+                  <Image src={image} alt={name} width={30} height={30} />
+                  <div className="name-container">
+                    <h2 className="name-container-name">{name}</h2>
+                    <p className="name-container-symbol">{symbol}</p>
+                  </div>
+                </Container>
+                <WhiteLabel content={`$${current_price}`} />
+                <WhiteLabel content={`${price_change_percentage_24h} %`} />
+                <WhiteLabel content={`$${market_cap}`} />
+              </CryptoItem>
+            );
+          }
+        )}
+      </MyCryptoList>
+    </>
   );
 }
