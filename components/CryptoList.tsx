@@ -26,6 +26,7 @@ const WhiteLabel = styled(TableLabel)`
 
 const Container = styled.div`
   display: flex;
+  width: 20%;
 
   .name-container {
     display: flex;
