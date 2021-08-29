@@ -20,9 +20,9 @@ const CryptoItem = styled.li`
   border-bottom: 2px solid var(--black-light);
 `;
 
-const WhiteLabel = styled(TableLabel)`
-  color: white;
-`;
+// const WhiteLabel = styled(TableLabel)`
+//   color: white;
+// `;
 
 const Container = styled.div`
   display: flex;
@@ -46,6 +46,11 @@ const Container = styled.div`
   }
 `;
 
+const ImageWrapper = styled.div`
+  min-width: 30px;
+  min-height: 30px;
+`;
+
 type CryptoProps = {
   crypto: any;
 };
@@ -55,12 +60,25 @@ type ListProps = {
   symbol: string;
   name: string;
   image: string;
-  current_price: number;
+  current_price: any;
   price_change_percentage_24h: number;
   market_cap: number;
 };
 
 export default function CryptoList({ crypto }: CryptoProps) {
+  // format API value to whole USD
+  const wholeFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  });
+
+  // format API value to USD
+  const formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   return (
     <>
       <TableHeader />
@@ -75,18 +93,29 @@ export default function CryptoList({ crypto }: CryptoProps) {
             price_change_percentage_24h,
             market_cap,
           }: ListProps) => {
+            let currentPrice = formatter.format(current_price);
+            // format API percent change to 2 place decimal
+            let priceChange24h = Number(
+              price_change_percentage_24h / 100
+            ).toLocaleString(undefined, {
+              style: "percent",
+              minimumFractionDigits: 2,
+            });
+            let marketCap = wholeFormatter.format(market_cap);
             return (
               <CryptoItem key={id}>
                 <Container>
-                  <Image src={image} alt={name} width={30} height={30} />
+                  <ImageWrapper>
+                    <Image src={image} alt={name} width={30} height={30} />
+                  </ImageWrapper>
                   <div className="name-container">
                     <h2 className="name-container-name">{name}</h2>
                     <p className="name-container-symbol">{symbol}</p>
                   </div>
                 </Container>
-                <WhiteLabel content={`$${current_price}`} />
-                <WhiteLabel content={`${price_change_percentage_24h} %`} />
-                <WhiteLabel content={`$${market_cap}`} />
+                <TableLabel textColor="white" content={`${currentPrice}`} />
+                <TableLabel textColor="white" content={`${priceChange24h}`} />
+                <TableLabel textColor="white" content={`${marketCap}`} />
               </CryptoItem>
             );
           }

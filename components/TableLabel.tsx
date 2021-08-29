@@ -8,15 +8,34 @@ const MyTableLabel = styled.div`
   color: var(--primary-light);
 `;
 
+const Text = styled.p`
+  &.white {
+    color: var(--white);
+  }
+
+  &.green {
+    color: green;
+  }
+
+  &.red {
+    color: red;
+  }
+`;
+
 type LabelProps = {
   className?: string;
+  textColor?: any;
   content: string | number;
 };
 
-export default function TableLabel({ className, content }: LabelProps) {
+export default function TableLabel({
+  className,
+  textColor,
+  content,
+}: LabelProps) {
   return (
     <MyTableLabel className={className}>
-      <p className="text">{content}</p>
+      <Text className={textColor}>{content}</Text>
     </MyTableLabel>
   );
 }
