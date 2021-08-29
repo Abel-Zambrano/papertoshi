@@ -8,9 +8,8 @@ const GlobalStyles = createGlobalStyle`
   --black-light: rgb(29, 29, 29);
   --white: #ffffff;
   --off-white: #f2f2f2;
-  --primary: #5841d8;
-  --primary-light: #8f80e5;
-  --primary-dark: #3723a9;
+  --primary: #8f80e5;
+  --primary-dark: #66ff33;
 }
 html {
     box-sizing: border-box;
