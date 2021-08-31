@@ -3,6 +3,7 @@ import Title from "../Title";
 import AssetTotal from "./AssetTotal";
 import NavLinks from "./NavLinks";
 import Link from "next/link";
+import Hamburger from "../Hamburger";
 
 const MyHeader = styled.nav`
   display: flex;
@@ -15,6 +16,10 @@ const MyHeader = styled.nav`
     justify-content: space-between;
     align-items: center;
     width: 80vw;
+
+    @media screen and (max-width: 500px) {
+      width: 95vw;
+    }
   }
 `;
 
@@ -29,6 +34,7 @@ export default function Header() {
         </Link>
         <AssetTotal />
         <NavLinks />
+        <Hamburger />
       </div>
     </MyHeader>
   );

@@ -13,6 +13,18 @@ const MyTableHeader = styled.div`
     align-items: center;
     width: 70%;
     height: 100%;
+
+    @media screen and (max-width: 500px) {
+      width: 95%;
+    }
+  }
+`;
+
+const StyledTableLabel = styled(TableLabel)`
+  &.mobile-hidden {
+    @media screen and (max-width: 750px) {
+      display: none;
+    }
   }
 `;
 
@@ -23,7 +35,7 @@ export default function TableHeader() {
         <TableLabel content="Name" />
         <TableLabel content="Price" />
         <TableLabel content="Change" />
-        <TableLabel content="Market Cap" />
+        <StyledTableLabel className="mobile-hidden" content="Market Cap" />
       </div>
     </MyTableHeader>
   );

@@ -5,6 +5,10 @@ import links from "../../data/links";
 const MyNavLinks = styled.div`
   display: flex;
 
+  @media screen and (max-width: 500px) {
+    visibility: hidden;
+  }
+
   .nav-list {
     display: flex;
     justify-content: space-between;

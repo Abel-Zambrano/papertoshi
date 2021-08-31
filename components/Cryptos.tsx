@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import CryptoList from "./CryptoList";
 
-const MyCrypto = styled.div`
+const MyCryptos = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,6 +11,10 @@ const MyCrypto = styled.div`
   background-color: var(--black-dark);
   width: 80vw;
   margin: 50px 0;
+
+  @media screen and (max-width: 500px) {
+    width: 100vw;
+  }
 `;
 
 export default function Cryptos() {
@@ -33,8 +37,8 @@ export default function Cryptos() {
   }, []);
 
   return (
-    <MyCrypto>
+    <MyCryptos>
       <CryptoList crypto={coins} />
-    </MyCrypto>
+    </MyCryptos>
   );
 }

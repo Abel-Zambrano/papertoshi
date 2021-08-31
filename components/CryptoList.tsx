@@ -18,11 +18,11 @@ const CryptoItem = styled.li`
   color: var(--white);
   padding: 10px 0;
   border-bottom: 2px solid var(--black-light);
-`;
 
-// const WhiteLabel = styled(TableLabel)`
-//   color: white;
-// `;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+  }
+`;
 
 const Container = styled.div`
   display: flex;
@@ -34,6 +34,10 @@ const Container = styled.div`
     align-items: flex-start;
     justify-content: center;
     margin-left: 10px;
+
+    @media screen and (max-width: 750px) {
+      font-size: 0.8rem;
+    }
 
     &-name {
       font-weight: 400;
@@ -49,6 +53,14 @@ const Container = styled.div`
 const ImageWrapper = styled.div`
   min-width: 30px;
   min-height: 30px;
+`;
+
+const StyledTableLabel = styled(TableLabel)`
+  &.mobile-hidden {
+    @media screen and (max-width: 750px) {
+      display: none;
+    }
+  }
 `;
 
 type CryptoProps = {
@@ -115,7 +127,11 @@ export default function CryptoList({ crypto }: CryptoProps) {
                 </Container>
                 <TableLabel textColor="white" content={`${currentPrice}`} />
                 <TableLabel textColor="white" content={`${priceChange24h}`} />
-                <TableLabel textColor="white" content={`${marketCap}`} />
+                <StyledTableLabel
+                  className="mobile-hidden"
+                  textColor="white"
+                  content={`${marketCap}`}
+                />
               </CryptoItem>
             );
           }
