@@ -70,7 +70,7 @@ export default function CryptoList({ crypto }: CryptoProps) {
   const wholeFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
-    maximumFractionDigits: 0,
+    maximumFractionDigits: 2,
   });
 
   // format API value to USD
