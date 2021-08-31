@@ -23,7 +23,12 @@ const MyHeader = styled.nav`
   }
 
   .burger-container {
+    display: none;
     width: 40px;
+
+    @media screen and (max-width: 500px) {
+      display: block;
+    }
   }
 `;
 

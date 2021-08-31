@@ -19,7 +19,9 @@ const MyNavLinks = styled.div`
       font-size: 1.2rem;
       color: var(--white);
       text-transform: capitalize;
-      /* margin: 0 10px; */
+      &:hover {
+        color: var(--primary-dark);
+      }
     }
   }
 `;
