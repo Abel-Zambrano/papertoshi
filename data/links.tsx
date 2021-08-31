@@ -1,8 +1,8 @@
 const links: any[] = [
   {
     id: 1,
-    name: "market",
-    url: "/market",
+    name: "trade",
+    url: "/trade",
   },
   {
     id: 2,

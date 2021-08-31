@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Title from "../Title";
 import AssetTotal from "./AssetTotal";
 import NavLinks from "./NavLinks";
+import Link from "next/link";
 
 const MyHeader = styled.nav`
   display: flex;
@@ -21,7 +22,11 @@ export default function Header() {
   return (
     <MyHeader>
       <div className="header-container">
-        <Title color="primary-light" title="Papertoshi" />
+        <Link href="/">
+          <a>
+            <Title color="primary-light" title="Papertoshi" />
+          </a>
+        </Link>
         <AssetTotal />
         <NavLinks />
       </div>
