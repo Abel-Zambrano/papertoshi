@@ -7,8 +7,8 @@ const StyledHamburger = styled.button`
     flex-direction: column;
     color: var(--color-primary-light);
     justify-content: space-around;
-    width: 2rem;
-    height: 3rem;
+    width: 100%;
+    height: 30px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -17,10 +17,10 @@ const StyledHamburger = styled.button`
       outline: none;
     }
     div {
-      width: 4rem;
+      width: 40px;
       height: 0.25rem;
       background: var(--white);
-      border-radius: 1rem;
+      border-radius: 1px;
       transition: all 0.3s linear;
       position: relative;
       transform-origin: 0.1rem;
