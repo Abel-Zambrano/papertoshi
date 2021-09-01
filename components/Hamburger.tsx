@@ -1,5 +1,14 @@
 import styled from "styled-components";
 
+const Conatiner = styled.div`
+  display: none;
+  width: 40px;
+
+  @media screen and (max-width: 500px) {
+    display: block;
+  }
+`;
+
 const StyledHamburger = styled.button`
   display: none;
   @media screen and (max-width: 500px) {
@@ -8,7 +17,7 @@ const StyledHamburger = styled.button`
     color: var(--color-primary-light);
     justify-content: space-around;
     width: 100%;
-    height: 30px;
+    height: 25px;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -17,8 +26,8 @@ const StyledHamburger = styled.button`
       outline: none;
     }
     div {
-      width: 40px;
-      height: 0.25rem;
+      width: 30px;
+      height: 0.2rem;
       background: var(--white);
       border-radius: 1px;
       transition: all 0.3s linear;
@@ -30,10 +39,12 @@ const StyledHamburger = styled.button`
 
 export default function Hamburger({}) {
   return (
-    <StyledHamburger aria-label="navigation">
-      <div />
-      <div />
-      <div />
-    </StyledHamburger>
+    <Conatiner>
+      <StyledHamburger aria-label="navigation">
+        <div />
+        <div />
+        <div />
+      </StyledHamburger>
+    </Conatiner>
   );
 }

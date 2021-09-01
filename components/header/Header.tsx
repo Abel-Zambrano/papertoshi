@@ -21,15 +21,6 @@ const MyHeader = styled.nav`
       width: 95vw;
     }
   }
-
-  .burger-container {
-    display: none;
-    width: 40px;
-
-    @media screen and (max-width: 500px) {
-      display: block;
-    }
-  }
 `;
 
 export default function Header() {
@@ -43,9 +34,7 @@ export default function Header() {
         </Link>
         <AssetTotal />
         <NavLinks />
-        <div className="burger-container">
-          <Hamburger />
-        </div>
+        <Hamburger />
       </div>
     </MyHeader>
   );
