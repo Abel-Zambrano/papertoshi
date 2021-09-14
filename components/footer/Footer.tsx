@@ -6,7 +6,7 @@ const MyFooter = styled.footer`
   justify-content: center;
   height: 8rem;
   text-align: center;
-  background-color: var(--black-dark);
+  background-color: var(--primary);
   .copyright {
     font-size: 1.5rem;
     color: var(--white);

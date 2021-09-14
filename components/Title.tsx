@@ -13,7 +13,7 @@ const MyTitle = styled.h1`
   color: var(--white);
 
   &#primary-light {
-    color: var(--primary-dark);
+    color: var(--white);
   }
 `;
 

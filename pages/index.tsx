@@ -5,7 +5,7 @@ import Page from "../components/Page";
 const MyPage = styled.div`
   display: flex;
   justify-content: center;
-  background-color: var(--black-light);
+  background-color: var(--white);
   height: 100%;
 `;
 

@@ -8,7 +8,7 @@ import Hamburger from "../Hamburger";
 const MyHeader = styled.nav`
   display: flex;
   justify-content: center;
-  background-color: var(--black-dark);
+  background-color: var(--primary);
   height: 60px;
 
   .header-container {

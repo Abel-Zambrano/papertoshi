@@ -15,9 +15,9 @@ const CryptoItem = styled.li`
   display: flex;
   justify-content: space-between;
   width: 70%;
-  color: var(--white);
+  color: var(--black-dark);
   padding: 10px 0;
-  border-bottom: 2px solid var(--black-light);
+  border-bottom: 2px solid var(--white);
 
   @media screen and (max-width: 500px) {
     width: 95%;
@@ -125,11 +125,11 @@ export default function CryptoList({ crypto }: CryptoProps) {
                     <p className="name-container-symbol">{symbol}</p>
                   </div>
                 </Container>
-                <TableLabel textColor="white" content={`${currentPrice}`} />
-                <TableLabel textColor="white" content={`${priceChange24h}`} />
+                <TableLabel textColor="black" content={`${currentPrice}`} />
+                <TableLabel textColor="black" content={`${priceChange24h}`} />
                 <StyledTableLabel
                   className="mobile-hidden"
-                  textColor="white"
+                  textColor="black"
                   content={`${marketCap}`}
                 />
               </CryptoItem>

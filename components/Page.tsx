@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   --black-light: rgb(29, 29, 29);
   --white: #ffffff;
   --off-white: #f2f2f2;
-  --primary: #8f80e5;
+  --primary:#5741d8;
   --primary-dark: #66ff33;
 }
 html {
