@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import Image from "next/image";
-import TableHeader from "./TableHeader";
-import TableLabel from "./TableLabel";
 
 const MyCryptoList = styled.ol`
   display: flex;
@@ -12,53 +10,24 @@ const MyCryptoList = styled.ol`
 `;
 
 const CryptoItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  width: 70%;
-  color: var(--black-dark);
-  padding: 10px 0;
-  border-bottom: 2px solid var(--white);
+  background-color: var(--white);
+  list-style: none;
+  width: 540px;
+  height: 200px;
+  border-radius: 10px;
+  margin: 5px 0;
 
-  @media screen and (max-width: 500px) {
-    width: 95%;
-  }
-`;
-
-const Container = styled.div`
-  display: flex;
-  width: 20%;
-
-  .name-container {
+  .crypto-heading {
+    background-color: aliceblue; //todo: remove
+    border-radius: 20px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     justify-content: center;
-    margin-left: 10px;
+    align-items: center;
+    width: 160px;
+    margin: 10px 0 0 10px;
 
-    @media screen and (max-width: 750px) {
-      font-size: 0.8rem;
-    }
-
-    &-name {
-      font-weight: 400;
-    }
-
-    &-symbol {
-      text-transform: uppercase;
-      font-weight: 200;
-    }
-  }
-`;
-
-const ImageWrapper = styled.div`
-  min-width: 30px;
-  min-height: 30px;
-`;
-
-const StyledTableLabel = styled(TableLabel)`
-  &.mobile-hidden {
-    @media screen and (max-width: 750px) {
-      display: none;
+    .logo {
+      border-radius: 50%;
     }
   }
 `;
@@ -69,7 +38,6 @@ type CryptoProps = {
 
 type ListProps = {
   id: string;
-  symbol: string;
   name: string;
   image: string;
   current_price: any;
@@ -93,12 +61,10 @@ export default function CryptoList({ crypto }: CryptoProps) {
 
   return (
     <>
-      <TableHeader />
       <MyCryptoList>
         {crypto.map(
           ({
             id,
-            symbol,
             name,
             image,
             current_price,
@@ -116,22 +82,16 @@ export default function CryptoList({ crypto }: CryptoProps) {
             let marketCap = wholeFormatter.format(market_cap);
             return (
               <CryptoItem key={id}>
-                <Container>
-                  <ImageWrapper>
-                    <Image src={image} alt={name} width={30} height={30} />
-                  </ImageWrapper>
-                  <div className="name-container">
-                    <h2 className="name-container-name">{name}</h2>
-                    <p className="name-container-symbol">{symbol}</p>
-                  </div>
-                </Container>
-                <TableLabel textColor="black" content={`${currentPrice}`} />
-                <TableLabel textColor="black" content={`${priceChange24h}`} />
-                <StyledTableLabel
-                  className="mobile-hidden"
-                  textColor="black"
-                  content={`${marketCap}`}
-                />
+                <div className="crypto-heading">
+                  <Image
+                    className="logo"
+                    src={image}
+                    alt={name}
+                    width={30}
+                    height={30}
+                  />
+                  <h4>{name}</h4>
+                </div>
               </CryptoItem>
             );
           }
