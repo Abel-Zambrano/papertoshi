@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
   --white: #ffffff;
   --off-white: #f2f2f2;
   --primary:#5741d8;
-  --primary-dark: #66ff33;
+  --primary-light:   #eceafb;
 }
 html {
     box-sizing: border-box;

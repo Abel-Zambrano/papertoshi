@@ -17,18 +17,45 @@ const CryptoItem = styled.li`
   border-radius: 10px;
   margin: 5px 0;
 
-  .crypto-heading {
-    background-color: aliceblue; //todo: remove
-    border-radius: 20px;
+  .container {
     display: flex;
-    justify-content: center;
     align-items: center;
-    width: 160px;
-    margin: 10px 0 0 10px;
 
-    .logo {
-      border-radius: 50%;
+    .wrapper {
+      display: flex;
+      align-items: center;
+      margin: 10px 0 10px 10px;
+
+      .heading {
+        background-color: var(--primary-light);
+        border-radius: 20px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        width: 160px;
+
+        .logo {
+          border-radius: 50%;
+        }
+
+        .shares {
+          margin-left: 20px;
+        }
+      }
+
+      .name {
+        margin-left: 10px;
+        font-weight: 400;
+      }
     }
+  }
+
+  .asset-trade {
+    display: flex;
+  }
+
+  .asset-price {
+    display: flex;
   }
 `;
 
@@ -69,7 +96,6 @@ export default function CryptoList({ crypto }: CryptoProps) {
             image,
             current_price,
             price_change_percentage_24h,
-            market_cap,
           }: ListProps) => {
             let currentPrice = formatter.format(current_price);
             // format API percent change to 2 place decimal
@@ -79,18 +105,30 @@ export default function CryptoList({ crypto }: CryptoProps) {
               style: "percent",
               minimumFractionDigits: 2,
             });
-            let marketCap = wholeFormatter.format(market_cap);
             return (
               <CryptoItem key={id}>
-                <div className="crypto-heading">
-                  <Image
-                    className="logo"
-                    src={image}
-                    alt={name}
-                    width={30}
-                    height={30}
-                  />
-                  <h4>{name}</h4>
+                <div className="container">
+                  <div className="wrapper">
+                    <div className="heading">
+                      <Image
+                        className="logo"
+                        src={image}
+                        alt={name}
+                        width={30}
+                        height={30}
+                      />
+                      <h3 className="shares">501.10</h3>
+                    </div>
+                    <h2 className="name">{name}</h2>
+                  </div>
+                </div>
+                <div className="asset-trade">
+                  <h2>$1,000</h2>
+                  <button className="asset-trade-button">Trade</button>
+                </div>
+                <div className="asset-price">
+                  <p>{priceChange24h}</p>
+                  <p>{currentPrice}</p>
                 </div>
               </CryptoItem>
             );
