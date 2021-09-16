@@ -72,6 +72,11 @@ const CryptoItem = styled.li`
       background-color: var(--off-white);
       border-radius: 14px;
       margin-right: 50px;
+
+      &:hover {
+        background-color: var(--green-action);
+        color: var(--white);
+      }
     }
   }
 
