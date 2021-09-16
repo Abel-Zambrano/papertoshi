@@ -8,7 +8,6 @@ const MyCryptos = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--off-white);
   width: 80vw;
   margin: 50px 0;
 

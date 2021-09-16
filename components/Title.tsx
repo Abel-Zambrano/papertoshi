@@ -7,7 +7,7 @@ const Div = styled.div`
 `;
 
 const MyTitle = styled.h1`
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 0.1rem;
   color: var(--white);

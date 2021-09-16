@@ -8,8 +8,10 @@ const GlobalStyles = createGlobalStyle`
   --black-light: rgb(29, 29, 29);
   --white: #ffffff;
   --off-white: #f2f2f2;
-  --primary:#5741d8;
-  --primary-light:   #eceafb;
+  --primary: #5741d8;
+  --primary-medium: #8f80e5;
+  --primary-light: #eceafb;
+  --green-action: #47d147;
 }
 html {
     box-sizing: border-box;

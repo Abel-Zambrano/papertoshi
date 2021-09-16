@@ -10,12 +10,16 @@ const MyCryptoList = styled.ol`
 `;
 
 const CryptoItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--white);
   list-style: none;
   width: 540px;
   height: 200px;
-  border-radius: 10px;
-  margin: 5px 0;
+  border-radius: 14px;
+  margin: 20px 0;
+  box-shadow: 1px 6px 10px 3px rgba(0, 0, 0, 0.3);
 
   .container {
     display: flex;
@@ -52,10 +56,38 @@ const CryptoItem = styled.li`
 
   .asset-trade {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-value {
+      font-size: 5rem;
+      font-weight: 200;
+      margin-left: 50px;
+    }
+
+    &-button {
+      width: 120px;
+      height: 34px;
+      border: 1px solid var(--green-action);
+      background-color: var(--off-white);
+      border-radius: 14px;
+      margin-right: 50px;
+    }
   }
 
   .asset-price {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+
+    &-change {
+      margin-left: 10px;
+    }
+
+    &-current {
+      margin-right: 10px;
+    }
   }
 `;
 
@@ -123,12 +155,12 @@ export default function CryptoList({ crypto }: CryptoProps) {
                   </div>
                 </div>
                 <div className="asset-trade">
-                  <h2>$1,000</h2>
+                  <h2 className="asset-trade-value">$1,000</h2>
                   <button className="asset-trade-button">Trade</button>
                 </div>
                 <div className="asset-price">
-                  <p>{priceChange24h}</p>
-                  <p>{currentPrice}</p>
+                  <p className="asset-price-change">{priceChange24h}</p>
+                  <p className="asset-price-current">{currentPrice}</p>
                 </div>
               </CryptoItem>
             );

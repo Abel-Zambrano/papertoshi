@@ -13,10 +13,10 @@ const MyNavLinks = styled.div`
     display: flex;
     justify-content: space-between;
     list-style: none;
-    width: 200px;
+    width: 250px;
 
     &-item {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: var(--white);
       text-transform: capitalize;
     }
