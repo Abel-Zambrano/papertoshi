@@ -12,8 +12,8 @@ const MyTitle = styled.h1`
   letter-spacing: 0.1rem;
   color: var(--white);
 
-  &#primary-light {
-    color: var(--white);
+  &#black {
+    color: var(--black-dark);
   }
 `;
 

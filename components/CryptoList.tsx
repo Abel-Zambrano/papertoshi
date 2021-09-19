@@ -1,5 +1,7 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import Title from "./Title";
 
 const MyCryptoList = styled.ol`
   display: flex;
@@ -110,6 +112,8 @@ type ListProps = {
 };
 
 export default function CryptoList({ crypto }: CryptoProps) {
+  const [cash, setCash] = useState(10000);
+
   // format API value to whole USD
   const wholeFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -123,9 +127,12 @@ export default function CryptoList({ crypto }: CryptoProps) {
     currency: "USD",
   });
 
+  let formatCash = formatter.format(cash);
+
   return (
     <>
       <MyCryptoList>
+        <Title color="black" title={`Cash Available: ${formatCash} USD`} />
         {crypto.map(
           ({
             id,
