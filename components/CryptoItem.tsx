@@ -10,7 +10,7 @@ const MyCryptoItem = styled.li`
   list-style: none;
   width: 540px;
   height: 200px;
-  border-radius: 14px;
+  border-radius: 16px;
   margin: 20px 0;
   box-shadow: 1px 6px 10px 3px rgba(0, 0, 0, 0.3);
 

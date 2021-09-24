@@ -2,6 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import Title from "./Title";
 import CryptoItem from "./CryptoItem";
+import Modal from "./UI/Modal";
 
 const MyCryptoList = styled.ol`
   display: flex;
@@ -46,6 +47,7 @@ export default function CryptoList({ crypto }: CryptoProps) {
     <>
       <MyCryptoList>
         <Title color="black" title={`Cash Available: ${formatCash} USD`} />
+        <Modal />
         {crypto.map(
           ({
             id,
