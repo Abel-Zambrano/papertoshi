@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import CryptoList from "./CryptoList";
+import CryptoTrade from "./CryptoTrade";
 
 const MyCryptos = styled.div`
   display: flex;
@@ -37,7 +37,7 @@ export default function Cryptos() {
 
   return (
     <MyCryptos>
-      <CryptoList crypto={coins} />
+      <CryptoTrade crypto={coins} />
     </MyCryptos>
   );
 }
