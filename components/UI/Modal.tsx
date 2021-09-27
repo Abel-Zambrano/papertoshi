@@ -84,6 +84,7 @@ type ModalProps = {
   image: string;
   currentPrice: any;
   tradeModal: boolean;
+  closeModal: any;
 };
 
 export default function Modal({
@@ -92,11 +93,12 @@ export default function Modal({
   image,
   currentPrice,
   tradeModal,
+  closeModal,
 }: ModalProps) {
   return (
     <>
       {tradeModal ? (
-        <Backdrop>
+        <Backdrop closeModal={closeModal}>
           <MyModal id={id}>
             <div className="heading">
               <h1>{`You're about to trade ${name}`}</h1>

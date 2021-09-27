@@ -119,6 +119,7 @@ export default function TradeItem({
         image={image}
         currentPrice={currentPrice}
         tradeModal={tradeModal}
+        closeModal={tradeModalHandler}
       />
       <MyCryptoItem key={id}>
         <div className="container">

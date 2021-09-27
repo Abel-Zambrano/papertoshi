@@ -14,8 +14,9 @@ const MyBackdrop = styled.div`
 
 type BackdropProps = {
   children: any;
+  closeModal: any;
 };
 
-export default function Backdrop({ children }: BackdropProps) {
-  return <MyBackdrop>{children}</MyBackdrop>;
+export default function Backdrop({ children, closeModal }: BackdropProps) {
+  return <MyBackdrop onClick={closeModal}>{children}</MyBackdrop>;
 }
