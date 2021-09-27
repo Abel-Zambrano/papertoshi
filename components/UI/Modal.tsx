@@ -2,12 +2,13 @@ import { useState } from "react";
 import styled from "styled-components";
 import Backdrop from "./Backdrop";
 import Image from "next/image";
+import { AiOutlineClose } from "react-icons/ai";
 
 const MyModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: var(--white);
   border-radius: 16px;
   display: flex;
@@ -18,21 +19,45 @@ const MyModal = styled.div`
   h1 {
     font-size: 2.2rem;
     font-weight: 300;
-    padding: 10px;
   }
 
   h2 {
     font-weight: 300;
   }
 
+  .wrapper-exit {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+
+    &-icon {
+      width: auto;
+      height: 50%;
+      padding-right: 10px;
+      color: var(--black-light);
+    }
+  }
+
   .heading {
     text-align: center;
+    width: 100%;
+
+    &-title {
+      padding-bottom: 10px;
+    }
+
+    &-symbol {
+      text-transform: uppercase;
+    }
   }
 
   .trade {
     display: flex;
     justify-content: space-around;
     width: 80%;
+    padding: 10px;
   }
 
   .action {
@@ -40,6 +65,15 @@ const MyModal = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding-left: 10px;
+  }
+
+  .assets {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
   }
 `;
 
@@ -80,6 +114,7 @@ const Button = styled.button`
 
 type ModalProps = {
   id: string;
+  symbol: string;
   name: string;
   image: string;
   currentPrice: any;
@@ -89,6 +124,7 @@ type ModalProps = {
 
 export default function Modal({
   id,
+  symbol,
   name,
   image,
   currentPrice,
@@ -98,11 +134,18 @@ export default function Modal({
   return (
     <>
       {tradeModal ? (
-        <Backdrop closeModal={closeModal}>
+        <>
+          <Backdrop closeModal={closeModal}></Backdrop>
           <MyModal id={id}>
+            <div className="wrapper-exit">
+              <AiOutlineClose
+                className="wrapper-exit-icon"
+                onClick={closeModal}
+              />
+            </div>
             <div className="heading">
-              <h1>{`You're about to trade ${name}`}</h1>
-              <h2>{`${id} ${currentPrice}`}</h2>
+              <h1 className="heading-title">{`You're about to trade ${name}`}</h1>
+              <h2 className="heading-symbol">{`${symbol} ${currentPrice}`}</h2>
             </div>
             <div className="trade">
               <div className="trade-logo">
@@ -121,7 +164,7 @@ export default function Modal({
               </h2>
             </div>
           </MyModal>
-        </Backdrop>
+        </>
       ) : null}
     </>
   );

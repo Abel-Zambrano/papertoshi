@@ -17,6 +17,7 @@ type CryptoProps = {
 
 type ListProps = {
   id: string;
+  symbol: string;
   name: string;
   image: string;
   current_price: any;
@@ -49,6 +50,7 @@ export default function CryptoTrade({ crypto }: CryptoProps) {
         {crypto.map(
           ({
             id,
+            symbol,
             name,
             image,
             current_price,
@@ -65,6 +67,7 @@ export default function CryptoTrade({ crypto }: CryptoProps) {
             return (
               <TradeItem
                 id={id}
+                symbol={symbol}
                 image={image}
                 name={name}
                 priceChange24Hr={priceChange24h}

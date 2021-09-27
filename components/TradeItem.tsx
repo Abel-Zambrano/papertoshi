@@ -92,6 +92,7 @@ const MyCryptoItem = styled.li`
 
 type ListProps = {
   id: string;
+  symbol: string;
   name: string;
   image: string;
   currentPrice: any;
@@ -100,6 +101,7 @@ type ListProps = {
 
 export default function TradeItem({
   id,
+  symbol,
   image,
   name,
   priceChange24Hr,
@@ -115,6 +117,7 @@ export default function TradeItem({
     <>
       <Modal
         id={id}
+        symbol={symbol}
         name={name}
         image={image}
         currentPrice={currentPrice}
