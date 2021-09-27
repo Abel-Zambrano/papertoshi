@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import Backdrop from "./Backdrop";
 import Image from "next/image";
@@ -76,31 +77,50 @@ const Button = styled.button`
     }
   }
 `;
-export default function Modal() {
+
+type ModalProps = {
+  id: string;
+  name: string;
+  image: string;
+  currentPrice: any;
+  tradeModal: boolean;
+};
+
+export default function Modal({
+  id,
+  name,
+  image,
+  currentPrice,
+  tradeModal,
+}: ModalProps) {
   return (
-    <Backdrop>
-      <MyModal>
-        <div className="heading">
-          <h1>You're about to trade Bitcoin</h1>
-          <h2>BTC $43,678.21</h2>
-        </div>
-        <div className="trade">
-          <div className="trade-logo">
-            <p>image logo</p>
-          </div>
-          <input type="text" />
-          <h1>Total: 1,282.34</h1>
-        </div>
-        <div className="action">
-          <Button className="buy">Buy</Button>
-          <Button className="sell">Sell</Button>
-        </div>
-        <div className="assets">
-          <h2>
-            Cash Available <strong>$10,000</strong>
-          </h2>
-        </div>
-      </MyModal>
-    </Backdrop>
+    <>
+      {tradeModal ? (
+        <Backdrop>
+          <MyModal id={id}>
+            <div className="heading">
+              <h1>{`You're about to trade ${name}`}</h1>
+              <h2>{`${id} ${currentPrice}`}</h2>
+            </div>
+            <div className="trade">
+              <div className="trade-logo">
+                <Image src={image} alt={name} width={30} height={30} />
+              </div>
+              <input type="text" />
+              <h1>Total: 1,282.34</h1>
+            </div>
+            <div className="action">
+              <Button className="buy">Buy</Button>
+              <Button className="sell">Sell</Button>
+            </div>
+            <div className="assets">
+              <h2>
+                Cash Available <strong>$10,000</strong>
+              </h2>
+            </div>
+          </MyModal>
+        </Backdrop>
+      ) : null}
+    </>
   );
 }
