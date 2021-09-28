@@ -127,6 +127,7 @@ const Button = styled.button`
 `;
 
 type ModalProps = {
+  key: string;
   id: string;
   symbol: string;
   name: string;
@@ -137,6 +138,7 @@ type ModalProps = {
 };
 
 export default function Modal({
+  key,
   id,
   symbol,
   name,
@@ -150,7 +152,7 @@ export default function Modal({
       {tradeModal ? (
         <>
           <Backdrop closeModal={closeModal}></Backdrop>
-          <MyModal key={id} id={id}>
+          <MyModal key={key} id={id}>
             <div className="wrapper-exit">
               <AiOutlineClose
                 className="wrapper-exit-icon"
