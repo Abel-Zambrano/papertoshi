@@ -58,6 +58,14 @@ const MyModal = styled.div`
     justify-content: space-around;
     width: 80%;
     padding: 10px;
+
+    &-logo {
+      border-radius: 50%;
+      border: 0.5px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 2px 2px 4px 0.5px rgba(0, 0, 0, 0.2);
+      height: 30px;
+      width: 30px;
+    }
   }
 
   .action {
