@@ -5,6 +5,8 @@ import Image from "next/image";
 import { AiOutlineClose } from "react-icons/ai";
 
 const MyModal = styled.div`
+  position: fixed;
+  top: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,6 +67,10 @@ const MyModal = styled.div`
       box-shadow: 2px 2px 4px 0.5px rgba(0, 0, 0, 0.2);
       height: 30px;
       width: 30px;
+    }
+
+    #image {
+      border-radius: 50%;
     }
   }
 
@@ -157,7 +163,13 @@ export default function Modal({
             </div>
             <div className="trade">
               <div className="trade-logo">
-                <Image src={image} alt={name} width={30} height={30} />
+                <Image
+                  id="image"
+                  src={image}
+                  alt={name}
+                  width={30}
+                  height={30}
+                />
               </div>
               <input type="text" />
               <h1>Total: 1,282.34</h1>
