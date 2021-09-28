@@ -121,7 +121,6 @@ export default function TradeItem({
   return (
     <>
       <Modal
-        key={id}
         id={id}
         symbol={symbol}
         name={name}
