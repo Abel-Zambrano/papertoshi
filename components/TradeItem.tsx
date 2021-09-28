@@ -111,6 +111,11 @@ export default function TradeItem({
 
   const tradeModalHandler = () => {
     setTradeModal(!tradeModal);
+    if (tradeModal === false) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
   };
 
   return (
