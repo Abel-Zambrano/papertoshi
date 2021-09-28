@@ -66,6 +66,7 @@ export default function CryptoTrade({ crypto }: CryptoProps) {
             });
             return (
               <TradeItem
+                key={id}
                 id={id}
                 symbol={symbol}
                 image={image}
