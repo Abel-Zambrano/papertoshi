@@ -17,12 +17,18 @@ const MySideBar = styled.div`
     width: 100%;
     margin-top: 20px;
 
-    &-logo {
+    &-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background-color: var(--primary);
-      color: var(--white);
-      font-size: 2.5rem;
       border-radius: 50%;
       padding: 5px;
+
+      .logo {
+        color: var(--white);
+        font-size: 2.5rem;
+      }
     }
 
     &-title {
@@ -37,7 +43,9 @@ export default function SideBar() {
   return (
     <MySideBar>
       <div className="papertoshi">
-        <GiOctopus className="papertoshi-logo" />
+        <div className="papertoshi-wrapper">
+          <GiOctopus className="logo" />
+        </div>
         <h1 className="papertoshi-title">PaperToshi</h1>
       </div>
     </MySideBar>
