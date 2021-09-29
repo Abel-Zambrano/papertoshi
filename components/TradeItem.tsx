@@ -130,7 +130,7 @@ export default function TradeItem({
         tradeModal={tradeModal}
         closeModal={tradeModalHandler}
       />
-      <MyCryptoItem key={id}>
+      <MyCryptoItem key={symbol}>
         <div className="container">
           <div className="wrapper">
             <div className="heading">

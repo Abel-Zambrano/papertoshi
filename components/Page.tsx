@@ -1,14 +1,17 @@
 import styled, { createGlobalStyle } from "styled-components";
-import Header from "./header/Header";
-import Footer from "./footer/Footer";
+// import Header from "./header/Header";
+// import Footer from "./footer/Footer";
+import SideBar from "./SideBar";
 
 const GlobalStyles = createGlobalStyle`
 :root {
   --black-dark: rgb(22, 22, 22);
   --black-light: rgb(29, 29, 29);
+  --slate: #363740;
+  --gray: #A4A6B3;
   --white: #ffffff;
   --off-white: #f2f2f2;
-  --primary: #5741d8;
+  --primary: #3856ff;
   --primary-medium: #8f80e5;
   --primary-light: #eceafb;
   --green-action: #47d147;
@@ -16,15 +19,13 @@ const GlobalStyles = createGlobalStyle`
 html {
     box-sizing: border-box;
     font-size: 62.5%;
-    /* letter-spacing: 0.1rem; */ // Todo: remove if not needed
     scroll-behavior: smooth;
 }
 body {
   padding: 0;
   margin: 0;
   height: 100%;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Mulish', sans-serif;
 }
 a {
   color: inherit;
@@ -42,7 +43,6 @@ a {
 
 const Container = styled.div`
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
 `;
@@ -59,9 +59,8 @@ export default function Page({ children }: Props) {
   return (
     <Container>
       <GlobalStyles />
-      <Header />
+      <SideBar />
       <Content>{children}</Content>
-      <Footer />
     </Container>
   );
 }

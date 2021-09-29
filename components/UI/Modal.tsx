@@ -138,7 +138,6 @@ type ModalProps = {
 };
 
 export default function Modal({
-  key,
   id,
   symbol,
   name,
@@ -152,7 +151,7 @@ export default function Modal({
       {tradeModal ? (
         <>
           <Backdrop closeModal={closeModal}></Backdrop>
-          <MyModal key={key} id={id}>
+          <MyModal key={id} id={id}>
             <div className="wrapper-exit">
               <AiOutlineClose
                 className="wrapper-exit-icon"

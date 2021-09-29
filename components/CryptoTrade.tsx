@@ -7,8 +7,9 @@ const MyCryptoList = styled.ol`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 100%;
+  max-height: 100vh;
+  overflow: scroll;
 `;
 
 type CryptoProps = {
@@ -46,7 +47,6 @@ export default function CryptoTrade({ crypto }: CryptoProps) {
   return (
     <>
       <MyCryptoList>
-        <Title color="black" title={`Cash Available: ${formatCash} USD`} />
         {crypto.map(
           ({
             id,
@@ -66,7 +66,7 @@ export default function CryptoTrade({ crypto }: CryptoProps) {
             });
             return (
               <TradeItem
-                key={id}
+                key={symbol}
                 id={id}
                 symbol={symbol}
                 image={image}
