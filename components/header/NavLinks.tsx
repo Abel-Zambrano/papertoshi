@@ -23,11 +23,15 @@ const MyNavLinks = styled.div`
       color: var(--gray);
       text-transform: capitalize;
       height: 60px;
-      transition: 0.3s;
+      transition: background-color 0.3s;
 
-      &:hover {
+      &:hover,
+      :active {
         background-color: var(--slate-light);
       }
+      /* &:active {
+        background-color: var(--slate-light);
+      } */
     }
 
     &__logo {
