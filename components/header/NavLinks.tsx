@@ -4,38 +4,57 @@ import links from "../../data/links";
 
 const MyNavLinks = styled.div`
   display: flex;
-
-  @media screen and (max-width: 500px) {
-    display: none;
-  }
+  align-items: center;
+  width: 100%;
+  height: 400px;
 
   .nav-list {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    width: 100%;
     list-style: none;
-    width: 250px;
 
-    &-item {
-      font-size: 1.4rem;
-      color: var(--white);
+    &__item {
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      font-size: 1.6rem;
+      color: var(--gray);
       text-transform: capitalize;
-      border-bottom: 2px solid transparent;
+      height: 60px;
+      transition: 0.3s;
 
       &:hover {
-        border-bottom: 2px solid var(--white);
+        background-color: var(--slate-light);
       }
     }
+
+    &__logo {
+      margin-left: 30px;
+    }
+
+    &__link {
+      margin-left: 12px;
+    }
   }
+`;
+
+const NextLink = styled(Link)`
+  margin-left: 12px;
 `;
 
 export default function NavLinks() {
   return (
     <MyNavLinks>
       <ul className="nav-list">
-        {links.map(({ id, name, url }) => {
+        {links.map(({ id, name, url, logo }) => {
           return (
-            <li key={id} className="nav-list-item">
-              <Link href={url}>{name}</Link>
+            <li key={id} className="nav-list__item">
+              <div className="nav-list__logo">{logo}</div>
+              <NextLink href={url}>
+                <a className="nav-list__link">{name}</a>
+              </NextLink>
             </li>
           );
         })}

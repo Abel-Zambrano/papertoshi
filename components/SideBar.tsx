@@ -1,40 +1,42 @@
 import styled from "styled-components";
-import Link from "next/link";
+import NavLinks from "./header/NavLinks";
 import { GiOctopus } from "react-icons/gi";
 
 const MySideBar = styled.div`
-  width: 255px;
+  width: 230px;
+  min-width: 230px;
   min-height: 100vh;
   max-height: 100vh;
   background-color: var(--slate);
   position: sticky;
   top: 0;
 
-  .papertoshi {
+  .heading {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     width: 100%;
     margin-top: 20px;
 
-    &-wrapper {
+    &__wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: var(--primary);
       border-radius: 50%;
       padding: 5px;
-
-      .logo {
-        color: var(--white);
-        font-size: 2.5rem;
-      }
+      margin-left: 20px;
     }
 
-    &-title {
+    &__logo {
+      color: var(--white);
+      font-size: 2.5rem;
+    }
+
+    &__title {
       font-size: 1.9rem;
       color: var(--gray);
-      padding-left: 12px;
+      margin-left: 12px;
     }
   }
 `;
@@ -42,12 +44,13 @@ const MySideBar = styled.div`
 export default function SideBar() {
   return (
     <MySideBar>
-      <div className="papertoshi">
-        <div className="papertoshi-wrapper">
-          <GiOctopus className="logo" />
+      <div className="heading">
+        <div className="heading__wrapper">
+          <GiOctopus className="heading__logo" />
         </div>
-        <h1 className="papertoshi-title">PaperToshi</h1>
+        <h1 className="heading__title">PaperToshi</h1>
       </div>
+      <NavLinks />
     </MySideBar>
   );
 }
