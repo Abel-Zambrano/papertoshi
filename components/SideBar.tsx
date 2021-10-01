@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NavLinks from "./header/NavLinks";
+import NavLinks from "./NavLinks";
 import { GiOctopus } from "react-icons/gi";
 
 const MySideBar = styled.div`
