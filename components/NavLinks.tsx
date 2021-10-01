@@ -17,14 +17,9 @@ const MyNavLinks = styled.div`
     list-style: none;
 
     &__item {
-      position: relative;
       display: flex;
-      justify-content: start;
-      align-items: center;
-      font-size: 1.6rem;
-      color: var(--gray);
-      text-transform: capitalize;
-      height: 60px;
+      justify-content: end;
+      position: relative;
 
       &.border-left::before {
         content: "";
@@ -44,6 +39,23 @@ const MyNavLinks = styled.div`
       }
     }
 
+    &__wrapper {
+      position: relative;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      font-size: 1.6rem;
+      color: var(--gray);
+      text-transform: capitalize;
+      height: 60px;
+      width: 228px;
+      transition: background-color 400ms ease-in-out;
+
+      &:hover {
+        background-color: var(--slate-light);
+      }
+    }
+
     &__logo {
       margin-left: 30px;
     }
@@ -54,6 +66,7 @@ const MyNavLinks = styled.div`
 
     .active {
       border-left: 2px solid var(--primary);
+      background-color: var(--slate-light);
     }
   }
 `;
@@ -79,10 +92,12 @@ export default function NavLinks() {
                   : "nav-list__item border-left"
               }
             >
-              <div className="nav-list__logo">{logo}</div>
-              <NextLink href={url}>
-                <a className="nav-list__link">{name}</a>
-              </NextLink>
+              <div className="nav-list__wrapper">
+                <div className="nav-list__logo">{logo}</div>
+                <NextLink href={url}>
+                  <a className="nav-list__link">{name}</a>
+                </NextLink>
+              </div>
             </li>
           );
         })}
