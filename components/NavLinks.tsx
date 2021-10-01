@@ -25,10 +25,22 @@ const MyNavLinks = styled.div`
       color: var(--gray);
       text-transform: capitalize;
       height: 60px;
-      transition: background-color 0.3s;
 
-      &:hover {
-        background-color: var(--slate-light);
+      &.border-left::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background-color: var(--primary);
+        transition: transform 300ms ease-in-out;
+
+        transform: scaleY(0);
+      }
+
+      &.border-left:hover::before {
+        transform: scaleY(1);
       }
     }
 
@@ -41,7 +53,7 @@ const MyNavLinks = styled.div`
     }
 
     .active {
-      background-color: var(--slate-light);
+      border-left: 2px solid var(--primary);
     }
   }
 `;
