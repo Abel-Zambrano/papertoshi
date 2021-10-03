@@ -14,6 +14,8 @@ const GlobalStyles = createGlobalStyle`
   --off-white: #f2f2f2;
   --primary: #3856ff;
   --primary-light:  #8093ff;
+  --primary-fade:  #e6e9ff;
+  --green-action:   #00e600;
 
 }
 html {

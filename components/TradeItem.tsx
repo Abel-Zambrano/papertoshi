@@ -25,7 +25,7 @@ const MyCryptoItem = styled.li`
       margin: 10px 0 10px 10px;
 
       .heading {
-        background-color: var(--primary-light);
+        background-color: var(--primary-fade);
         border-radius: 20px;
         display: flex;
         justify-content: start;
@@ -66,6 +66,7 @@ const MyCryptoItem = styled.li`
       background-color: var(--off-white);
       border-radius: 14px;
       margin-right: 50px;
+      /* transition: 200ms ease-in; */
 
       &:hover {
         background-color: var(--green-action);
