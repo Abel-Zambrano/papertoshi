@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Link from "next/link";
 import NavLinks from "./NavLinks";
 import { GiOctopus } from "react-icons/gi";
 
@@ -31,12 +32,14 @@ const MySideBar = styled.div`
     &__logo {
       color: var(--white);
       font-size: 2.5rem;
+      cursor: pointer;
     }
 
     &__title {
       font-size: 1.9rem;
       color: var(--gray);
       margin-left: 12px;
+      cursor: pointer;
     }
   }
 `;
@@ -51,12 +54,14 @@ const HR = styled.hr`
 export default function SideBar() {
   return (
     <MySideBar>
-      <div className="heading">
-        <div className="heading__wrapper">
-          <GiOctopus className="heading__logo" />
+      <Link href="/">
+        <div className="heading">
+          <div className="heading__wrapper">
+            <GiOctopus className="heading__logo" />
+          </div>
+          <h1 className="heading__title">PaperToshi</h1>
         </div>
-        <h1 className="heading__title">PaperToshi</h1>
-      </div>
+      </Link>
       <NavLinks />
       <HR />
     </MySideBar>
