@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Cryptos from "../components/Cryptos";
 import Page from "../components/Page";
 
 const MyPage = styled.div`
@@ -13,9 +12,7 @@ export default function Home() {
   return (
     <>
       <Page>
-        <MyPage>
-          <Cryptos />
-        </MyPage>
+        <MyPage></MyPage>
       </Page>
     </>
   );

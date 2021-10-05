@@ -9,7 +9,7 @@ const links: any[] = [
   {
     id: 1,
     name: "market",
-    url: "/",
+    url: "/market",
     logo: <AiFillSignal />,
   },
   {

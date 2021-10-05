@@ -1,6 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
-// import Header from "./header/Header";
-// import Footer from "./footer/Footer";
+import Heading from "./Heading";
 import SideBar from "./SideBar";
 
 const GlobalStyles = createGlobalStyle`
@@ -62,6 +61,7 @@ export default function Page({ children }: Props) {
     <Container>
       <GlobalStyles />
       <SideBar />
+      <Heading />
       <Content>{children}</Content>
     </Container>
   );
