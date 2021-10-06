@@ -10,6 +10,7 @@ const MyBackdrop = styled.div`
   height: 100vh;
   z-index: 500;
   top: 0;
+  left: 0;
 `;
 
 type BackdropProps = {
