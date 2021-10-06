@@ -42,15 +42,24 @@ a {
 }
 `;
 
-const Container = styled.div`
+const ContainerRow = styled.div`
   display: flex;
-  min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 `;
 
-const Content = styled.div`
-  flex: 1;
+const ContainerColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  width: 100%;
+  height: 100vh;
 `;
+
+// const Content = styled.div`
+//   flex: 1;
+//   height: 100%;
+// `;
 
 type Props = {
   children?: any;
@@ -58,11 +67,13 @@ type Props = {
 
 export default function Page({ children }: Props) {
   return (
-    <Container>
+    <ContainerRow>
       <GlobalStyles />
       <SideBar />
-      <Heading />
-      <Content>{children}</Content>
-    </Container>
+      <ContainerColumn>
+        <Heading />
+        {children}
+      </ContainerColumn>
+    </ContainerRow>
   );
 }

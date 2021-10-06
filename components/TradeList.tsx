@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import Title from "./Title";
 import TradeItem from "./TradeItem";
 
 const MyCryptoList = styled.ol`
@@ -10,6 +9,7 @@ const MyCryptoList = styled.ol`
   width: 100%;
   max-height: 100vh;
   overflow: scroll;
+  /* margin-bottom: 100px; */
 `;
 
 type CryptoProps = {
@@ -26,7 +26,7 @@ type ListProps = {
   market_cap: number;
 };
 
-export default function CryptoTrade({ crypto }: CryptoProps) {
+export default function TradeList({ crypto }: CryptoProps) {
   const [cash, setCash] = useState(10000);
 
   // format API value to whole USD

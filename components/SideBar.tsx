@@ -17,7 +17,7 @@ const MySideBar = styled.div`
     align-items: center;
     justify-content: start;
     width: 100%;
-    margin-top: 20px;
+    height: 100px;
 
     &__wrapper {
       display: flex;

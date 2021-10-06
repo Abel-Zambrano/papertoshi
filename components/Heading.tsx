@@ -6,9 +6,9 @@ const MyHeading = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 35px;
-  margin-top: 20px;
-  margin-left: 50px;
+  height: 100px;
+  min-height: 100px;
+  border-bottom: 1.5px solid var(--gray);
 `;
 
 export default function Heading() {

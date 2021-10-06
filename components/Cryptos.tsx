@@ -1,20 +1,6 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
-import CryptoTrade from "./CryptoTrade";
-
-const MyCryptos = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 80vw;
-  margin: 50px 0;
-
-  @media screen and (max-width: 500px) {
-    width: 100vw;
-  }
-`;
+import TradeList from "./TradeList";
 
 export default function Cryptos() {
   const [coins, setCoins] = useState([]);
@@ -36,8 +22,8 @@ export default function Cryptos() {
   }, []);
 
   return (
-    <MyCryptos>
-      <CryptoTrade crypto={coins} />
-    </MyCryptos>
+    <>
+      <TradeList crypto={coins} />
+    </>
   );
 }
