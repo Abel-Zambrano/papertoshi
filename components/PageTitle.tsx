@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 const MyHeadingTitle = styled.h1`
   text-transform: capitalize;
-  padding-left: 50px;
+  flex: 1;
+  margin-left: 50px;
 `;
 
 type HeadingTitleProps = {

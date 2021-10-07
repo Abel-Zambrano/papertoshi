@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import PageTitle from "./PageTitle";
 import { useRouter } from "next/router";
+import UserInfo from "./UserInfo";
+import SearchBar from "./SearchBar";
 
 const MyHeading = styled.div`
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100px;
@@ -18,6 +21,8 @@ export default function Heading() {
   return (
     <MyHeading>
       <PageTitle title={pathName} />
+      <SearchBar />
+      <UserInfo />
     </MyHeading>
   );
 }
