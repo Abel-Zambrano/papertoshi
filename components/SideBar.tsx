@@ -54,7 +54,7 @@ const HR = styled.hr`
 export default function SideBar() {
   return (
     <MySideBar>
-      <Link href="/">
+      <Link href="/" passHref>
         <div className="heading">
           <div className="heading__wrapper">
             <GiOctopus className="heading__logo" />
