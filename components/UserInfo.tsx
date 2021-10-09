@@ -21,7 +21,7 @@ const MyUserInfo = styled.div`
   }
 `;
 
-export default function () {
+export default function UserInfo() {
   return (
     <MyUserInfo>
       <div className="user-info">
