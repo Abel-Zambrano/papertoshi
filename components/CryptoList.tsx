@@ -21,10 +21,6 @@ export default function CryptoList() {
     getData();
   }, []);
 
-  type ListType = {
-    id: string;
-  };
-
   return (
     <>
       {list.map(({ id, image }) => {
