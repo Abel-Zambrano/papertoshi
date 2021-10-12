@@ -32,14 +32,13 @@ export default function CryptoList() {
           <div key={id}>
             {/* <h1>{e.id}</h1> */}
             <div style={{ width: "100px" }}>
-              <img src={image} alt={id} />
-              {/* <Image
+              <Image
                 className="logo"
                 src={image}
                 alt="hello"
                 width={100}
                 height={100}
-              /> */}
+              />
             </div>
           </div>
         );
