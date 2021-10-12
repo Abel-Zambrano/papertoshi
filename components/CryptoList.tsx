@@ -27,20 +27,20 @@ export default function CryptoList() {
 
   return (
     <>
-      {list.map((e) => {
+      {list.map(({ id, image }) => {
         return (
-          <>
+          <div key={id}>
             {/* <h1>{e.id}</h1> */}
             <div style={{ width: "100px" }}>
               <Image
                 className="logo"
-                src={e.image}
+                src={image}
                 alt="hello"
                 width={100}
                 height={100}
               />
             </div>
-          </>
+          </div>
         );
       })}
     </>
