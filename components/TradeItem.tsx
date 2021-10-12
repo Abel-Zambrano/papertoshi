@@ -141,6 +141,7 @@ export default function TradeItem({
                 alt={name}
                 width={30}
                 height={30}
+                priority
               />
               <h3 className="shares">501.10</h3>
             </div>
