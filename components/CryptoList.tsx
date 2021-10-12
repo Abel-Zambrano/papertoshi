@@ -21,9 +21,13 @@ export default function CryptoList() {
     getData();
   }, []);
 
+  // todo: remove console.log below
+
   return (
     <>
       {list.map(({ id, image }) => {
+        console.log(image);
+
         return (
           <div key={id}>
             {/* <h1>{e.id}</h1> */}
