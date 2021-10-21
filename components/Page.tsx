@@ -1,3 +1,4 @@
+import { createStore } from "redux";
 import styled, { createGlobalStyle } from "styled-components";
 import Heading from "./Heading";
 import SideBar from "./SideBar";
