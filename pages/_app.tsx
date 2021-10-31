@@ -1,6 +1,6 @@
 import type { AppProps } from "next/app";
 import NProgress from "nprogress";
-import Router from "next/dist/next-server/lib/router/router";
+import Router from "next/router";
 import "../styles/nprogress.css";
 
 Router.events.on("routeChangeStart", () => NProgress.start());
