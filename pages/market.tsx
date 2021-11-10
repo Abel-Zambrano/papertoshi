@@ -1,15 +1,22 @@
 import CryptoList from "../components/CryptoList";
 import Page from "../components/Page";
-import { useSelector, useDispatch } from "react-redux";
-import { searchTerm } from "../actions";
+import styled from "styled-components";
 
-const dispatch = useDispatch();
-const search = useSelector((state: any) => state.search);
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+`;
 
 export default function Market() {
   return (
     <Page>
-      <CryptoList />
+      <Container>
+        <CryptoList />
+      </Container>
     </Page>
   );
 }
