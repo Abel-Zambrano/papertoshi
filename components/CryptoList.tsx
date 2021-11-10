@@ -17,6 +17,7 @@ const MyCryptoList = styled.tr`
   .container {
     display: flex;
     align-items: center;
+    width: 50px;
 
     .rank {
       font-size: 1.2rem;
@@ -28,7 +29,8 @@ const MyCryptoList = styled.tr`
   .content {
     display: flex;
     align-items: center;
-    width: 200px;
+    width: 237px;
+    margin-left: 10px;
 
     .wrapper {
       width: 40px;
@@ -43,6 +45,10 @@ const MyCryptoList = styled.tr`
       color: var(--slate);
       margin-left: 10px;
     }
+  }
+
+  .price-change {
+    color: red;
   }
 `;
 
@@ -77,12 +83,36 @@ export default function CryptoList() {
     currency: "USD",
   });
 
+  // format API value to whole number USD
+  const wholeNumberFormatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+    minimumFractionDigits: 0,
+  });
+
   return (
     <>
       {list.map(
-        ({ id, image, name, symbol, market_cap_rank, current_price }) => {
+        ({
+          id,
+          image,
+          name,
+          symbol,
+          market_cap_rank,
+          current_price,
+          price_change_percentage_24h,
+          market_cap,
+        }) => {
           let currentPrice = formatter.format(current_price);
           // format API percent change to 2 place decimal
+          let priceChange24h = Number(
+            price_change_percentage_24h / 100
+          ).toLocaleString(undefined, {
+            style: "percent",
+            minimumFractionDigits: 2,
+          });
+          let marketCap = wholeNumberFormatter.format(market_cap);
           return (
             <MyCryptoList key={id}>
               <td className="container">
@@ -101,8 +131,14 @@ export default function CryptoList() {
                 <PrimaryText>{name}</PrimaryText>
                 <p className="symbol">{symbol}</p>
               </td>
-              <td className="container">
+              <td className="content">
                 <PrimaryText>{currentPrice}</PrimaryText>
+              </td>
+              <td className="content">
+                <p className="price-change">{priceChange24h}</p>
+              </td>
+              <td className="content">
+                <PrimaryText className="market-cap">{marketCap}</PrimaryText>
               </td>
             </MyCryptoList>
           );
