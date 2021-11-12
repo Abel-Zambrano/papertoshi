@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import Image from "next/image";
+// import PriceChange from "./PriceChange";
 // import { useSelector, useDispatch } from "react-redux";
 // import { searchTerm } from "../actions";
 
 // const dispatch = useDispatch();
 // const search = useSelector((state: any) => state.search);
 
-const MyCryptoList = styled.tr`
+const MyCryptoList = styled.ul`
   display: flex;
   border: 0.5px solid var(--gray);
   padding: 10px;
@@ -47,8 +48,12 @@ const MyCryptoList = styled.tr`
     }
   }
 
-  .price-change {
+  .red {
     color: red;
+  }
+
+  .green {
+    color: green;
   }
 `;
 
@@ -58,7 +63,7 @@ const PrimaryText = styled.p`
   margin-left: 10px;
 `;
 
-export default function CryptoList() {
+export default function MarketList() {
   const [list, setList] = useState([]);
 
   const geckoListAPI =
@@ -135,7 +140,7 @@ export default function CryptoList() {
                 <PrimaryText>{currentPrice}</PrimaryText>
               </td>
               <td className="content">
-                <p className="price-change">{priceChange24h}</p>
+                {/* <PriceChange value={priceChange24h} /> */}
               </td>
               <td className="content">
                 <PrimaryText className="market-cap">{marketCap}</PrimaryText>
