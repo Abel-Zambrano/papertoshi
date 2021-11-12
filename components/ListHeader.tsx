@@ -12,6 +12,12 @@ const MyListHeader = styled.tr`
     display: flex;
     align-items: center;
     width: 50px;
+
+    .rank {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 20px 0 20px;
+    }
   }
 
   .data-wrapper {
@@ -26,7 +32,7 @@ export default function ListHeader() {
   return (
     <MyListHeader>
       <td className="container">
-        <PrimaryText text="#" />
+        <p className="rank">#</p>
       </td>
       <td className="data-wrapper">
         <PrimaryText text="Name" />

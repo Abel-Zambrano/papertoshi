@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import PrimaryText from "./PrimaryText";
@@ -64,7 +64,18 @@ export default function MarketItem({
   marketCap,
   priceChange24h,
 }: MarketItemProps) {
-  console.log(typeof priceChange24h);
+  const [color, setColor] = useState("");
+  //   console.log(priceChange24h.charAt(0));
+
+  useEffect(() => {
+    if (priceChange24h.charAt(0) === "-") {
+      setColor("red");
+    } else {
+      setColor("green");
+    }
+  }, []);
+
+  console.log(color);
 
   return (
     <MyMarketItem key={id}>
@@ -88,7 +99,7 @@ export default function MarketItem({
         <PrimaryText text={currentPrice} />
       </td>
       <td className="data-wrapper">
-        <PrimaryText text={priceChange24h} />
+        <PrimaryText color={color} text={priceChange24h} />
       </td>
       <td className="data-wrapper">
         <PrimaryText text={marketCap} />
