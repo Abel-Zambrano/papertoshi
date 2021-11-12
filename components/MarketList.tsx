@@ -1,67 +1,13 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components";
 import axios from "axios";
-import Image from "next/image";
-// import PriceChange from "./PriceChange";
+import MarketItem from "./MarketItem";
+import ListHeader from "./ListHeader";
+
 // import { useSelector, useDispatch } from "react-redux";
 // import { searchTerm } from "../actions";
 
 // const dispatch = useDispatch();
 // const search = useSelector((state: any) => state.search);
-
-const MyCryptoList = styled.ul`
-  display: flex;
-  border: 0.5px solid var(--gray);
-  padding: 10px;
-  width: 1000px;
-
-  .container {
-    display: flex;
-    align-items: center;
-    width: 50px;
-
-    .rank {
-      font-size: 1.2rem;
-      color: var(--slate);
-      margin: 0 20px 0 20px;
-    }
-  }
-
-  .content {
-    display: flex;
-    align-items: center;
-    width: 237px;
-    margin-left: 10px;
-
-    .wrapper {
-      width: 40px;
-    }
-
-    .logo {
-      border-radius: 50%;
-    }
-
-    .symbol {
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-left: 10px;
-    }
-  }
-
-  .red {
-    color: red;
-  }
-
-  .green {
-    color: green;
-  }
-`;
-
-const PrimaryText = styled.p`
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-left: 10px;
-`;
 
 export default function MarketList() {
   const [list, setList] = useState([]);
@@ -98,57 +44,43 @@ export default function MarketList() {
 
   return (
     <>
-      {list.map(
-        ({
-          id,
-          image,
-          name,
-          symbol,
-          market_cap_rank,
-          current_price,
-          price_change_percentage_24h,
-          market_cap,
-        }) => {
-          let currentPrice = formatter.format(current_price);
-          // format API percent change to 2 place decimal
-          let priceChange24h = Number(
-            price_change_percentage_24h / 100
-          ).toLocaleString(undefined, {
-            style: "percent",
-            minimumFractionDigits: 2,
-          });
-          let marketCap = wholeNumberFormatter.format(market_cap);
-          return (
-            <MyCryptoList key={id}>
-              <td className="container">
-                <p className="rank">{market_cap_rank}</p>
-              </td>
-              <td className="content">
-                <td className="wrapper">
-                  <Image
-                    className="logo"
-                    src={image}
-                    alt="hello"
-                    width={100}
-                    height={100}
-                  />
-                </td>
-                <PrimaryText>{name}</PrimaryText>
-                <p className="symbol">{symbol}</p>
-              </td>
-              <td className="content">
-                <PrimaryText>{currentPrice}</PrimaryText>
-              </td>
-              <td className="content">
-                {/* <PriceChange value={priceChange24h} /> */}
-              </td>
-              <td className="content">
-                <PrimaryText className="market-cap">{marketCap}</PrimaryText>
-              </td>
-            </MyCryptoList>
-          );
-        }
-      )}
+      <ListHeader />
+      <ul>
+        {list.map(
+          ({
+            id,
+            image,
+            name,
+            symbol,
+            market_cap_rank,
+            current_price,
+            price_change_percentage_24h,
+            market_cap,
+          }) => {
+            let currentPrice = formatter.format(current_price);
+            // format API percent change to 2 place decimal
+            let priceChange24h = Number(
+              price_change_percentage_24h / 100
+            ).toLocaleString(undefined, {
+              style: "percent",
+              minimumFractionDigits: 2,
+            });
+            let marketCap = wholeNumberFormatter.format(market_cap);
+            return (
+              <MarketItem
+                id={id}
+                image={image}
+                name={name}
+                symbol={symbol}
+                marketCapRank={market_cap_rank}
+                currentPrice={currentPrice}
+                priceChange24h={priceChange24h}
+                marketCap={marketCap}
+              />
+            );
+          }
+        )}
+      </ul>
     </>
   );
 }
