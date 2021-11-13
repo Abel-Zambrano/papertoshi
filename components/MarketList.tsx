@@ -43,9 +43,9 @@ export default function MarketList() {
   });
 
   return (
-    <>
+    <table>
       <ListHeader />
-      <ul>
+      <tbody>
         {list.map(
           ({
             id,
@@ -68,6 +68,7 @@ export default function MarketList() {
             let marketCap = wholeNumberFormatter.format(market_cap);
             return (
               <MarketItem
+                key={id}
                 id={id}
                 image={image}
                 name={name}
@@ -80,7 +81,7 @@ export default function MarketList() {
             );
           }
         )}
-      </ul>
-    </>
+      </tbody>
+    </table>
   );
 }

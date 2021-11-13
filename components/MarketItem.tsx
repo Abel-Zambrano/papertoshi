@@ -75,15 +75,13 @@ export default function MarketItem({
     }
   }, []);
 
-  console.log(color);
-
   return (
-    <MyMarketItem key={id}>
+    <MyMarketItem id={id}>
       <td className="container">
         <p className="rank">{marketCapRank}</p>
       </td>
       <td className="data-wrapper">
-        <td className="wrapper">
+        <div className="wrapper">
           <Image
             className="logo"
             src={image}
@@ -91,7 +89,7 @@ export default function MarketItem({
             width={100}
             height={100}
           />
-        </td>
+        </div>
         <PrimaryText text={name} />
         <p className="symbol">{symbol}</p>
       </td>
