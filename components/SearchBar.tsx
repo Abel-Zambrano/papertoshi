@@ -53,6 +53,7 @@ const MySearchBar = styled.div`
 `;
 
 export default function SearchBar() {
+  const search = useSelector((state: any) => state.search);
   const searchFocus = useSelector((state: any) => state.searchFocus);
   const dispatch = useDispatch();
 
@@ -78,6 +79,7 @@ export default function SearchBar() {
         className={`${searchFocus ? "search focus-text" : "search"}`}
         type="text"
         placeholder="Search Market"
+        value={search}
         onChange={(e) => searchHandler(e)}
         onClick={focusActiveHandler}
       />
