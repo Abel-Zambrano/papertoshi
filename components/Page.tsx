@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
   --slate: #363740;
   --slate-light: #464853;
   --gray: #A4A6B3;
+  --gray-light:  #e3e4e8;
   --white: #ffffff;
   --off-white: #f2f2f2;
   --primary: #3856ff;
@@ -39,6 +40,10 @@ a {
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+input {
+  outline: none;
 }
 `;
 
