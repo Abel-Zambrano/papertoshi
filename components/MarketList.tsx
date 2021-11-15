@@ -3,14 +3,11 @@ import axios from "axios";
 import MarketItem from "./MarketItem";
 import ListHeader from "./ListHeader";
 
-// import { useSelector, useDispatch } from "react-redux";
-// import { searchTerm } from "../actions";
-
-// const dispatch = useDispatch();
-// const search = useSelector((state: any) => state.search);
+import { useSelector } from "react-redux";
 
 export default function MarketList() {
-  const [list, setList] = useState([]);
+  const [coins, setCoins] = useState<any[]>([]);
+  const search = useSelector((state: any) => state.search);
 
   const geckoListAPI =
     "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false";
@@ -18,7 +15,7 @@ export default function MarketList() {
   const getData = async () => {
     try {
       const response = await axios.get(geckoListAPI);
-      setList(response.data);
+      setCoins(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -42,11 +39,15 @@ export default function MarketList() {
     minimumFractionDigits: 0,
   });
 
+  const filteredCoins = coins.filter((coin) =>
+    coin.name.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <table>
       <ListHeader />
       <tbody>
-        {list.map(
+        {filteredCoins.map(
           ({
             id,
             image,

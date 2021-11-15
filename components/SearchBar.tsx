@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { AiOutlineSearch } from "react-icons/ai";
-import { searchTerm } from "../actions";
+import { searchCoin } from "../actions";
 import { useDispatch } from "react-redux";
 
 const MySearchBar = styled.div`
@@ -35,7 +35,7 @@ export default function SearchBar() {
 
   const searchHandler = (e: any) => {
     setTerm(e.target.value);
-    dispatch(searchTerm(term));
+    dispatch(searchCoin(term));
   };
 
   return (

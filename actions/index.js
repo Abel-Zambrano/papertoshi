@@ -1,4 +1,4 @@
-export const searchTerm = (searchText) => {
+export const searchCoin = (searchText) => {
   return (dispatch) => {
     dispatch({
       type: "SEARCH_INPUT",
