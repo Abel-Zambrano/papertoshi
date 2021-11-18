@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import MarketItem from "./MarketItem";
 import ListHeader from "./ListHeader";
-
 import { useSelector } from "react-redux";
+import formatter from "../JS/formatter";
 
 export default function MarketList() {
   const [coins, setCoins] = useState<any[]>([]);
@@ -24,12 +24,6 @@ export default function MarketList() {
   useEffect(() => {
     getData();
   }, []);
-
-  // format API value to USD
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
 
   // format API value to whole number USD
   const wholeNumberFormatter = new Intl.NumberFormat("en-US", {

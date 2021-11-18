@@ -30,3 +30,39 @@ export const focusDeactive = () => {
     });
   };
 };
+
+export const USDBuy = (tradeValue) => {
+  return (dispatch) => {
+    dispatch({
+      type: "TRADE_BUY",
+      payload: tradeValue,
+    });
+  };
+};
+
+export const USDSell = (tradeValue) => {
+  return (dispatch) => {
+    dispatch({
+      type: "TRADE_SELL",
+      payload: tradeValue,
+    });
+  };
+};
+
+export const assetsIncrease = (tradeValue) => {
+  return (dispatch) => {
+    dispatch({
+      type: "INCREASE",
+      payload: tradeValue,
+    });
+  };
+};
+
+export const assetsDecrease = (tradeValue) => {
+  return (dispatch) => {
+    dispatch({
+      type: "DECREASE",
+      payload: tradeValue,
+    });
+  };
+};

@@ -55,6 +55,7 @@ const AssetWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: end;
+  padding-bottom: 30px;
 `;
 
 const HR = styled.hr`
