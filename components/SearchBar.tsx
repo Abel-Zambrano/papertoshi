@@ -83,9 +83,11 @@ export default function SearchBar() {
         onChange={(e) => searchHandler(e)}
         onClick={focusActiveHandler}
       />
-      <div className="cancel-icon" onClick={focusDeactiveHandler}>
-        <MdCancel />
-      </div>
+      {searchFocus ? (
+        <div className="cancel-icon" onClick={focusDeactiveHandler}>
+          <MdCancel />
+        </div>
+      ) : null}
     </MySearchBar>
   );
 }

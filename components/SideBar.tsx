@@ -2,12 +2,15 @@ import styled from "styled-components";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import { GiOctopus } from "react-icons/gi";
+import USD from "./USD";
+import Assets from "./Assets";
 
 const MySideBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 230px;
   min-width: 230px;
-  min-height: 100vh;
-  max-height: 100vh;
   background-color: var(--slate);
   position: sticky;
   top: 0;
@@ -44,6 +47,16 @@ const MySideBar = styled.div`
   }
 `;
 
+const HeadingWrapper = styled.div``;
+const LinkWrapper = styled.div``;
+
+const AssetWrapper = styled.div`
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+`;
+
 const HR = styled.hr`
   border: 0;
   height: 0;
@@ -54,16 +67,24 @@ const HR = styled.hr`
 export default function SideBar() {
   return (
     <MySideBar>
-      <Link href="/" passHref>
-        <div className="heading">
-          <div className="heading__wrapper">
-            <GiOctopus className="heading__logo" />
+      <HeadingWrapper>
+        <Link href="/" passHref>
+          <div className="heading">
+            <div className="heading__wrapper">
+              <GiOctopus className="heading__logo" />
+            </div>
+            <h1 className="heading__title">PaperToshi</h1>
           </div>
-          <h1 className="heading__title">PaperToshi</h1>
-        </div>
-      </Link>
-      <NavLinks />
-      <HR />
+        </Link>
+      </HeadingWrapper>
+      <LinkWrapper>
+        <NavLinks />
+        <HR />
+      </LinkWrapper>
+      <AssetWrapper>
+        <USD />
+        <Assets />
+      </AssetWrapper>
     </MySideBar>
   );
 }

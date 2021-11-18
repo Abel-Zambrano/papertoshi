@@ -57,6 +57,8 @@ const MyNavLinks = styled.div`
     }
 
     &__logo {
+      display: flex;
+      align-items: center;
       margin-left: 30px;
     }
 
