@@ -64,6 +64,7 @@ const MyNavLinks = styled.div`
 
     &__link {
       margin-left: 12px;
+      color: var(--white);
     }
 
     .active {

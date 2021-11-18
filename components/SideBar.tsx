@@ -40,7 +40,7 @@ const MySideBar = styled.div`
 
     &__title {
       font-size: 1.9rem;
-      color: var(--gray);
+      color: var(--white);
       margin-left: 12px;
       cursor: pointer;
     }
