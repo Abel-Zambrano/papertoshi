@@ -16,6 +16,9 @@ const GlobalStyles = createGlobalStyle`
   --primary-light:  #8093ff;
   --primary-fade:  #e6e9ff;
   --green-action:   #00e600;
+  --green-buy:  #00cc00;
+  --red-sell: #cc0000;
+  --bitcoin: #f6931a;
 
 }
 html {

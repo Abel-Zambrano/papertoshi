@@ -1,4 +1,4 @@
-const usdReducer = (state = 10000, action) => {
+const usdReducer = (state = 50000, action) => {
   switch (action.type) {
     case "TRADE_BUY":
       return state - action.payload;
