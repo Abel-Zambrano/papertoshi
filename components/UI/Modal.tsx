@@ -70,8 +70,6 @@ type Props = {
   currentPrice: any;
   tradeModal: boolean;
   closeModal: any;
-  USD: number;
-  currentValue: number;
 };
 
 export default function Modal({
@@ -83,7 +81,7 @@ export default function Modal({
   tradeModal,
   closeModal,
 }: Props) {
-  const USD = useSelector((state: Props) => state.USD);
+  const USD = useSelector((state: any) => state.USD);
   const currentValue = formatter.format(USD);
 
   return (
