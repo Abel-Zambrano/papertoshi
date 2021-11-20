@@ -104,7 +104,7 @@ export default function Modal({
                     height={30}
                   />
                 </div>
-                <h1 className="title">{name}</h1>
+                <h1 className="title">{`Trade ${name}`}</h1>
               </div>
               <div className="sub-heading">
                 <h2 className="symbol">{`${symbol} ${currentPrice}`}</h2>

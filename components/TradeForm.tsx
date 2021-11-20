@@ -35,11 +35,6 @@ const Input = styled.input`
   }
 `;
 
-const TradeValue = styled.p`
-  font-size: 1.5rem;
-  text-align: center;
-`;
-
 export default function TradeForm() {
   return (
     <MyTradeForm>
@@ -49,9 +44,8 @@ export default function TradeForm() {
           min="1"
           name="USD-trade-amount"
           id="USD-trade-amount"
-          placeholder="Trade"
+          placeholder="$0"
         />
-        <TradeValue>Trade Value: 1200</TradeValue>
         <TradeButtons />
       </Form>
     </MyTradeForm>
