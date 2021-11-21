@@ -105,16 +105,16 @@ export default function TradeForm({ rawPrice }: Props) {
     dispatch(changeValue(coinTradeAmount * rawPrice));
     if (tradeValue > USD) {
       alert("Insuffecient Funds");
-    } else {
+    } else if (coinTradeAmount !== 0) {
+      dispatch(USDBuy(tradeValue));
+      dispatch(getConfirm());
     }
-    dispatch(USDBuy(tradeValue));
-    dispatch(getConfirm());
   };
 
   return (
     <MyTradeForm>
       <Form>
-        <Input type="number" onChange={(e) => handleCoinChange(e)} />
+        <Input type="number" onChange={(e) => handleCoinChange(e)} required />
         {confirm ? (
           <ConfirmWrapper>
             <Confirm>CONFIRM</Confirm>
