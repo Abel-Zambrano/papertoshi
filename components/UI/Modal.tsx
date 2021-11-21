@@ -2,7 +2,9 @@ import styled from "styled-components";
 import Backdrop from "./Backdrop";
 import Image from "next/image";
 import TradeForm from "../TradeForm";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { cancelConfirm } from "../../actions/index";
 // import formatter from "../../JS/formatter";
 
 const MyModal = styled.div`
@@ -28,9 +30,12 @@ const ExitButton = styled.div`
 
   .exit-icon {
     width: auto;
-    height: 50%;
-    padding-right: 10px;
-    color: var(--black-light);
+    height: 22px;
+    margin: 12px 12px 0 0;
+    color: var(--gray);
+    :hover {
+      color: var(--slate);
+    }
   }
 `;
 
@@ -84,6 +89,12 @@ export default function Modal({
 }: Props) {
   // const USD = useSelector((state: any) => state.USD);
   // const currentValue = formatter.format(USD);
+  const dispatch = useDispatch();
+
+  const handleExitModal = () => {
+    closeModal();
+    dispatch(cancelConfirm());
+  };
 
   return (
     <>
@@ -92,7 +103,10 @@ export default function Modal({
           <Backdrop closeModal={closeModal}></Backdrop>
           <MyModal key={id} id={id}>
             <ExitButton>
-              <AiOutlineClose className="exit-icon" onClick={closeModal} />
+              <AiOutlineCloseCircle
+                className="exit-icon"
+                onClick={handleExitModal}
+              />
             </ExitButton>
             <Heading className="heading">
               <div className="main-heading">

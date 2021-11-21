@@ -110,3 +110,11 @@ export const getConfirm = () => {
     });
   };
 };
+
+export const cancelConfirm = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "CANCEL_CONFIRM",
+    });
+  };
+};
