@@ -66,3 +66,47 @@ export const assetsDecrease = (tradeValue) => {
     });
   };
 };
+
+export const coinIncrease = (tradeAmount) => {
+  return (dispatch) => {
+    dispatch({
+      type: "INCREASE",
+      payload: tradeAmount,
+    });
+  };
+};
+
+export const coinDecrease = (tradeAmount) => {
+  return (dispatch) => {
+    dispatch({
+      type: "DECREASE",
+      payload: tradeAmount,
+    });
+  };
+};
+
+export const changeAmount = (amount) => {
+  return (dispatch) => {
+    dispatch({
+      type: "CHANGE_AMOUNT",
+      payload: amount,
+    });
+  };
+};
+
+export const changeValue = (value) => {
+  return (dispatch) => {
+    dispatch({
+      type: "CHANGE_VALUE",
+      payload: value,
+    });
+  };
+};
+
+export const getConfirm = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "GET_CONFIRM",
+    });
+  };
+};

@@ -3,8 +3,7 @@ import Backdrop from "./Backdrop";
 import Image from "next/image";
 import TradeForm from "../TradeForm";
 import { AiOutlineClose } from "react-icons/ai";
-import { useSelector } from "react-redux";
-import formatter from "../../JS/formatter";
+// import formatter from "../../JS/formatter";
 
 const MyModal = styled.div`
   position: fixed;
@@ -70,6 +69,7 @@ type Props = {
   currentPrice: any;
   tradeModal: boolean;
   closeModal: any;
+  rawPrice: number;
 };
 
 export default function Modal({
@@ -80,9 +80,10 @@ export default function Modal({
   currentPrice,
   tradeModal,
   closeModal,
+  rawPrice,
 }: Props) {
-  const USD = useSelector((state: any) => state.USD);
-  const currentValue = formatter.format(USD);
+  // const USD = useSelector((state: any) => state.USD);
+  // const currentValue = formatter.format(USD);
 
   return (
     <>
@@ -110,7 +111,7 @@ export default function Modal({
                 <h2 className="symbol">{`${symbol} ${currentPrice}`}</h2>
               </div>
             </Heading>
-            <TradeForm />
+            <TradeForm rawPrice={rawPrice} />
           </MyModal>
         </>
       ) : null}

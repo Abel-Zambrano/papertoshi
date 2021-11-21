@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Modal from "./UI/Modal";
+import { useSelector } from "react-redux";
 
 const MyCryptoItem = styled.li`
   display: flex;
@@ -98,6 +99,7 @@ type ListProps = {
   image: string;
   currentPrice: any;
   priceChange24Hr: any;
+  rawPrice: number;
 };
 
 export default function TradeItem({
@@ -107,8 +109,10 @@ export default function TradeItem({
   name,
   priceChange24Hr,
   currentPrice,
+  rawPrice,
 }: ListProps) {
   const [tradeModal, setTradeModal] = useState(false);
+  const coins = useSelector((state: any) => state.coins);
 
   const tradeModalHandler = () => {
     setTradeModal(!tradeModal);
@@ -130,6 +134,7 @@ export default function TradeItem({
         currentPrice={currentPrice}
         tradeModal={tradeModal}
         closeModal={tradeModalHandler}
+        rawPrice={rawPrice}
       />
       <MyCryptoItem key={symbol}>
         <div className="container">
@@ -143,7 +148,7 @@ export default function TradeItem({
                 height={30}
                 priority
               />
-              <h3 className="shares">501.10</h3>
+              <h3 className="shares">{coins}</h3>
             </div>
             <h2 className="name">{name}</h2>
           </div>

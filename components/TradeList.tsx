@@ -73,6 +73,7 @@ export default function TradeList({ crypto }: CryptoProps) {
                 name={name}
                 priceChange24Hr={priceChange24h}
                 currentPrice={currentPrice}
+                rawPrice={current_price}
               />
             );
           }
