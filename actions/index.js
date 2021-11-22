@@ -1,3 +1,4 @@
+// search
 export const searchCoin = (searchText) => {
   return (dispatch) => {
     dispatch({
@@ -15,6 +16,7 @@ export const clearSearch = () => {
   };
 };
 
+// searchFocus
 export const focusActive = () => {
   return (dispatch) => {
     dispatch({
@@ -31,6 +33,7 @@ export const focusDeactive = () => {
   };
 };
 
+// USD
 export const USDBuy = (tradeValue) => {
   return (dispatch) => {
     dispatch({
@@ -49,10 +52,11 @@ export const USDSell = (tradeValue) => {
   };
 };
 
+// assets
 export const assetsIncrease = (tradeValue) => {
   return (dispatch) => {
     dispatch({
-      type: "INCREASE",
+      type: "ASSETS_INCREASE",
       payload: tradeValue,
     });
   };
@@ -61,16 +65,17 @@ export const assetsIncrease = (tradeValue) => {
 export const assetsDecrease = (tradeValue) => {
   return (dispatch) => {
     dispatch({
-      type: "DECREASE",
+      type: "ASSETS_DECREASE",
       payload: tradeValue,
     });
   };
 };
 
+// coins
 export const coinIncrease = (tradeAmount) => {
   return (dispatch) => {
     dispatch({
-      type: "INCREASE",
+      type: "COIN_INCREASE",
       payload: tradeAmount,
     });
   };
@@ -79,12 +84,13 @@ export const coinIncrease = (tradeAmount) => {
 export const coinDecrease = (tradeAmount) => {
   return (dispatch) => {
     dispatch({
-      type: "DECREASE",
+      type: "COIN_DECREASE",
       payload: tradeAmount,
     });
   };
 };
 
+// coinTradeAmount
 export const changeAmount = (amount) => {
   return (dispatch) => {
     dispatch({
@@ -94,6 +100,7 @@ export const changeAmount = (amount) => {
   };
 };
 
+// tradeValue
 export const changeValue = (value) => {
   return (dispatch) => {
     dispatch({
@@ -103,6 +110,7 @@ export const changeValue = (value) => {
   };
 };
 
+// confirm
 export const getConfirm = () => {
   return (dispatch) => {
     dispatch({
@@ -115,6 +123,23 @@ export const cancelConfirm = () => {
   return (dispatch) => {
     dispatch({
       type: "CANCEL_CONFIRM",
+    });
+  };
+};
+
+// purchase
+export const processPurchase = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "PROCESS_PURCHASE",
+    });
+  };
+};
+
+export const cancelPurchase = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "CANCEL_PURCHASE",
     });
   };
 };

@@ -4,7 +4,7 @@ import Image from "next/image";
 import TradeForm from "../TradeForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { cancelConfirm, changeAmount } from "../../actions/index";
+import { cancelConfirm, changeAmount, changeValue } from "../../actions/index";
 // import formatter from "../../JS/formatter";
 
 const MyModal = styled.div`
@@ -95,6 +95,7 @@ export default function Modal({
     closeModal();
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
+    dispatch(changeValue(0));
   };
 
   return (

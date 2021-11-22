@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { cancelConfirm, changeAmount } from "../../actions/index";
+import { cancelConfirm, changeAmount, changeValue } from "../../actions/index";
 
 const MyBackdrop = styled.div`
   position: fixed;
@@ -26,6 +26,7 @@ export default function Backdrop({ closeModal }: BackdropProps) {
     closeModal();
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
+    dispatch(changeValue(0));
   };
 
   return <MyBackdrop onClick={handleExitModal} />;

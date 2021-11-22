@@ -7,6 +7,7 @@ import coinsReducer from "./coinsReducer";
 import coinTradeAmountReducer from "./coinTradeAmountReducer";
 import tradeValueReducer from "./tradeValueReducer";
 import confirmReducer from "./confirmReducer";
+import purchaseReducer from "./purchaseReducer";
 
 const allReducers = combineReducers({
   search: searchReducer,
@@ -17,6 +18,7 @@ const allReducers = combineReducers({
   coinTradeAmount: coinTradeAmountReducer,
   tradeValue: tradeValueReducer,
   confirm: confirmReducer,
+  purchase: purchaseReducer,
 });
 
 export default allReducers;

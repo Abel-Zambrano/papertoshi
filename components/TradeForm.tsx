@@ -1,14 +1,27 @@
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { changeAmount, changeValue, USDBuy, getConfirm } from "../actions";
+import {
+  changeAmount,
+  changeValue,
+  USDBuy,
+  USDSell,
+  assetsIncrease,
+  getConfirm,
+  processPurchase,
+  cancelPurchase,
+  coinIncrease,
+  coinDecrease,
+  assetsDecrease,
+} from "../actions";
 
 const MyTradeForm = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 160px;
+  height: 100%;
   padding: 10px 0 10px 0;
+  border-radius: 16px;
 `;
 
 const Form = styled.form`
@@ -91,23 +104,48 @@ type Props = {
 
 export default function TradeForm({ rawPrice }: Props) {
   const USD = useSelector((state: any) => state.USD);
+  const assets = useSelector((state: any) => state.assets);
   const coinTradeAmount = useSelector((state: any) => state.coinTradeAmount);
   const tradeValue = useSelector((state: any) => state.tradeValue);
   const confirm = useSelector((state: any) => state.confirm);
+  const purchase = useSelector((state: any) => state.purchase);
   const dispatch = useDispatch();
 
   const handleCoinChange = (e: any) => {
     dispatch(changeAmount(e.target.valueAsNumber));
+    dispatch(changeValue(e.target.valueAsNumber * rawPrice));
   };
 
   const handleBuy = (e: any) => {
     e.preventDefault();
-    dispatch(changeValue(coinTradeAmount * rawPrice));
     if (tradeValue > USD) {
       alert("Insuffecient Funds");
     } else if (coinTradeAmount !== 0) {
-      dispatch(USDBuy(tradeValue));
       dispatch(getConfirm());
+      dispatch(processPurchase());
+    }
+  };
+
+  const handleSell = (e: any) => {
+    e.preventDefault();
+    if (tradeValue > assets) {
+      alert("You Don't Own Enough Coins");
+    } else if (coinTradeAmount !== 0) {
+      dispatch(cancelPurchase());
+      dispatch(getConfirm());
+    }
+  };
+
+  const handleConfirm = (e: any) => {
+    e.preventDefault();
+    if (purchase === true) {
+      dispatch(coinIncrease(coinTradeAmount));
+      dispatch(USDBuy(tradeValue));
+      dispatch(assetsIncrease(tradeValue));
+    } else if (purchase === false) {
+      dispatch(coinDecrease(coinTradeAmount));
+      dispatch(assetsDecrease(tradeValue));
+      dispatch(USDSell(tradeValue));
     }
   };
 
@@ -117,14 +155,16 @@ export default function TradeForm({ rawPrice }: Props) {
         <Input type="number" onChange={(e) => handleCoinChange(e)} required />
         {confirm ? (
           <ConfirmWrapper>
-            <Confirm>CONFIRM</Confirm>
+            <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
           </ConfirmWrapper>
         ) : (
           <TradeButtons>
             <Button className="buy" onClick={handleBuy}>
               BUY
             </Button>
-            <Button className="sell">SELL</Button>
+            <Button className="sell" onClick={handleSell}>
+              SELL
+            </Button>
           </TradeButtons>
         )}
       </Form>

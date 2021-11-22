@@ -1,8 +1,8 @@
 const coinsReducer = (state = 0, action) => {
   switch (action.type) {
-    case "INCREASE":
+    case "COIN_INCREASE":
       return state + action.payload;
-    case "DECREASE":
+    case "COIN_DECREASE":
       return state - action.payload;
     default: {
       return state;
