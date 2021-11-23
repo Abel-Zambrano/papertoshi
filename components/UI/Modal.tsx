@@ -13,12 +13,13 @@ const MyModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--white);
-  border-radius: 16px;
+  background-color: var(--gray-light);
+  border-radius: 14px 14px 16px 16px;
   display: flex;
   width: 400px;
   height: 600px;
   z-index: 1000;
+  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
 `;
 
 const ExitButton = styled.div`
@@ -53,16 +54,25 @@ const Heading = styled.div`
 
   .main-heading {
     display: flex;
+    align-items: center;
+    font-size: 1.2rem;
   }
 
-  .title {
-    margin-left: 10px;
-  }
-
-  .symbol {
+  .current-price {
     text-transform: uppercase;
     font-weight: 300;
+    font-size: 1.8rem;
   }
+`;
+
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 16px;
+  border-radius: 50%;
+  background-color: var(--white);
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 `;
 
 type Props = {
@@ -79,7 +89,6 @@ type Props = {
 
 export default function Modal({
   id,
-  symbol,
   name,
   image,
   currentPrice,
@@ -112,7 +121,7 @@ export default function Modal({
             </ExitButton>
             <Heading className="heading">
               <div className="main-heading">
-                <div className="logo-wrapper">
+                <LogoWrapper>
                   <Image
                     id="image"
                     src={image}
@@ -120,11 +129,11 @@ export default function Modal({
                     width={30}
                     height={30}
                   />
-                </div>
-                <h1 className="title">{`Trade ${name}`}</h1>
+                </LogoWrapper>
+                <h1>{`Trade ${name}`}</h1>
               </div>
               <div className="sub-heading">
-                <h2 className="symbol">{`${symbol} ${currentPrice}`}</h2>
+                <p className="current-price">{currentPrice}</p>
               </div>
             </Heading>
             <TradeForm rawPrice={rawPrice} />

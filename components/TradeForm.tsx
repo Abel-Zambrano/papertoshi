@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import formatter from "../JS/formatter";
 import { useSelector, useDispatch } from "react-redux";
 import {
   changeAmount,
@@ -20,22 +21,23 @@ const MyTradeForm = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
-  padding: 10px 0 10px 0;
+  padding-top: 10px;
   border-radius: 16px;
 `;
 
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  align-items: center;
   height: 100%;
-  width: 200px;
+  width: 100%;
 `;
 
 const Input = styled.input`
-  width: 100%;
-  height: 30px;
-  font-size: 1.5rem;
+  margin-top: 50px;
+  width: 200px;
+  height: 70px;
+  font-size: 2rem;
   text-align: right;
 
   -moz-appearance: textfield;
@@ -49,33 +51,62 @@ const Input = styled.input`
   }
 `;
 
+const TradeValue = styled.p`
+  font-size: 2rem;
+  padding: 10px;
+  margin: 50px;
+`;
+
+const BottomPanel = styled.div`
+  display: flex;
+  justify-content: center;
+  /* margin-top: 120px; */
+  background-color: var(--primary);
+  width: 100%;
+  height: 100%;
+  border-radius: 30px 30px 14px 14px;
+  box-shadow: 0px -6px 6px rgba(0, 0, 0, 0.2);
+`;
+
 const TradeButtons = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
 `;
 
 const Button = styled.button`
-  height: 30px;
-  width: 90px;
+  height: 40px;
+  width: 100%;
   border: none;
   border-radius: 14px;
+  transition: all 0.3s ease 0s;
 
   &.buy {
-    background-color: transparent;
-    border: 1px solid var(--green-buy);
+    background-color: var(--gray);
+    border: 1.5px solid var(--gray-light);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+
     :hover {
-      background-color: var(--green-buy);
-      color: var(--white);
+      transform: translateY(-7px);
+    }
+    :active {
+      transform: translateY(-1px);
     }
   }
 
   &.sell {
-    background-color: transparent;
-    border: 1px solid var(--red-sell);
+    margin-top: 40px;
+    background-color: var(--gray);
+    border: 1.5px solid var(--gray-light);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+
     :hover {
-      background-color: var(--red-sell);
-      color: var(--white);
+      transform: translateY(-7px);
+    }
+    :active {
+      transform: translateY(-1px);
     }
   }
 `;
@@ -83,18 +114,23 @@ const Button = styled.button`
 const ConfirmWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  width: 200px;
 `;
 
 const Confirm = styled.button`
   height: 40px;
   width: 100%;
-  border: none;
   border-radius: 14px;
-  background-color: var(--primary-light);
-  color: var(--white);
+  background-color: var(--gray);
+  border: 1.5px solid var(--gray-light);
+  transition: all 0.3s ease 0s;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
   :hover {
-    background-color: var(--primary);
+    transform: translateY(-7px);
+  }
+  :active {
+    transform: translateY(-1px);
   }
 `;
 
@@ -110,6 +146,7 @@ export default function TradeForm({ rawPrice }: Props) {
   const confirm = useSelector((state: any) => state.confirm);
   const purchase = useSelector((state: any) => state.purchase);
   const dispatch = useDispatch();
+  let currentTradeValue = formatter.format(tradeValue);
 
   const handleCoinChange = (e: any) => {
     dispatch(changeAmount(e.target.valueAsNumber));
@@ -152,21 +189,29 @@ export default function TradeForm({ rawPrice }: Props) {
   return (
     <MyTradeForm>
       <Form>
-        <Input type="number" onChange={(e) => handleCoinChange(e)} required />
-        {confirm ? (
-          <ConfirmWrapper>
-            <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
-          </ConfirmWrapper>
-        ) : (
-          <TradeButtons>
-            <Button className="buy" onClick={handleBuy}>
-              BUY
-            </Button>
-            <Button className="sell" onClick={handleSell}>
-              SELL
-            </Button>
-          </TradeButtons>
-        )}
+        <Input
+          type="number"
+          min="0"
+          onChange={(e) => handleCoinChange(e)}
+          required
+        />
+        <TradeValue>{currentTradeValue}</TradeValue>
+        <BottomPanel>
+          {confirm ? (
+            <ConfirmWrapper>
+              <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
+            </ConfirmWrapper>
+          ) : (
+            <TradeButtons>
+              <Button className="buy" onClick={handleBuy}>
+                BUY
+              </Button>
+              <Button className="sell" onClick={handleSell}>
+                SELL
+              </Button>
+            </TradeButtons>
+          )}
+        </BottomPanel>
       </Form>
     </MyTradeForm>
   );
