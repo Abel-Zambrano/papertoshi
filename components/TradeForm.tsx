@@ -195,7 +195,9 @@ export default function TradeForm({ rawPrice }: Props) {
           onChange={(e) => handleCoinChange(e)}
           required
         />
-        <TradeValue>{currentTradeValue}</TradeValue>
+        <TradeValue>
+          {currentTradeValue === "$NaN" ? "$0" : currentTradeValue}
+        </TradeValue>
         <BottomPanel>
           {confirm ? (
             <ConfirmWrapper>
