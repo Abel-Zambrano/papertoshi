@@ -13,7 +13,7 @@ const MyModal = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--gray-light);
+  background-color: var(--white);
   border-radius: 14px 14px 16px 16px;
   display: flex;
   width: 400px;

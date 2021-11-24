@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import formatter from "../JS/formatter";
+import numberFormatter from "../JS/numberFormatter";
 import { useSelector, useDispatch } from "react-redux";
 import {
   changeAmount,
@@ -61,7 +61,7 @@ const BottomPanel = styled.div`
   display: flex;
   justify-content: center;
   /* margin-top: 120px; */
-  background-color: var(--primary);
+  background-color: var(--slate-light-2);
   width: 100%;
   height: 100%;
   border-radius: 30px 30px 14px 14px;
@@ -82,32 +82,19 @@ const Button = styled.button`
   border: none;
   border-radius: 14px;
   transition: all 0.3s ease 0s;
-
-  &.buy {
-    background-color: var(--gray);
-    border: 1.5px solid var(--gray-light);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
-
-    :hover {
-      transform: translateY(-7px);
-    }
-    :active {
-      transform: translateY(-1px);
-    }
+  background-color: var(--primary);
+  border: 1.5px solid var(--white);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  color: white;
+  :hover {
+    transform: translateY(-7px);
+  }
+  :active {
+    transform: translateY(-1px);
   }
 
   &.sell {
     margin-top: 40px;
-    background-color: var(--gray);
-    border: 1.5px solid var(--gray-light);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
-
-    :hover {
-      transform: translateY(-7px);
-    }
-    :active {
-      transform: translateY(-1px);
-    }
   }
 `;
 
@@ -122,8 +109,9 @@ const Confirm = styled.button`
   height: 40px;
   width: 100%;
   border-radius: 14px;
-  background-color: var(--gray);
-  border: 1.5px solid var(--gray-light);
+  background-color: var(--primary);
+  border: 1.5px solid var(--white);
+  color: white;
   transition: all 0.3s ease 0s;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
   :hover {
@@ -146,7 +134,7 @@ export default function TradeForm({ rawPrice }: Props) {
   const confirm = useSelector((state: any) => state.confirm);
   const purchase = useSelector((state: any) => state.purchase);
   const dispatch = useDispatch();
-  let currentTradeValue = formatter.format(tradeValue);
+  let currentTradeValue = numberFormatter.format(tradeValue);
 
   const handleCoinChange = (e: any) => {
     dispatch(changeAmount(e.target.valueAsNumber));

@@ -3,7 +3,8 @@ import axios from "axios";
 import MarketItem from "./MarketItem";
 import ListHeader from "./ListHeader";
 import { useSelector } from "react-redux";
-import formatter from "../JS/formatter";
+import wholeNumberFormatter from "../JS/wholeNumberFormatter";
+import numberFormatter from "../JS/numberFormatter";
 
 export default function MarketList() {
   const [coins, setCoins] = useState<any[]>([]);
@@ -25,14 +26,6 @@ export default function MarketList() {
     getData();
   }, []);
 
-  // format API value to whole number USD
-  const wholeNumberFormatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-    minimumFractionDigits: 0,
-  });
-
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -52,7 +45,7 @@ export default function MarketList() {
             price_change_percentage_24h,
             market_cap,
           }) => {
-            let currentPrice = formatter.format(current_price);
+            let currentPrice = numberFormatter.format(current_price);
             // format API percent change to 2 place decimal
             let priceChange24h = Number(
               price_change_percentage_24h / 100

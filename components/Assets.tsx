@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { GiMoneyStack } from "react-icons/gi";
-import formatter from "../JS/formatter";
+import numberFormatter from "../JS/numberFormatter";
 import { useSelector } from "react-redux";
 
 const MyAssets = styled.div`
@@ -39,7 +39,7 @@ type Props = {
 
 export default function Assets() {
   const assets = useSelector((state: Props) => state.assets);
-  const currentAssets = formatter.format(assets);
+  const currentAssets = numberFormatter.format(assets);
 
   return (
     <MyAssets>

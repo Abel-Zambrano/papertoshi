@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { GiTakeMyMoney } from "react-icons/gi";
 import { useSelector } from "react-redux";
-import formatter from "../JS/formatter";
+import numberFormatter from "../JS/numberFormatter";
 
 const MyUSD = styled.div`
   height: 60px;
@@ -39,7 +39,7 @@ type Props = {
 
 export default function USD() {
   const USD = useSelector((state: Props) => state.USD);
-  const currentValue = formatter.format(USD);
+  const currentValue = numberFormatter.format(USD);
 
   return (
     <MyUSD>

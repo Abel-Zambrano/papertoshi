@@ -1,4 +1,4 @@
-// format API value to USD
+// format API value to whole number USD
 
 const wholeNumberFormatter = new Intl.NumberFormat("en-US", {
   style: "currency",
