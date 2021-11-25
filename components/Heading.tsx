@@ -21,7 +21,7 @@ export default function Heading() {
   return (
     <MyHeading>
       <PageTitle title={pathName} />
-      <SearchBar />
+      {pathName === "market" ? <SearchBar /> : null}
       <UserInfo />
     </MyHeading>
   );
