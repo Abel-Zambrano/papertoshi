@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { IoRocketSharp } from "react-icons/io5";
 
 const MyHomeIntro = styled.div`
   display: flex;
@@ -22,8 +23,8 @@ const Intro = styled.div`
   align-items: center;
   /* background-color: yellow; //todo */
   height: 160px;
-  width: 400px;
-  font-size: 2rem;
+  width: 440px;
+  font-size: 2.2rem;
   letter-spacing: 0.1rem;
 
   .papertoshi {
@@ -48,14 +49,29 @@ const BottomWrapper = styled.div`
 const Summary = styled.div`
   display: flex;
   flex-direction: column;
-  width: 780px;
+  width: 820px;
 `;
 
 const Info = styled.div`
+  display: flex;
+  align-items: center;
+
+  .icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-top: 30px;
+  }
+
   .info-text {
-    font-size: 2.2rem;
-    margin-top: 16px;
+    font-size: 2.4rem;
+    margin-top: 30px;
+    margin-left: 10px;
     letter-spacing: 0.1rem;
+  }
+
+  .hodl {
+    color: var(--primary);
+    font-weight: 700;
   }
 `;
 
@@ -80,16 +96,21 @@ export default function HomeIntro() {
       <BottomWrapper>
         <Summary>
           <Info>
-            <p className="info-text">Discover top 100 Cryptos in Market</p>
+            <IoRocketSharp className="icon" />
+            <p className="info-text">Discover Top 100 Cryptos in Market</p>
           </Info>
           <Info>
+            <IoRocketSharp className="icon" />
             <p className="info-text">Paper Trade in 12 Popular Cryptos</p>
           </Info>
           <Info>
-            <p className="info-text">See your Portfolio Grow....HODL!!</p>
+            <IoRocketSharp className="icon" />
+            <p className="info-text">
+              See your Portfolio Grow....
+              <span className="hodl">HODL</span>!!
+            </p>
           </Info>
         </Summary>
-        <ChartBackground />
       </BottomWrapper>
     </MyHomeIntro>
   );
