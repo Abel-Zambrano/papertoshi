@@ -90,6 +90,7 @@ export default function HomeIntro() {
             src="https://live.staticflickr.com/65535/51709063778_03bb9e6213_o.png"
             width="380"
             height="340"
+            priority
           />
         </BitcoinImages>
       </TopWrapper>
