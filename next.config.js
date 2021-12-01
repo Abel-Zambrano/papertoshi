@@ -6,4 +6,5 @@ module.exports = {
       `live.staticflickr.com`,
     ],
   },
+  include: ["next-env.d.ts", "**/*.ts", "**/*.tsx", "additional.d.ts"],
 };

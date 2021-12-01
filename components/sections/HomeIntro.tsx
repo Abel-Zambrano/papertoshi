@@ -87,10 +87,11 @@ export default function HomeIntro() {
         </Intro>
         <BitcoinImages>
           <Image
-            src="https://live.staticflickr.com/65535/51709063778_03bb9e6213_o.png"
+            src="/bitcoins.png"
             width="380"
             height="340"
-            priority
+            blurDataURL="/bitcoins.png"
+            placeholder="blur"
           />
         </BitcoinImages>
       </TopWrapper>
