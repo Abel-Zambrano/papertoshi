@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import TradeList from "./TradeList";
+import TradeLinks from "./TradeLinks";
 
 export default function Cryptos() {
   const [coins, setCoins] = useState([]);
@@ -23,6 +24,7 @@ export default function Cryptos() {
 
   return (
     <>
+      <TradeLinks coins={coins} />
       <TradeList crypto={coins} />
     </>
   );
