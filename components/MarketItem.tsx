@@ -85,7 +85,7 @@ export default function MarketItem({
           <Image
             className="logo"
             src={image}
-            alt="hello"
+            alt={symbol}
             width={100}
             height={100}
           />
