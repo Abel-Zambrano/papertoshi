@@ -8,6 +8,12 @@ const MyTradeLinks = styled.div`
   align-items: center;
   height: 600px;
   padding: 24px 0 24px 0;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(230, 233, 255, 1) 100%
+  );
 `;
 
 const Heading = styled.h1`
@@ -33,6 +39,7 @@ const ListItem = styled.li`
   height: 70px;
   list-style: none;
   border: 1px solid var(--gray);
+  background-color: var(--white);
   border-radius: 10px;
   transition: 0.2s;
   :hover {
@@ -43,12 +50,6 @@ const ListItem = styled.li`
   .logo {
     border-radius: 50%;
   }
-`;
-
-const Name = styled.p`
-  text-transform: uppercase;
-  font-size: 1.2rem;
-  margin-top: 5px;
 `;
 
 type Props = {
@@ -64,7 +65,6 @@ export default function TradeLinks({ coins }: Props) {
           return (
             <ListItem key={e.id}>
               <Image className="logo" src={e.image} height="42" width="42" />
-              {/* <Name>{e.symbol}</Name> */}
             </ListItem>
           );
         })}
