@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { setLink, unsetLink } from "../actions/index";
 
 const MyTradeLinks = styled.div`
   display: flex;
@@ -57,13 +59,25 @@ type Props = {
 };
 
 export default function TradeLinks({ coins }: Props) {
+  const dispatch = useDispatch();
+
+  const handleSetCoin = (name: string) => {
+    dispatch(setLink(name));
+    console.log(name);
+  };
+
   return (
     <MyTradeLinks>
       <Heading>Trade in 12 different Cryptos</Heading>
       <List>
         {coins.map((e: any) => {
           return (
-            <ListItem key={e.id}>
+            <ListItem
+              key={e.id}
+              onClick={() => {
+                handleSetCoin(e.id);
+              }}
+            >
               <Image className="logo" src={e.image} height="42" width="42" />
             </ListItem>
           );

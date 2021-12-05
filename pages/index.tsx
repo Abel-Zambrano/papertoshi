@@ -1,5 +1,5 @@
 import Page from "../components/Page";
-import HomeIntro from "../components/sections/HomeIntro";
+import HomeIntro from "../components/HomeIntro";
 
 export default function Home() {
   return (

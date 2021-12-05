@@ -1,6 +1,8 @@
-import { useState } from "react";
 import styled from "styled-components";
 import TradeItem from "./TradeItem";
+import { useSelector } from "react-redux";
+import numberFormatter from "../JS/numberFormatter";
+import tradeLink from "../reducers";
 
 const MyCryptoList = styled.ol`
   display: flex;
@@ -9,7 +11,6 @@ const MyCryptoList = styled.ol`
   width: 100%;
   max-height: 100vh;
   overflow: scroll;
-  /* margin-bottom: 100px; */
 `;
 
 type CryptoProps = {
@@ -27,22 +28,7 @@ type ListProps = {
 };
 
 export default function TradeList({ crypto }: CryptoProps) {
-  const [cash, setCash] = useState(10000);
-
-  // format API value to whole USD
-  // const wholeFormatter = new Intl.NumberFormat("en-US", {
-  //   style: "currency",
-  //   currency: "USD",
-  //   maximumFractionDigits: 2,
-  // });
-
-  // format API value to USD
-  const formatter = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-  });
-
-  let formatCash = formatter.format(cash);
+  const tradeLink = useSelector((state: any) => state.tradeLink);
 
   return (
     <>
@@ -56,8 +42,7 @@ export default function TradeList({ crypto }: CryptoProps) {
             current_price,
             price_change_percentage_24h,
           }: ListProps) => {
-            let currentPrice = formatter.format(current_price);
-            // format API percent change to 2 place decimal
+            let currentPrice = numberFormatter.format(current_price);
             let priceChange24h = Number(
               price_change_percentage_24h / 100
             ).toLocaleString(undefined, {

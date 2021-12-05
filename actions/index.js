@@ -143,3 +143,21 @@ export const cancelPurchase = () => {
     });
   };
 };
+
+// tradeLink
+export const setLink = (coinName) => {
+  return (dispatch) => {
+    dispatch({
+      type: "SET_LINK",
+      payload: coinName,
+    });
+  };
+};
+
+export const unsetLink = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "UNSET_LINK",
+    });
+  };
+};
