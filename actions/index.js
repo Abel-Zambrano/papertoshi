@@ -161,3 +161,14 @@ export const unsetLink = () => {
     });
   };
 };
+
+// coinsTrade
+
+export const loadCoins = (coins) => {
+  return (dispatch) => {
+    dispatch({
+      type: "LOAD_COINS",
+      payload: coins,
+    });
+  };
+};

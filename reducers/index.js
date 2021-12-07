@@ -9,6 +9,7 @@ import tradeValueReducer from "./tradeValueReducer";
 import confirmReducer from "./confirmReducer";
 import purchaseReducer from "./purchaseReducer";
 import tradeLinkReducer from "./tradeLinkReducer";
+import coinsTradeReducer from "./coinsTradeReducer";
 
 const allReducers = combineReducers({
   search: searchReducer,
@@ -21,6 +22,7 @@ const allReducers = combineReducers({
   confirm: confirmReducer,
   purchase: purchaseReducer,
   tradeLink: tradeLinkReducer,
+  coinsTrade: coinsTradeReducer,
 });
 
 export default allReducers;
