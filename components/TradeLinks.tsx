@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLink, unsetLink } from "../actions/index";
 
 const MyTradeLinks = styled.div`
@@ -8,7 +8,7 @@ const MyTradeLinks = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 600px;
+  height: 60px;
   padding: 24px 0 24px 0;
   background: rgb(255, 255, 255);
   background: linear-gradient(
@@ -16,11 +16,6 @@ const MyTradeLinks = styled.div`
     rgba(255, 255, 255, 1) 0%,
     rgba(230, 233, 255, 1) 100%
   );
-`;
-
-const Heading = styled.h1`
-  text-align: center;
-  padding: 10px 0 10px 0;
 `;
 
 const List = styled.ul`
@@ -54,11 +49,8 @@ const ListItem = styled.li`
   }
 `;
 
-type Props = {
-  coins: any;
-};
-
-export default function TradeLinks({ coins }: Props) {
+export default function TradeLinks() {
+  const coinsTrade = useSelector((state: any) => state.coinsTrade);
   const dispatch = useDispatch();
 
   const handleSetCoin = (name: string) => {
@@ -68,9 +60,8 @@ export default function TradeLinks({ coins }: Props) {
 
   return (
     <MyTradeLinks>
-      <Heading>Trade in 12 different Cryptos</Heading>
       <List>
-        {coins.map((e: any) => {
+        {coinsTrade.map((e: any) => {
           return (
             <ListItem
               key={e.id}

@@ -1,7 +1,7 @@
-const coinsTradeReducer = (state = {}, action) => {
+const coinsTradeReducer = (state = [], action) => {
   switch (action.type) {
     case "LOAD_COINS":
-      return (state = payload);
+      return (state = action.payload);
     default: {
       return state;
     }

@@ -13,10 +13,6 @@ const MyCryptoList = styled.ol`
   overflow: scroll;
 `;
 
-type CryptoProps = {
-  crypto: any;
-};
-
 type ListProps = {
   id: string;
   symbol: string;
@@ -27,13 +23,14 @@ type ListProps = {
   market_cap: number;
 };
 
-export default function TradeList({ crypto }: CryptoProps) {
+export default function TradeList() {
   const tradeLink = useSelector((state: any) => state.tradeLink);
+  const coinsTrade = useSelector((state: any) => state.coinsTrade);
 
   return (
     <>
       <MyCryptoList>
-        {crypto.map(
+        {coinsTrade.map(
           ({
             id,
             symbol,

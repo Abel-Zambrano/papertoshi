@@ -163,7 +163,6 @@ export const unsetLink = () => {
 };
 
 // coinsTrade
-
 export const loadCoins = (coins) => {
   return (dispatch) => {
     dispatch({
