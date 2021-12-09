@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { setLink, unsetLink } from "../actions/index";
@@ -44,6 +45,11 @@ const ListItem = styled.li`
     border: 1.1px solid var(--primary);
   }
 
+  &.active {
+    transform: scale(1.1);
+    border: 1.1px solid var(--primary);
+  }
+
   .logo {
     border-radius: 50%;
   }
@@ -51,11 +57,14 @@ const ListItem = styled.li`
 
 export default function TradeLinks() {
   const coinsTrade = useSelector((state: any) => state.coinsTrade);
+  const tradeLink = useSelector((state: any) => state.tradeLink);
   const dispatch = useDispatch();
 
   const handleSetCoin = (name: string) => {
     dispatch(setLink(name));
-    console.log(name);
+    if (name === tradeLink) {
+      dispatch(setLink(""));
+    }
   };
 
   return (
@@ -65,8 +74,9 @@ export default function TradeLinks() {
           return (
             <ListItem
               key={e.id}
+              className={e.name === tradeLink ? "active" : ""}
               onClick={() => {
-                handleSetCoin(e.id);
+                handleSetCoin(e.name);
               }}
             >
               <Image className="logo" src={e.image} height="42" width="42" />

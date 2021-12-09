@@ -27,10 +27,14 @@ export default function TradeList() {
   const tradeLink = useSelector((state: any) => state.tradeLink);
   const coinsTrade = useSelector((state: any) => state.coinsTrade);
 
+  const filteredCoinsTrade = coinsTrade.filter((coin: any) =>
+    coin.name.includes(tradeLink)
+  );
+
   return (
     <>
       <MyCryptoList>
-        {coinsTrade.map(
+        {filteredCoinsTrade.map(
           ({
             id,
             symbol,
