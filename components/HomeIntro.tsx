@@ -103,7 +103,7 @@ export default function HomeIntro() {
           </Info>
           <Info>
             <IoRocketSharp className="icon" />
-            <p className="info-text">Paper Trade in 12 Popular Cryptos</p>
+            <p className="info-text">Paper Trade in 10 Popular Cryptos</p>
           </Info>
           <Info>
             <IoRocketSharp className="icon" />
