@@ -27,8 +27,9 @@ const MySideBar = styled.div`
       justify-content: center;
       align-items: center;
       background-color: var(--primary);
+      height: 40px;
+      width: 40px;
       border-radius: 50%;
-      padding: 5px;
       margin-left: 20px;
     }
 
