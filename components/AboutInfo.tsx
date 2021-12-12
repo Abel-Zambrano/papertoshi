@@ -31,22 +31,26 @@ const Info = styled.p`
 `;
 
 const SignWrapper = styled.div`
-  margin-top: 10px;
-  margin-left: 350px;
-  /* background-color: yellowgreen; //todo : remove */
-
-  .sign-octo {
-    color: var(--white);
-    font-size: 30rem;
-    margin: 0 -20px -100px 0;
-  }
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 200px;
+  width: 100%;
 `;
 
 const Sign = styled.h3`
   font-size: 1.8rem;
   color: var(--black-light);
-  margin-top: -65px;
-  margin-left: 64px;
+`;
+
+const OctoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  .sign-octo {
+    color: var(--white);
+    font-size: 30rem;
+  }
 `;
 
 export default function AboutInfo() {
@@ -55,11 +59,12 @@ export default function AboutInfo() {
       <Content>
         <MyLogo />
         <Info>
-          Papertoshi is a cyrpto trading simulator also known as paper trading
-          and was designed for informative purposes by providing current data of
-          a crypto market, so that a user may practice trading crypto without
+          Papertoshi is a cyrpto trading simulator. It was designed after stock
+          trading simulators also known as “Paper Trading.” Papertoshi was
+          designed for informative purposes by providing current data of a
+          crypto market, so that a user may practice trading crypto without
           financial risk. All information provided on this site is not financial
-          advice nor support any crypto assets portrayed for trading.
+          advice nor support any crypto asset portrayed for trading.
         </Info>
         <Info>
           We hope you enjoy trading and using our site to expand your knowledge
@@ -68,9 +73,11 @@ export default function AboutInfo() {
           on!
         </Info>
         <SignWrapper>
-          <GiOctopus className="sign-octo" />
           <Sign>- Papertoshi Team</Sign>
         </SignWrapper>
+        <OctoWrapper>
+          <GiOctopus className="sign-octo" />
+        </OctoWrapper>
       </Content>
     </MyAboutInfo>
   );
