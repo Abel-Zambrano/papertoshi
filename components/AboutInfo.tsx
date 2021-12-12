@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Logo from "./Logo";
 import { GiOctopus } from "react-icons/gi";
+import Link from "next/link";
 
 const MyAboutInfo = styled.div`
   display: flex;
@@ -28,6 +29,11 @@ const Info = styled.p`
   font-size: 1.8rem;
   line-height: 3rem;
   color: var(--black-light);
+`;
+
+const Contact = styled.span`
+  color: var(--primary);
+  cursor: pointer;
 `;
 
 const SignWrapper = styled.div`
@@ -69,8 +75,11 @@ export default function AboutInfo() {
         <Info>
           We hope you enjoy trading and using our site to expand your knowledge
           and are welcoming suggestions on improving the site. To submit new
-          ideas or suggestions please use the contact page. Thank you, and Ape
-          on!
+          ideas or suggestions please use the{" "}
+          <Link href="/contact">
+            <Contact>Contact</Contact>
+          </Link>{" "}
+          page. Thank you, and Ape on!
         </Info>
         <SignWrapper>
           <Sign>- Papertoshi Team</Sign>

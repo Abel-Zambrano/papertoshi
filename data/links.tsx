@@ -1,34 +1,41 @@
 import {
-  AiFillSignal,
-  AiFillPieChart,
-  AiFillInfoCircle,
-  AiOutlineRetweet,
-} from "react-icons/ai";
+  RiBarChartFill,
+  RiArrowLeftRightFill,
+  RiPieChart2Fill,
+  RiInformationFill,
+  RiSendPlaneFill,
+} from "react-icons/ri";
 
 const links: any[] = [
   {
     id: 1,
     name: "market",
     url: "/market",
-    logo: <AiFillSignal />,
+    logo: <RiBarChartFill />,
   },
   {
     id: 2,
     name: "trade",
     url: "/trade",
-    logo: <AiOutlineRetweet />,
+    logo: <RiArrowLeftRightFill />,
   },
   {
     id: 3,
     name: "portfolio",
     url: "/portfolio",
-    logo: <AiFillPieChart />,
+    logo: <RiPieChart2Fill />,
   },
   {
     id: 4,
     name: "about",
     url: "/about",
-    logo: <AiFillInfoCircle />,
+    logo: <RiInformationFill />,
+  },
+  {
+    id: 5,
+    name: "contact",
+    url: "/contact",
+    logo: <RiSendPlaneFill />,
   },
 ];
 
