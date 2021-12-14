@@ -55,16 +55,10 @@ const Summary = styled.div`
 const Info = styled.div`
   display: flex;
   align-items: center;
-
-  .icon {
-    font-size: 2rem;
-    color: var(--primary);
-    margin-top: 30px;
-  }
+  line-height: 6rem;
 
   .info-text {
     font-size: 2.4rem;
-    margin-top: 30px;
     margin-left: 10px;
     letter-spacing: 0.1rem;
   }
@@ -72,6 +66,21 @@ const Info = styled.div`
   .hodl {
     color: var(--primary);
     font-weight: 700;
+  }
+`;
+
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+
+  .icon {
+    font-size: 2rem;
+    color: var(--white);
   }
 `;
 
@@ -98,15 +107,21 @@ export default function HomeIntro() {
       <BottomWrapper>
         <Summary>
           <Info>
-            <IoRocketSharp className="icon" />
+            <IconWrapper>
+              <IoRocketSharp className="icon" />
+            </IconWrapper>
             <p className="info-text">Discover Top 100 Cryptos in Market</p>
           </Info>
           <Info>
-            <IoRocketSharp className="icon" />
+            <IconWrapper>
+              <IoRocketSharp className="icon" />
+            </IconWrapper>
             <p className="info-text">Paper Trade in 10 Popular Cryptos</p>
           </Info>
           <Info>
-            <IoRocketSharp className="icon" />
+            <IconWrapper>
+              <IoRocketSharp className="icon" />
+            </IconWrapper>
             <p className="info-text">
               See your Portfolio Grow....
               <span className="hodl">HODL</span>!!
