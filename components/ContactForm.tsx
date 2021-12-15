@@ -1,20 +1,59 @@
 import styled from "styled-components";
 
 const MyContactForm = styled.form`
-  width: 50%;
+  width: 400px;
+  height: 500px;
+  padding: 60px 40px 70px 40px;
+  box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.3);
 `;
 
-const Wrapper = styled.div``;
+const NameWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
-const Label = styled.label``;
+const Div = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+`;
 
-const Name = styled.input``;
+const Label = styled.label`
+  font-size: 1.2rem;
+`;
 
-const Email = styled.input``;
+const Input = styled.input`
+  margin-top: 10px;
+  padding: 10px;
+  box-sizing: border-box;
 
-const Radio = styled.input``;
+  &.name-input {
+    width: 190px;
+  }
+`;
 
-const Details = styled.textarea``;
+const RadioWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+`;
+
+const Radio = styled.input`
+  margin-right: 10px;
+`;
+
+const Details = styled.textarea`
+  padding: 10px;
+`;
+
+const Button = styled.button`
+  background-color: var(--primary-light);
+  color: var(--white);
+  width: 100%;
+  margin-top: 10px;
+  padding: 20px 0 20px 0;
+  font-size: 1.6rem;
+`;
 
 export default function ContactInfo() {
   return (
@@ -22,26 +61,68 @@ export default function ContactInfo() {
       name="contact v1"
       method="POST"
       data-netlify="true"
-      // onSubmit="submit"
+      netlify-honeypot="bot-field"
     >
+      {/* netlify code */}
       <input type="hidden" name="form-name" value="contact v1" />
-      <Wrapper>
-        <Label htmlFor="first-name">First Name</Label>
-        <Name id="first-name" type="text" name="first-name" />
-      </Wrapper>
-      <Wrapper>
-        <Label htmlFor="last-name">Last Name</Label>
-        <Name id="last-name" type="text" name="last-name" />
-      </Wrapper>
-      <Wrapper>
+      <div hidden>
+        <input name="bot-field" />
+      </div>
+
+      {/* form code */}
+      <NameWrapper>
+        <Div>
+          <Label htmlFor="first-name">First Name</Label>
+          <Input
+            className="name-input"
+            id="first-name"
+            type="text"
+            name="first-name"
+          />
+        </Div>
+        <Div>
+          <Label htmlFor="last-name">Last Name</Label>
+          <Input
+            className="name-input"
+            id="last-name"
+            type="text"
+            name="last-name"
+          />
+        </Div>
+      </NameWrapper>
+      <Div>
         <Label htmlFor="email">Email</Label>
-        <Name id="email" type="email" name="email" />
-      </Wrapper>
-      <Wrapper>
+        <Input id="email" type="email" name="email" />
+      </Div>
+      <Div>
+        <RadioWrapper>
+          <Radio
+            type="radio"
+            id="suggestion"
+            name="message-type"
+            value="suggestion"
+          />
+          <Label htmlFor="suggestion">Suggestion</Label>
+        </RadioWrapper>
+        <RadioWrapper>
+          <Radio
+            type="radio"
+            id="support"
+            name="message-type"
+            value="support"
+          />
+          <Label htmlFor="support">Technical Support</Label>
+        </RadioWrapper>
+        <RadioWrapper>
+          <Radio type="radio" id="other" name="message-type" value="other" />
+          <Label htmlFor="other">Other</Label>
+        </RadioWrapper>
+      </Div>
+      <Div>
         <Label htmlFor="details">Details</Label>
-        <Details id="details" name="details" />
-      </Wrapper>
-      <button type="submit">send message</button>
+        <Details id="details" name="details" rows={5} />
+      </Div>
+      <Button type="submit">Send Message</Button>
     </MyContactForm>
   );
 }
