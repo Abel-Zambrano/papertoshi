@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { HiLightBulb } from "react-icons/hi";
 import { BiSupport, BiSmile } from "react-icons/bi";
-// import ContactForm from "./ContactForm";
+import ContactForm from "./ContactForm";
 
 const Container = styled.div`
   display: flex;
@@ -85,6 +85,7 @@ export default function ContactInfo() {
           </Item>
         </List>
       </InfoWrapper>
+      <ContactForm />
     </Container>
   );
 }
