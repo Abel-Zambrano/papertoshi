@@ -12,7 +12,6 @@ const Container = styled.div`
 
 const InfoWrapper = styled.div`
   width: 50%;
-  /* margin-top: 164px; */
 `;
 
 const Heading = styled.h2`
