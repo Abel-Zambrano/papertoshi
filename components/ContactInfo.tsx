@@ -5,13 +5,14 @@ import ContactForm from "./ContactForm";
 
 const Container = styled.div`
   display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
 `;
 
 const InfoWrapper = styled.div`
   width: 50%;
-  margin-top: 164px;
+  /* margin-top: 164px; */
 `;
 
 const Heading = styled.h2`
