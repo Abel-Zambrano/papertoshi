@@ -114,9 +114,9 @@ export default function ContactInfo() {
         <RadioWrapper>
           <Radio
             type="radio"
-            id="message-type"
+            id="suggestion"
             name="message-type"
-            value="message-type"
+            value="suggestion"
           />
           <RadioLabel htmlFor="message-type">Suggestion</RadioLabel>
         </RadioWrapper>
