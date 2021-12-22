@@ -65,9 +65,6 @@ export default function ContactInfo() {
     >
       {/* netlify code */}
       <input type="hidden" name="form-name" value="contact v1" />
-      <div hidden>
-        <input name="bot-field" />
-      </div>
 
       {/* form code */}
       <NameWrapper>
@@ -98,11 +95,11 @@ export default function ContactInfo() {
         <RadioWrapper>
           <Radio
             type="radio"
-            id="suggestion"
+            id="message-type"
             name="message-type"
-            value="suggestion"
+            value="message-type"
           />
-          <Label htmlFor="suggestion">Suggestion</Label>
+          <Label htmlFor="message-type">Suggestion</Label>
         </RadioWrapper>
         <RadioWrapper>
           <Radio
