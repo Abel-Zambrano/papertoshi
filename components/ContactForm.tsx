@@ -20,6 +20,12 @@ const Div = styled.div`
 
 const Label = styled.label`
   font-size: 1.2rem;
+
+  &::after {
+    content: "*";
+    color: red;
+    padding-left: 2px;
+  }
 `;
 
 const Input = styled.input`
@@ -35,7 +41,11 @@ const Input = styled.input`
 const RadioWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  margin-top: 10px;
+`;
+
+const RadioLabel = styled.label`
+  font-size: 1.2rem;
 `;
 
 const Radio = styled.input`
@@ -53,6 +63,12 @@ const Button = styled.button`
   margin-top: 10px;
   padding: 20px 0 20px 0;
   font-size: 1.6rem;
+  border: none;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: var(--primary);
+  }
 `;
 
 export default function ContactInfo() {
@@ -75,6 +91,7 @@ export default function ContactInfo() {
             id="first-name"
             type="text"
             name="first-name"
+            required
           />
         </Div>
         <Div>
@@ -84,14 +101,16 @@ export default function ContactInfo() {
             id="last-name"
             type="text"
             name="last-name"
+            required
           />
         </Div>
       </NameWrapper>
       <Div>
         <Label htmlFor="email">Email</Label>
-        <Input id="email" type="email" name="email" />
+        <Input id="email" type="email" name="email" required />
       </Div>
       <Div>
+        <Label>Message Type</Label>
         <RadioWrapper>
           <Radio
             type="radio"
@@ -99,7 +118,7 @@ export default function ContactInfo() {
             name="message-type"
             value="message-type"
           />
-          <Label htmlFor="message-type">Suggestion</Label>
+          <RadioLabel htmlFor="message-type">Suggestion</RadioLabel>
         </RadioWrapper>
         <RadioWrapper>
           <Radio
@@ -108,16 +127,16 @@ export default function ContactInfo() {
             name="message-type"
             value="support"
           />
-          <Label htmlFor="support">Technical Support</Label>
+          <RadioLabel htmlFor="support">Technical Support</RadioLabel>
         </RadioWrapper>
         <RadioWrapper>
           <Radio type="radio" id="other" name="message-type" value="other" />
-          <Label htmlFor="other">Other</Label>
+          <RadioLabel htmlFor="other">Other</RadioLabel>
         </RadioWrapper>
       </Div>
       <Div>
         <Label htmlFor="details">Details</Label>
-        <Details id="details" name="details" rows={5} />
+        <Details id="details" name="details" rows={5} required />
       </Div>
       <Button type="submit">Send Message</Button>
     </MyContactForm>
