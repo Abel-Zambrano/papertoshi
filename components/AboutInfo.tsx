@@ -9,6 +9,7 @@ const MyAboutInfo = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  overflow: scroll;
 `;
 
 const Content = styled.div`
@@ -18,6 +19,8 @@ const Content = styled.div`
   width: 800px;
   height: 900px;
   background-color: var(--off-white);
+  margin-top: 300px;
+  margin-bottom: 100px;
 `;
 
 const MyLogo = styled(Logo)`
