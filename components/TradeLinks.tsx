@@ -24,7 +24,7 @@ const List = styled.ul`
   justify-content: space-between;
   align-items: center;
   height: 100px;
-  width: 1100px;
+  width: 850px;
   padding: 10px 0 10px 0;
 `;
 
