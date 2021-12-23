@@ -118,15 +118,15 @@ export default function ContactInfo() {
             name="suggestion"
             value="suggestion"
           />
-          <RadioLabel htmlFor="suggestion">Suggestion</RadioLabel>
+          <RadioLabel htmlFor="message-type">Suggestion</RadioLabel>
         </RadioWrapper>
         <RadioWrapper>
           <Radio type="radio" id="support" name="support" value="support" />
-          <RadioLabel htmlFor="support">Technical Support</RadioLabel>
+          <RadioLabel htmlFor="message-type">Technical Support</RadioLabel>
         </RadioWrapper>
         <RadioWrapper>
           <Radio type="radio" id="other" name="other" value="other" />
-          <RadioLabel htmlFor="other">Other</RadioLabel>
+          <RadioLabel htmlFor="message-type">Other</RadioLabel>
         </RadioWrapper>
       </Div>
       <Div>
