@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import Heading from "./Heading";
 import SideBar from "./SideBar";
+import { device } from "../JS/device";
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -20,7 +21,6 @@ const GlobalStyles = createGlobalStyle`
   --green-buy:  #00cc00;
   --red-sell: #cc0000;
   --bitcoin: #f6931a;
-
 }
 html {
     box-sizing: border-box;
@@ -55,6 +55,10 @@ const ContainerRow = styled.div`
   display: flex;
   max-height: 100vh;
   overflow: hidden;
+
+  @media ${device.tablet} {
+    flex-direction: column;
+  }
 `;
 
 const ContainerColumn = styled.div`
@@ -64,11 +68,6 @@ const ContainerColumn = styled.div`
   width: 100%;
   height: 100vh;
 `;
-
-// const Content = styled.div`
-//   flex: 1;
-//   height: 100%;
-// `;
 
 type Props = {
   children?: any;

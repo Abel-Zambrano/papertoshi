@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Link from "next/link";
 import links from "../data/links";
 import { useRouter } from "next/router";
+import { device } from "../JS/device";
 
 const MyNavLinks = styled.div`
   display: flex;
@@ -9,12 +10,21 @@ const MyNavLinks = styled.div`
   width: 100%;
   height: 400px;
 
+  @media ${device.tablet} {
+    height: 100px;
+    width: 500px;
+  }
+
   .nav-list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
     list-style: none;
+
+    @media ${device.tablet} {
+      flex-direction: row;
+    }
 
     &__item {
       display: flex;
@@ -30,12 +40,14 @@ const MyNavLinks = styled.div`
         width: 2px;
         background-color: var(--primary);
         transition: transform 300ms ease-in-out;
-
         transform: scaleY(0);
       }
 
       &.border-left:hover::before {
         transform: scaleY(1);
+        @media ${device.tablet} {
+          transform: scaleY(0);
+        }
       }
     }
 
@@ -53,6 +65,13 @@ const MyNavLinks = styled.div`
 
       &:hover {
         background-color: var(--slate-light);
+        @media ${device.tablet} {
+          background-color: transparent;
+        }
+      }
+
+      @media ${device.tablet} {
+        width: auto;
       }
     }
 
@@ -60,16 +79,34 @@ const MyNavLinks = styled.div`
       display: flex;
       align-items: center;
       margin-left: 30px;
+
+      @media ${device.tablet} {
+        display: none;
+      }
     }
 
     &__link {
       margin-left: 12px;
       color: var(--white);
+      transition: color 400ms;
+      :hover {
+        @media ${device.tablet} {
+          color: var(--primary);
+        }
+      }
+      @media ${device.tablet} {
+        margin-left: 0;
+      }
     }
 
     .active {
       border-left: 2px solid var(--primary);
       background-color: var(--slate-light);
+
+      @media ${device.tablet} {
+        border-left: none;
+        background-color: transparent;
+      }
     }
   }
 `;

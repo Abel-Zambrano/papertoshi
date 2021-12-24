@@ -4,6 +4,7 @@ import NavLinks from "./NavLinks";
 import { GiOctopus } from "react-icons/gi";
 import USD from "./USD";
 import Assets from "./Assets";
+import { device } from "../JS/device";
 
 const MySideBar = styled.div`
   display: flex;
@@ -13,7 +14,12 @@ const MySideBar = styled.div`
   min-width: 230px;
   background-color: var(--slate);
   position: sticky;
-  top: 0;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    width: 100%;
+    min-width: none;
+  }
 
   .heading {
     display: flex;
@@ -44,6 +50,10 @@ const MySideBar = styled.div`
       color: var(--white);
       margin-left: 12px;
       cursor: pointer;
+
+      @media ${device.tablet} {
+        display: none;
+      }
     }
   }
 `;
@@ -57,6 +67,13 @@ const AssetWrapper = styled.div`
   flex-direction: column;
   justify-content: end;
   padding-bottom: 30px;
+
+  @media ${device.tablet} {
+    flex-direction: row;
+    height: 100px;
+    padding-bottom: 0;
+    align-items: center;
+  }
 `;
 
 const HR = styled.hr`
@@ -64,6 +81,10 @@ const HR = styled.hr`
   height: 0;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 export default function SideBar() {
@@ -84,8 +105,8 @@ export default function SideBar() {
         <HR />
       </LinkWrapper>
       <AssetWrapper>
-        <USD />
-        <Assets />
+        <USD className="no-display" />
+        <Assets className="heading-tablet" />
       </AssetWrapper>
     </MySideBar>
   );

@@ -2,11 +2,18 @@ import styled from "styled-components";
 import { GiMoneyStack } from "react-icons/gi";
 import numberFormatter from "../JS/numberFormatter";
 import { useSelector } from "react-redux";
+import { device } from "../JS/device";
 
 const MyAssets = styled.div`
   height: 60px;
   display: flex;
   align-items: center;
+
+  &.heading-tablet {
+    @media ${device.tablet} {
+      margin-right: 20px;
+    }
+  }
 `;
 
 const Wrapper = styled.div`
@@ -32,17 +39,21 @@ const Total = styled.p`
   padding-top: 5px;
 `;
 
+type AssetsProps = {
+  className: string;
+};
+
 type Props = {
   assets: number;
   currentAssets: number;
 };
 
-export default function Assets() {
+export default function Assets({ className }: AssetsProps) {
   const assets = useSelector((state: Props) => state.assets);
   const currentAssets = numberFormatter.format(assets);
 
   return (
-    <MyAssets>
+    <MyAssets className={className}>
       <Wrapper>
         <GiMoneyStack className="icon" />
         <Cash>{currentAssets}</Cash>
