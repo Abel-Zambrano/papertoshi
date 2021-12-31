@@ -3,6 +3,7 @@ import PageTitle from "./PageTitle";
 import { useRouter } from "next/router";
 import UserInfo from "./UserInfo";
 import SearchBar from "./SearchBar";
+import { device } from "../JS/device";
 
 const MyHeading = styled.div`
   display: flex;
@@ -12,6 +13,10 @@ const MyHeading = styled.div`
   height: 100px;
   min-height: 100px;
   border-bottom: 1.5px solid var(--gray);
+
+  @media ${device.tablet} {
+    border-bottom: none;
+  }
 `;
 
 export default function Heading() {

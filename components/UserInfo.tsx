@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../JS/device";
 
 const MyUserInfo = styled.div`
   display: flex;
@@ -7,6 +8,10 @@ const MyUserInfo = styled.div`
   height: 33.8px;
   flex: 1;
   margin-right: 50px;
+
+  @media ${device.tablet} {
+    display: none;
+  }
 
   .user-info {
     display: flex;

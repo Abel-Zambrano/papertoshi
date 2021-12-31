@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import { IoRocketSharp } from "react-icons/io5";
+import { device } from "../JS/device";
 
 const MyHomeIntro = styled.div`
   display: flex;
@@ -15,17 +16,24 @@ const TopWrapper = styled.div`
   align-items: center;
   width: 100%;
   height: 50%;
+
+  @media ${device.tablet} {
+    margin: 20px 0 20px 0;
+  }
 `;
 
 const Intro = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: yellow; //todo */
   height: 160px;
   width: 440px;
   font-size: 2.2rem;
   letter-spacing: 0.1rem;
+
+  @media ${device.phone} {
+    font-size: 1.2rem;
+  }
 
   .papertoshi {
     color: var(--primary);
@@ -36,6 +44,11 @@ const BitcoinImages = styled.div`
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+  min-width: 200px;
+
+  @media ${device.phone} {
+    display: none;
+  }
 `;
 
 const BottomWrapper = styled.div`
@@ -50,6 +63,14 @@ const Summary = styled.div`
   display: flex;
   flex-direction: column;
   width: 820px;
+  height: 100%;
+
+  @media ${device.tablet} {
+    align-items: center;
+  }
+  @media ${device.phone} {
+    width: 100%;
+  }
 `;
 
 const Info = styled.div`
@@ -57,10 +78,23 @@ const Info = styled.div`
   align-items: center;
   line-height: 6rem;
 
+  @media ${device.tablet} {
+    width: 480px;
+  }
+
+  @media ${device.phone} {
+    width: 100%;
+    margin-left: 40px;
+  }
+
   .info-text {
     font-size: 2.4rem;
     margin-left: 10px;
     letter-spacing: 0.1rem;
+
+    @media ${device.phone} {
+      font-size: 1.6rem;
+    }
   }
 
   .hodl {
