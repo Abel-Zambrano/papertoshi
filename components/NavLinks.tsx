@@ -11,8 +11,7 @@ const MyNavLinks = styled.div`
   height: 400px;
 
   @media ${device.tablet} {
-    height: 100px;
-    width: 500px;
+    display: none;
   }
 
   .nav-list {
@@ -21,10 +20,6 @@ const MyNavLinks = styled.div`
     justify-content: space-between;
     width: 100%;
     list-style: none;
-
-    @media ${device.tablet} {
-      flex-direction: row;
-    }
 
     &__item {
       display: flex;
@@ -42,13 +37,6 @@ const MyNavLinks = styled.div`
         transition: transform 300ms ease-in-out;
         transform: scaleY(0);
       }
-
-      &.border-left:hover::before {
-        transform: scaleY(1);
-        @media ${device.tablet} {
-          transform: scaleY(0);
-        }
-      }
     }
 
     &__wrapper {
@@ -62,51 +50,23 @@ const MyNavLinks = styled.div`
       height: 60px;
       width: 228px;
       transition: background-color 400ms ease-in-out;
-
-      &:hover {
-        background-color: var(--slate-light);
-        @media ${device.tablet} {
-          background-color: transparent;
-        }
-      }
-
-      @media ${device.tablet} {
-        width: auto;
-      }
     }
 
     &__logo {
       display: flex;
       align-items: center;
       margin-left: 30px;
-
-      @media ${device.tablet} {
-        display: none;
-      }
     }
 
     &__link {
       margin-left: 12px;
       color: var(--white);
       transition: color 400ms;
-      :hover {
-        @media ${device.tablet} {
-          color: var(--primary);
-        }
-      }
-      @media ${device.tablet} {
-        margin-left: 0;
-      }
     }
 
     .active {
       border-left: 2px solid var(--primary);
       background-color: var(--slate-light);
-
-      @media ${device.tablet} {
-        border-left: none;
-        background-color: transparent;
-      }
     }
   }
 `;
@@ -125,7 +85,7 @@ export default function NavLinks() {
           return (
             <li
               key={id}
-              // adds active styling based on url
+              // active styling based on url
               className={
                 router.pathname == url
                   ? "nav-list__item active"

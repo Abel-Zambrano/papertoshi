@@ -171,3 +171,28 @@ export const loadCoins = (coins) => {
     });
   };
 };
+
+// mobileMenu
+export const toggleMenu = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "TOGGLE_MENU",
+    });
+  };
+};
+
+export const openMenu = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "OPEN_MENU",
+    });
+  };
+};
+
+export const closeMenu = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "CLOSE_MENU",
+    });
+  };
+};

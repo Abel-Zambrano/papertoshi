@@ -26,17 +26,33 @@ const Wrapper = styled.div`
   .icon {
     margin-left: 30px;
   }
+
+  .heading-tablet {
+    @media ${device.tablet} {
+      display: none;
+    }
+  }
 `;
 
 const Cash = styled.p`
   color: var(--white);
   margin-left: 12px;
+  @media ${device.tablet} {
+    margin-left: 0;
+    font-size: 2.5rem;
+  }
 `;
 
 const Total = styled.p`
   font-size: 1rem;
   margin-left: 12px;
   padding-top: 5px;
+
+  .heading-tablet {
+    @media ${device.tablet} {
+      display: none;
+    }
+  }
 `;
 
 type AssetsProps = {
@@ -55,9 +71,9 @@ export default function Assets({ className }: AssetsProps) {
   return (
     <MyAssets className={className}>
       <Wrapper>
-        <GiMoneyStack className="icon" />
+        <GiMoneyStack className={`icon ${className}`} />
         <Cash>{currentAssets}</Cash>
-        <Total>TOTAL</Total>
+        <Total className={className}>TOTAL</Total>
       </Wrapper>
     </MyAssets>
   );

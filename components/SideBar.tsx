@@ -5,6 +5,7 @@ import { GiOctopus } from "react-icons/gi";
 import USD from "./USD";
 import Assets from "./Assets";
 import { device } from "../JS/device";
+import MobileMenuButton from "./MobileMenuButton";
 
 const MySideBar = styled.div`
   display: flex;
@@ -19,6 +20,7 @@ const MySideBar = styled.div`
     flex-direction: row;
     width: 100%;
     min-width: none;
+    align-items: center;
   }
 
   .heading {
@@ -37,12 +39,19 @@ const MySideBar = styled.div`
       width: 40px;
       border-radius: 50%;
       margin-left: 20px;
+      @media ${device.tablet} {
+        height: 60px;
+        width: 60px;
+      }
     }
 
     &__logo {
       color: var(--white);
       font-size: 2.5rem;
       cursor: pointer;
+      @media ${device.tablet} {
+        font-size: 4.2rem;
+      }
     }
 
     &__title {
@@ -108,6 +117,7 @@ export default function SideBar() {
         <USD className="no-display" />
         <Assets className="heading-tablet" />
       </AssetWrapper>
+      <MobileMenuButton />
     </MySideBar>
   );
 }
