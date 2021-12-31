@@ -42,6 +42,7 @@ const MySideBar = styled.div`
       @media ${device.tablet} {
         height: 60px;
         width: 60px;
+        flex: 1;
       }
     }
 
@@ -82,6 +83,19 @@ const AssetWrapper = styled.div`
     height: 100px;
     padding-bottom: 0;
     align-items: center;
+    justify-content: center;
+    flex: 6;
+  }
+`;
+
+const ButtonWrapper = styled.div`
+  display: none;
+
+  @media ${device.tablet} {
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
   }
 `;
 
@@ -117,7 +131,9 @@ export default function SideBar() {
         <USD className="no-display" />
         <Assets className="heading-tablet" />
       </AssetWrapper>
-      <MobileMenuButton />
+      <ButtonWrapper>
+        <MobileMenuButton />
+      </ButtonWrapper>
     </MySideBar>
   );
 }

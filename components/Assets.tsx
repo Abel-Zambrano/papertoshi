@@ -8,12 +8,6 @@ const MyAssets = styled.div`
   height: 60px;
   display: flex;
   align-items: center;
-
-  &.heading-tablet {
-    @media ${device.tablet} {
-      margin-right: 20px;
-    }
-  }
 `;
 
 const Wrapper = styled.div`
