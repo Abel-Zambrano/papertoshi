@@ -49,7 +49,7 @@ const BitcoinImages = styled.div`
   margin-left: 50px;
   min-width: 200px;
 
-  @media ${device.phone} {
+  @media ${device.tablet} {
     display: none;
   }
 `;
@@ -71,9 +71,9 @@ const Summary = styled.div`
   @media ${device.tablet} {
     align-items: center;
   }
-  @media ${device.phone} {
+  @media ${device.tablet} {
     width: 100%;
-    margin-top: 20px;
+    margin: 20px;
   }
 `;
 

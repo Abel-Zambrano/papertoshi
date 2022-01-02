@@ -67,6 +67,7 @@ const ContainerColumn = styled.div`
   max-height: 100vh;
   width: 100%;
   height: 100vh;
+  overflow: scroll;
 `;
 
 type Props = {
