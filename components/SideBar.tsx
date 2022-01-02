@@ -22,6 +22,9 @@ const MySideBar = styled.div`
     min-width: none;
     align-items: center;
   }
+  @media ${device.phone} {
+    height: 70px;
+  }
 
   .heading {
     display: flex;
