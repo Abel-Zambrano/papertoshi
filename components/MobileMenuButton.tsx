@@ -27,7 +27,8 @@ const MyMobileMenuButton = styled.div`
       cursor: pointer;
 
       @media ${device.phone} {
-        width: 46px;
+        width: 34px;
+        height: 35px;
       }
     }
 
@@ -50,14 +51,14 @@ const MyMobileMenuButton = styled.div`
       transition: 0.25s ease-in-out;
 
       @media ${device.phone} {
-        height: 4px;
+        height: 2px;
       }
     }
 
     &#nav-icon1 span:nth-child(1) {
       top: 0px;
       @media ${device.phone} {
-        top: 5px;
+        top: 10px;
       }
     }
 
@@ -69,7 +70,7 @@ const MyMobileMenuButton = styled.div`
       top: 36px;
 
       @media ${device.phone} {
-        top: 31px;
+        top: 26px;
       }
     }
 

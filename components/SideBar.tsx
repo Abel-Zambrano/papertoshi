@@ -19,6 +19,7 @@ const MySideBar = styled.div`
   @media ${device.tablet} {
     flex-direction: row;
     width: 100%;
+    min-width: 100%;
     min-width: none;
     align-items: center;
   }
