@@ -20,6 +20,9 @@ const TopWrapper = styled.div`
   @media ${device.tablet} {
     margin: 20px 0 20px 0;
   }
+  @media ${device.phone} {
+    height: 20%;
+  }
 `;
 
 const Intro = styled.div`
@@ -70,6 +73,7 @@ const Summary = styled.div`
   }
   @media ${device.phone} {
     width: 100%;
+    margin-top: 20px;
   }
 `;
 
@@ -111,10 +115,17 @@ const IconWrapper = styled.div`
   border-radius: 50%;
   width: 32px;
   height: 32px;
+  @media ${device.phone} {
+    width: 27px;
+    height: 27px;
+  }
 
   .icon {
     font-size: 2rem;
     color: var(--white);
+    @media ${device.phone} {
+      font-size: 1.6rem;
+    }
   }
 `;
 

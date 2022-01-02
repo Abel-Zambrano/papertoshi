@@ -44,6 +44,10 @@ const MySideBar = styled.div`
         width: 60px;
         flex: 1;
       }
+      @media ${device.phone} {
+        height: 40px;
+        width: 40px;
+      }
     }
 
     &__logo {
@@ -52,6 +56,9 @@ const MySideBar = styled.div`
       cursor: pointer;
       @media ${device.tablet} {
         font-size: 4.2rem;
+      }
+      @media ${device.phone} {
+        font-size: 2.5rem;
       }
     }
 

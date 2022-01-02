@@ -35,6 +35,9 @@ const Cash = styled.p`
     margin-left: 0;
     font-size: 2.5rem;
   }
+  @media ${device.tablet} {
+    font-size: 2.2rem;
+  }
 `;
 
 const Total = styled.p`

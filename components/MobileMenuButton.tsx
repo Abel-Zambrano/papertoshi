@@ -25,6 +25,10 @@ const MyMobileMenuButton = styled.div`
       -o-transition: 0.5s ease-in-out;
       transition: 0.5s ease-in-out;
       cursor: pointer;
+
+      @media ${device.phone} {
+        width: 46px;
+      }
     }
 
     &#nav-icon1 span {
@@ -44,10 +48,17 @@ const MyMobileMenuButton = styled.div`
       -moz-transition: 0.25s ease-in-out;
       -o-transition: 0.25s ease-in-out;
       transition: 0.25s ease-in-out;
+
+      @media ${device.phone} {
+        height: 4px;
+      }
     }
 
     &#nav-icon1 span:nth-child(1) {
       top: 0px;
+      @media ${device.phone} {
+        top: 5px;
+      }
     }
 
     &#nav-icon1 span:nth-child(2) {
@@ -56,6 +67,10 @@ const MyMobileMenuButton = styled.div`
 
     &#nav-icon1 span:nth-child(3) {
       top: 36px;
+
+      @media ${device.phone} {
+        top: 31px;
+      }
     }
 
     &#nav-icon1.open span:nth-child(1) {
