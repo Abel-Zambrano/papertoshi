@@ -2,6 +2,8 @@ import styled, { createGlobalStyle } from "styled-components";
 import Heading from "./Heading";
 import SideBar from "./SideBar";
 import { device } from "../JS/device";
+import MobileNavMenu from "./MobileNavMenu";
+import { useSelector } from "react-redux";
 
 const GlobalStyles = createGlobalStyle`
 :root {
@@ -75,11 +77,14 @@ type Props = {
 };
 
 export default function Page({ children }: Props) {
+  const mobileMenu = useSelector((state: any) => state.mobileMenu);
+
   return (
     <ContainerRow>
       <GlobalStyles />
       <SideBar />
       <ContainerColumn>
+        <MobileNavMenu className={`${mobileMenu ? "visible" : ""}`} />
         <Heading />
         {children}
       </ContainerColumn>
