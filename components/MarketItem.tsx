@@ -12,6 +12,9 @@ const MyMarketItem = styled.tr`
 
   @media ${device.tablet} {
     width: 100vw;
+    padding: 10px 0 10px 0;
+    border-left: none;
+    border-right: none;
   }
 
   .container {
@@ -51,7 +54,7 @@ const MyMarketItem = styled.tr`
     &.start {
       @media ${device.phone} {
         justify-content: start;
-        margin-left: 20px;
+        /* margin-left: 20px; */
       }
     }
 
