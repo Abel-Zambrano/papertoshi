@@ -8,6 +8,7 @@ import {
   clearSearch,
 } from "../actions";
 import { useSelector, useDispatch } from "react-redux";
+import { device } from "../JS/device";
 
 const MySearchBar = styled.div`
   display: flex;
@@ -15,6 +16,10 @@ const MySearchBar = styled.div`
   width: 540px;
   border-radius: 50px;
   background-color: var(--gray-light);
+
+  @media ${device.tablet} {
+    width: 360px;
+  }
 
   &.focus-border {
     border: 1px solid var(--black-light);
@@ -28,6 +33,10 @@ const MySearchBar = styled.div`
     font-size: 1.5rem;
     color: var(--gray);
     background-color: var(--gray-light);
+
+    @media ${device.tablet} {
+      width: 300px;
+    }
 
     &.focus-text {
       color: var(--black-light);

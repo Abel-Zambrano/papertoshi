@@ -5,6 +5,7 @@ import ListHeader from "./ListHeader";
 import { useSelector } from "react-redux";
 import wholeNumberFormatter from "../JS/wholeNumberFormatter";
 import numberFormatter from "../JS/numberFormatter";
+import styled from "styled-components";
 
 export default function MarketList() {
   const [coins, setCoins] = useState<any[]>([]);
@@ -30,10 +31,17 @@ export default function MarketList() {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const TBody = styled.tbody`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `;
+
   return (
     <table>
       <ListHeader />
-      <tbody>
+      <TBody>
         {filteredCoins.map(
           ({
             id,
@@ -69,7 +77,7 @@ export default function MarketList() {
             );
           }
         )}
-      </tbody>
+      </TBody>
     </table>
   );
 }

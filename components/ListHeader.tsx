@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PrimaryText from "./PrimaryText";
+import { device } from "../JS/device";
 
 const MyListHeader = styled.thead`
   .header-row {
@@ -8,12 +9,22 @@ const MyListHeader = styled.thead`
     padding: 10px;
     width: 1000px;
     margin-top: 50px;
+
+    @media ${device.tablet} {
+      width: 100vw;
+    }
   }
 
   .container {
     display: flex;
     align-items: center;
     width: 50px;
+
+    &.hidden {
+      @media ${device.phone} {
+        display: none;
+      }
+    }
 
     .rank {
       font-size: 1.2rem;
@@ -27,6 +38,16 @@ const MyListHeader = styled.thead`
     align-items: center;
     width: 237px;
     margin-left: 10px;
+
+    @media ${device.phone} {
+      justify-content: center;
+    }
+
+    &.hidden {
+      @media ${device.phone} {
+        display: none;
+      }
+    }
   }
 `;
 
@@ -34,7 +55,7 @@ export default function ListHeader() {
   return (
     <MyListHeader>
       <tr className="header-row">
-        <td className="container">
+        <td className="container hidden">
           <p className="rank">#</p>
         </td>
         <td className="data-wrapper">
@@ -46,7 +67,7 @@ export default function ListHeader() {
         <td className="data-wrapper">
           <PrimaryText text="24hr" />
         </td>
-        <td className="data-wrapper">
+        <td className="data-wrapper hidden">
           <PrimaryText text="Market Cap" />
         </td>
       </tr>

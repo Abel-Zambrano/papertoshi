@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import PrimaryText from "./PrimaryText";
+import { device } from "../JS/device";
 
 const MyMarketItem = styled.tr`
   display: flex;
@@ -9,10 +10,20 @@ const MyMarketItem = styled.tr`
   padding: 10px;
   width: 1000px;
 
+  @media ${device.tablet} {
+    width: 100vw;
+  }
+
   .container {
     display: flex;
     align-items: center;
     width: 50px;
+
+    &.hidden {
+      @media ${device.phone} {
+        display: none;
+      }
+    }
 
     .rank {
       font-size: 1.2rem;
@@ -27,8 +38,29 @@ const MyMarketItem = styled.tr`
     width: 237px;
     margin-left: 10px;
 
+    @media ${device.phone} {
+      justify-content: center;
+    }
+
+    &.hidden {
+      @media ${device.phone} {
+        display: none;
+      }
+    }
+
+    &.start {
+      @media ${device.phone} {
+        justify-content: start;
+        margin-left: 20px;
+      }
+    }
+
     .wrapper {
       width: 40px;
+
+      @media ${device.phone} {
+        width: 26px;
+      }
     }
 
     .logo {
@@ -39,6 +71,10 @@ const MyMarketItem = styled.tr`
       text-transform: uppercase;
       color: var(--slate);
       margin-left: 10px;
+
+      @media ${device.phone} {
+        display: none;
+      }
     }
   }
 `;
@@ -77,10 +113,10 @@ export default function MarketItem({
 
   return (
     <MyMarketItem id={id}>
-      <td className="container">
+      <td className="container hidden">
         <p className="rank">{marketCapRank}</p>
       </td>
-      <td className="data-wrapper">
+      <td className="data-wrapper start">
         <div className="wrapper">
           <Image
             className="logo"
@@ -99,7 +135,7 @@ export default function MarketItem({
       <td className="data-wrapper">
         <PrimaryText color={color} text={priceChange24h} />
       </td>
-      <td className="data-wrapper">
+      <td className="data-wrapper hidden">
         <PrimaryText text={marketCap} />
       </td>
     </MyMarketItem>
