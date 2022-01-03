@@ -12,6 +12,7 @@ const MyListHeader = styled.thead`
 
     @media ${device.tablet} {
       width: 100vw;
+      margin-top: 0;
     }
   }
 

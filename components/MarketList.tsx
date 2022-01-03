@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import wholeNumberFormatter from "../JS/wholeNumberFormatter";
 import numberFormatter from "../JS/numberFormatter";
 import styled from "styled-components";
+import { device } from "../JS/device";
 
 export default function MarketList() {
   const [coins, setCoins] = useState<any[]>([]);
@@ -31,15 +32,25 @@ export default function MarketList() {
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  const Table = styled.table`
+    @media ${device.tablet} {
+      width: 100vw;
+    }
+  `;
+
   const TBody = styled.tbody`
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media ${device.tablet} {
+      width: 100vw;
+    }
   `;
 
   return (
-    <table>
+    <Table>
       <ListHeader />
       <TBody>
         {filteredCoins.map(
@@ -78,6 +89,6 @@ export default function MarketList() {
           }
         )}
       </TBody>
-    </table>
+    </Table>
   );
 }
