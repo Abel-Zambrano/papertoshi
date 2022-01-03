@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Link from "next/link";
 import links from "../data/links";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeMenu } from "../actions";
 
 const List = styled.ul`
@@ -14,10 +14,17 @@ const ListItem = styled.li`
   color: var(--white);
   line-height: 5rem;
   font-size: 2.5rem;
+  opacity: 0;
+  transition: opacity 600ms ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
 `;
 
 export default function MobileLinks() {
   const dispatch = useDispatch();
+  const mobileMenu = useSelector((state: any) => state.mobileMenu);
 
   const handleMenuClose = () => {
     dispatch(closeMenu());
@@ -27,7 +34,11 @@ export default function MobileLinks() {
     <List>
       {links.map(({ id, name, url }) => {
         return (
-          <ListItem onClick={handleMenuClose} key={id}>
+          <ListItem
+            className={`${mobileMenu ? "active" : ""}`}
+            onClick={handleMenuClose}
+            key={id}
+          >
             <Link href={url}>{name}</Link>
           </ListItem>
         );
