@@ -9,7 +9,7 @@ const MyMobileNavMenu = styled.div`
   height: 0;
   background-color: var(--primary);
   visibility: hidden;
-  transition: all 300ms ease-in-out;
+  transition: all 600ms ease-in-out;
   z-index: 5000;
 
   &.visible {

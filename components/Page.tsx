@@ -70,6 +70,10 @@ const ContainerColumn = styled.div`
   width: 100%;
   height: 100vh;
   overflow: scroll;
+
+  @media ${device.tablet} {
+    width: 100vw;
+  }
 `;
 
 type Props = {

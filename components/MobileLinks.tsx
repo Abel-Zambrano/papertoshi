@@ -15,7 +15,7 @@ const ListItem = styled.li`
   line-height: 5rem;
   font-size: 2.5rem;
   opacity: 0;
-  transition: opacity 600ms ease-in-out;
+  transition: opacity 300ms ease-in;
 
   &.active {
     opacity: 1;
