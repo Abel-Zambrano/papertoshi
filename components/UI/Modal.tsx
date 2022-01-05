@@ -5,7 +5,7 @@ import TradeForm from "../TradeForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { cancelConfirm, changeAmount, changeValue } from "../../actions/index";
-// import formatter from "../../JS/formatter";
+import { device } from "../../JS/device";
 
 const MyModal = styled.div`
   position: fixed;
@@ -20,6 +20,12 @@ const MyModal = styled.div`
   height: 600px;
   z-index: 1000;
   box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
+
+  @media ${device.phone} {
+    top: 0;
+    height: 100%;
+    border-radius: 0;
+  }
 `;
 
 const ExitButton = styled.div`
@@ -29,6 +35,10 @@ const ExitButton = styled.div`
   width: 100%;
   height: 30px;
 
+  @media ${device.phone} {
+    height: 80px;
+  }
+
   .exit-icon {
     width: auto;
     height: 22px;
@@ -36,6 +46,11 @@ const ExitButton = styled.div`
     color: var(--gray);
     :hover {
       color: var(--slate);
+    }
+
+    @media ${device.phone} {
+      height: 40px;
+      margin: 20px 20px 0 0;
     }
   }
 `;
@@ -47,6 +62,10 @@ const Heading = styled.div`
   justify-content: space-around;
   width: 100%;
   height: 100px;
+
+  @media ${device.phone} {
+    margin-top: 80px;
+  }
 
   #image {
     border-radius: 50%;

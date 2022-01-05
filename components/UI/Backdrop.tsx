@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { cancelConfirm, changeAmount, changeValue } from "../../actions/index";
+import { device } from "../../JS/device";
 
 const MyBackdrop = styled.div`
   position: fixed;
@@ -13,6 +14,10 @@ const MyBackdrop = styled.div`
   z-index: 500;
   top: 0;
   left: 0;
+
+  @media ${device.phone} {
+    display: none;
+  }
 `;
 
 type BackdropProps = {

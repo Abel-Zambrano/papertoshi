@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Image from "next/image";
 import Modal from "./UI/Modal";
 import { useSelector } from "react-redux";
+import { device } from "../JS/device";
 
 const MyCryptoItem = styled.li`
   display: flex;
@@ -15,6 +16,10 @@ const MyCryptoItem = styled.li`
   border-radius: 16px;
   margin: 20px 0;
   box-shadow: 1px 6px 10px 3px rgba(0, 0, 0, 0.3);
+
+  @media ${device.phone} {
+    width: 94vw;
+  }
 
   .container {
     display: flex;
@@ -58,6 +63,10 @@ const MyCryptoItem = styled.li`
       font-size: 5rem;
       font-weight: 200;
       margin-left: 50px;
+
+      @media ${device.phone} {
+        font-size: 2.4rem;
+      }
     }
 
     &-button {
@@ -81,6 +90,10 @@ const MyCryptoItem = styled.li`
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+
+    @media ${device.tablet} {
+      margin-top: 10px;
+    }
 
     &-change {
       margin-left: 10px;
@@ -154,7 +167,7 @@ export default function TradeItem({
           </div>
         </div>
         <div className="asset-trade">
-          <h2 className="asset-trade-value">$1,000</h2>
+          <h2 className="asset-trade-value">$0</h2>
           <button className="asset-trade-button" onClick={tradeModalHandler}>
             Trade
           </button>

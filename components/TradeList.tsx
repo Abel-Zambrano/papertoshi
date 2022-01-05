@@ -2,7 +2,6 @@ import styled from "styled-components";
 import TradeItem from "./TradeItem";
 import { useSelector } from "react-redux";
 import numberFormatter from "../JS/numberFormatter";
-import tradeLink from "../reducers";
 
 const MyCryptoList = styled.ol`
   display: flex;

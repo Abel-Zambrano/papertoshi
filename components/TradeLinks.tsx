@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { useState } from "react";
 import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
-import { setLink, unsetLink } from "../actions/index";
+import { setLink } from "../actions/index";
+import { device } from "../JS/device";
 
 const MyTradeLinks = styled.div`
   display: flex;
@@ -17,6 +17,10 @@ const MyTradeLinks = styled.div`
     rgba(255, 255, 255, 1) 0%,
     rgba(230, 233, 255, 1) 100%
   );
+
+  @media ${device.tablet} {
+    display: none;
+  }
 `;
 
 const List = styled.ul`
