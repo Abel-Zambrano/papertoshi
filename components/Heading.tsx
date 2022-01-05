@@ -18,6 +18,12 @@ const MyHeading = styled.div`
     border-bottom: none;
     height: 70px;
   }
+
+  &.hidden {
+    @media ${device.tablet} {
+      display: none;
+    }
+  }
 `;
 
 export default function Heading() {
@@ -25,7 +31,7 @@ export default function Heading() {
   const pathName = router.pathname.substr(1);
 
   return (
-    <MyHeading>
+    <MyHeading className={`${pathName != "market" ? "hidden" : ""}`}>
       <PageTitle title={pathName} />
       {pathName === "market" ? <SearchBar /> : null}
       <UserInfo />

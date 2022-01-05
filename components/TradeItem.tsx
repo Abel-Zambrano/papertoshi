@@ -91,10 +91,6 @@ const MyCryptoItem = styled.li`
     align-items: center;
     margin-bottom: 10px;
 
-    @media ${device.tablet} {
-      margin-top: 10px;
-    }
-
     &-change {
       margin-left: 10px;
     }
