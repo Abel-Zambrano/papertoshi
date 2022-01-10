@@ -25,15 +25,16 @@ const Content = styled.div`
   margin-bottom: 100px;
 
   @media ${device.phone} {
-    width: 380px;
-    min-width: 380px;
-    margin-top: 400px;
-    margin-bottom: 100px;
+    min-width: 100vw;
   }
 `;
 
 const MyLogo = styled(Logo)`
   margin-top: 10px;
+
+  @media ${device.phone} {
+    margin-bottom: 60px;
+  }
 `;
 
 const Info = styled.p`
@@ -44,6 +45,7 @@ const Info = styled.p`
 
   @media ${device.phone} {
     font-size: 1.2rem;
+    padding: 0 60px 60px 60px;
   }
 `;
 
@@ -87,6 +89,7 @@ const OctoWrapper = styled.div`
 
     @media ${device.phone} {
       font-size: 10rem;
+      margin-top: 40px;
     }
   }
 `;
