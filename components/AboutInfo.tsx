@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import { GiOctopus } from "react-icons/gi";
 import Link from "next/link";
+import { device } from "../JS/device";
 
 const MyAboutInfo = styled.div`
   display: flex;
@@ -17,10 +18,16 @@ const Content = styled.div`
   align-items: center;
   flex-direction: column;
   width: 800px;
+  min-width: 800px;
   height: 900px;
   background-color: var(--off-white);
   margin-top: 300px;
   margin-bottom: 100px;
+
+  @media ${device.phone} {
+    width: 380px;
+    min-width: 380px;
+  }
 `;
 
 const MyLogo = styled(Logo)`
@@ -32,6 +39,10 @@ const Info = styled.p`
   font-size: 1.8rem;
   line-height: 3rem;
   color: var(--black-light);
+
+  @media ${device.phone} {
+    font-size: 1.2rem;
+  }
 `;
 
 const Contact = styled.span`
@@ -45,11 +56,19 @@ const SignWrapper = styled.div`
   align-items: center;
   padding-right: 200px;
   width: 100%;
+
+  @media ${device.phone} {
+    padding-right: 100px;
+  }
 `;
 
 const Sign = styled.h3`
   font-size: 1.8rem;
   color: var(--black-light);
+
+  @media ${device.phone} {
+    font-size: 1.2rem;
+  }
 `;
 
 const OctoWrapper = styled.div`
@@ -59,6 +78,14 @@ const OctoWrapper = styled.div`
   .sign-octo {
     color: var(--white);
     font-size: 30rem;
+
+    @media ${device.tablet} {
+      font-size: 20rem;
+    }
+
+    @media ${device.phone} {
+      font-size: 10rem;
+    }
   }
 `;
 

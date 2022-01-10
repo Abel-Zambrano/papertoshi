@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { GiOctopus } from "react-icons/gi";
+import { device } from "../JS/device";
 
 const MyLogo = styled.div`
   display: flex;
@@ -19,12 +20,22 @@ const IconWrapper = styled.div`
   color: var(--white);
   font-size: 3rem;
   background-color: var(--primary);
+
+  @media ${device.phone} {
+    height: 35px;
+    width: 35px;
+    font-size: 2.4rem;
+  }
 `;
 
 const Name = styled.h1`
   font-size: 3rem;
   color: var(--black-light);
   margin-left: 10px;
+
+  @media ${device.phone} {
+    font-size: 2rem;
+  }
 `;
 
 type Props = {
