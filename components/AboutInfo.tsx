@@ -11,6 +11,10 @@ const MyAboutInfo = styled.div`
   width: 100%;
   height: 100%;
   overflow: scroll;
+
+  @media ${device.phone} {
+    overflow: hidden;
+  }
 `;
 
 const Content = styled.div`
@@ -26,6 +30,9 @@ const Content = styled.div`
 
   @media ${device.phone} {
     min-width: 100vw;
+    margin-top: 0;
+    margin-bottom: 0;
+    height: 90vh;
   }
 `;
 
@@ -33,7 +40,7 @@ const MyLogo = styled(Logo)`
   margin-top: 10px;
 
   @media ${device.phone} {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   }
 `;
 
@@ -45,7 +52,7 @@ const Info = styled.p`
 
   @media ${device.phone} {
     font-size: 1.2rem;
-    padding: 0 60px 60px 60px;
+    padding: 0 60px 30px 60px;
   }
 `;
 
@@ -89,7 +96,7 @@ const OctoWrapper = styled.div`
 
     @media ${device.phone} {
       font-size: 10rem;
-      margin-top: 40px;
+      margin-top: 20px;
     }
   }
 `;
