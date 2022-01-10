@@ -27,6 +27,8 @@ const Content = styled.div`
   @media ${device.phone} {
     width: 380px;
     min-width: 380px;
+    margin-top: 400px;
+    margin-bottom: 100px;
   }
 `;
 
