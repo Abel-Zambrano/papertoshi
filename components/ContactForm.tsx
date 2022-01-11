@@ -1,10 +1,15 @@
 import styled from "styled-components";
+import { device } from "../JS/device";
 
 const MyContactForm = styled.form`
   width: 400px;
   height: 500px;
   padding: 60px 40px 70px 40px;
   box-shadow: 1px 6px 10px 1px rgba(0, 0, 0, 0.3);
+
+  @media ${device.phone} {
+    width: 70vw;
+  }
 `;
 
 const NameWrapper = styled.div`
@@ -35,6 +40,10 @@ const Input = styled.input`
 
   &.name-input {
     width: 190px;
+
+    @media ${device.phone} {
+      width: 130px;
+    }
   }
 `;
 

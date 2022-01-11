@@ -2,33 +2,42 @@ import styled from "styled-components";
 import { HiLightBulb } from "react-icons/hi";
 import { BiSupport, BiSmile } from "react-icons/bi";
 import ContactForm from "./ContactForm";
+import { device } from "../JS/device";
 
 const Container = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
+
+  @media ${device.phone} {
+    flex-direction: column;
+  }
 `;
 
 const InfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
   width: 50%;
+  padding-left: 100px;
+
+  @media ${device.phone} {
+    align-items: center;
+    width: 100%;
+    margin: 60px 0 60px 0;
+    padding-left: 0;
+  }
 `;
 
 const Heading = styled.h2`
-  font-size: 2rem;
+  font-size: 1.6rem;
   text-decoration: underline;
-  margin: 0 0 30px 100px;
-`;
-
-const Info = styled.p`
-  font-size: 1.8rem;
-  color: var(--black-light);
-  margin-left: 100px;
-  line-height: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
 `;
 
 const List = styled.ul`
-  margin: 30px 0 0 100px;
   list-style: none;
   line-height: 8rem;
 `;
@@ -36,7 +45,7 @@ const List = styled.ul`
 const Item = styled.li`
   display: flex;
   align-items: center;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
 `;
 
 const IconWrapper = styled.div`
@@ -63,7 +72,6 @@ export default function ContactInfo() {
     <Container>
       <InfoWrapper>
         <Heading>Contact Us</Heading>
-        <Info>We would love to hear from you!</Info>
         <List>
           <Item>
             <IconWrapper>
