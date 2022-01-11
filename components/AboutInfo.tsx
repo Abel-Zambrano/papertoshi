@@ -34,7 +34,6 @@ const Content = styled.div`
     min-width: 100vw;
     margin-top: 0;
     margin-bottom: 0;
-    height: 90vh;
   }
 `;
 
