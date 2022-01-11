@@ -108,7 +108,7 @@ export default function AboutInfo() {
       <Content>
         <MyLogo />
         <Info>
-          Papertoshi is a cyrpto trading simulator. It was designed after stock
+          Papertoshi is a cyrpto trading simulator. It was inspired by stock
           trading simulators also known as “Paper Trading.” Papertoshi was
           designed for informative purposes by providing current data of a
           crypto market, so that a user may practice trading crypto without
