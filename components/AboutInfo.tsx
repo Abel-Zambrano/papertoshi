@@ -41,7 +41,7 @@ const MyLogo = styled(Logo)`
   margin-top: 10px;
 
   @media ${device.phone} {
-    margin-bottom: 30px;
+    margin-bottom: 60px;
   }
 `;
 
@@ -97,7 +97,7 @@ const OctoWrapper = styled.div`
 
     @media ${device.phone} {
       font-size: 10rem;
-      margin-top: 20px;
+      margin-top: 60px;
     }
   }
 `;
