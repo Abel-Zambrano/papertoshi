@@ -14,6 +14,7 @@ const MyAboutInfo = styled.div`
 
   @media ${device.phone} {
     overflow: hidden;
+    height: 900px;
   }
 `;
 
