@@ -21,6 +21,7 @@ const MySideBar = styled.div`
     width: 100vw;
     min-width: 100vw;
     align-items: center;
+    position: relative;
   }
   @media ${device.phone} {
     height: 70px;
