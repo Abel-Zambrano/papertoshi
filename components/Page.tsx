@@ -32,7 +32,6 @@ html {
 body {
   padding: 0;
   margin: 0;
-  height: 100%;
   font-family: 'Mulish', sans-serif;
 }
 a {
@@ -55,8 +54,8 @@ input {
 
 const ContainerRow = styled.div`
   display: flex;
+  max-width: 100vw;
   max-height: 100vh;
-  overflow: hidden;
 
   @media ${device.tablet} {
     flex-direction: column;
@@ -66,10 +65,10 @@ const ContainerRow = styled.div`
 const ContainerColumn = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: 100vh;
-  width: 100%;
   height: 100vh;
-  overflow: scroll;
+  width: 100%;
+  max-height: 100vh;
+  /* overflow: scroll; */
 
   @media ${device.tablet} {
     width: 100vw;

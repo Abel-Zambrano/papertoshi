@@ -3,17 +3,16 @@ import MobileLinks from "./MobileLinks";
 
 const MyMobileNavMenu = styled.div`
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: center;
   width: 100vw;
   height: 0;
   background-color: var(--primary);
-  visibility: hidden;
   transition: all 600ms ease-in-out;
   z-index: 5000;
 
   &.visible {
-    visibility: visible;
+    display: flex;
     height: 100%;
   }
 `;
