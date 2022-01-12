@@ -58,12 +58,12 @@ const MyMobileMenuButton = styled.div`
     &#nav-icon1 span:nth-child(1) {
       top: 0px;
       @media ${device.phone} {
-        top: 10px;
+        top: 8px;
       }
     }
 
     &#nav-icon1 span:nth-child(2) {
-      top: 18px;
+      top: 17px;
     }
 
     &#nav-icon1 span:nth-child(3) {
