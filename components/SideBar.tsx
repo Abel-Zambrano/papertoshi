@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../actions";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import { GiOctopus } from "react-icons/gi";
@@ -122,11 +124,17 @@ const HR = styled.hr`
 `;
 
 export default function SideBar() {
+  const dispatch = useDispatch();
+
+  const handleCloseMenu = () => {
+    dispatch(closeMenu());
+  };
+
   return (
     <MySideBar>
       <HeadingWrapper>
         <Link href="/" passHref>
-          <div className="heading">
+          <div className="heading" onClick={handleCloseMenu}>
             <div className="heading__wrapper">
               <GiOctopus className="heading__logo" />
             </div>
