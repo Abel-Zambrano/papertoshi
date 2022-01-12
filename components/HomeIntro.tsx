@@ -70,8 +70,6 @@ const Summary = styled.div`
 
   @media ${device.tablet} {
     align-items: center;
-  }
-  @media ${device.tablet} {
     width: 100%;
     margin: 20px;
   }
@@ -87,8 +85,7 @@ const Info = styled.div`
   }
 
   @media ${device.phone} {
-    width: 100%;
-    margin-left: 40px;
+    width: 350px;
   }
 
   .info-text {
