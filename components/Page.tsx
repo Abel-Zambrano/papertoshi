@@ -55,7 +55,7 @@ input {
 
 const ContainerRow = styled.div`
   display: flex;
-  min-height: 100vh;
+  max-height: 100vh;
   overflow: hidden;
 
   @media ${device.tablet} {
