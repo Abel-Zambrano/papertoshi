@@ -9,7 +9,6 @@ const MyCryptoList = styled.ol`
   align-items: center;
   width: 100%;
   max-height: 100vh;
-  overflow: scroll;
 `;
 
 type ListProps = {

@@ -54,7 +54,6 @@ const MyMarketItem = styled.tr`
     &.start {
       @media ${device.phone} {
         justify-content: start;
-        /* margin-left: 20px; */
       }
     }
 

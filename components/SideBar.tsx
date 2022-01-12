@@ -130,7 +130,7 @@ export default function SideBar() {
   };
 
   return (
-    <MySideBar>
+    <MySideBar className="mobile-view">
       <HeadingWrapper>
         <Link href="/" passHref>
           <div className="heading" onClick={handleCloseMenu}>
