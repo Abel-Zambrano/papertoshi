@@ -68,14 +68,15 @@ const ContainerColumn = styled.div`
   height: 100vh;
   width: 100%;
   max-height: 100vh;
+  overflow: hidden;
 
   @media ${device.tablet} {
     width: 100vw;
   }
 
-  /* @media ${device.phone} {
-    overflow-x: hidden;
-  } */
+  @media ${device.tablet} {
+    overflow: visible;
+  }
 `;
 
 type Props = {
