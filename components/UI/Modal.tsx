@@ -38,7 +38,6 @@ const ExitButton = styled.div`
   @media ${device.phone} {
     margin-top: 10px;
     width: 380px;
-    justify-content: start;
   }
 
   .exit-icon {
@@ -61,7 +60,7 @@ const Heading = styled.div`
   height: 100px;
 
   @media ${device.phone} {
-    margin-top: 80px;
+    margin-top: 60px;
   }
 
   #image {
