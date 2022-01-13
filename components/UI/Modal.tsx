@@ -36,7 +36,8 @@ const ExitButton = styled.div`
   height: 30px;
 
   @media ${device.phone} {
-    height: 80px;
+    margin-top: 10px;
+    width: 380px;
   }
 
   .exit-icon {
@@ -46,11 +47,6 @@ const ExitButton = styled.div`
     color: var(--gray);
     :hover {
       color: var(--slate);
-    }
-
-    @media ${device.phone} {
-      height: 40px;
-      margin: 20px 20px 0 0;
     }
   }
 `;
