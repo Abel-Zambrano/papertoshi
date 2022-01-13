@@ -133,6 +133,15 @@ const Confirm = styled.button`
   :active {
     transform: translateY(-1px);
   }
+
+  @media ${device.tablet} {
+    :hover {
+      transform: translateY(0);
+    }
+    :active {
+      transform: translateY(0);
+    }
+  }
 `;
 
 type Props = {
