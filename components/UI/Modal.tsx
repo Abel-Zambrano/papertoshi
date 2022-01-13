@@ -38,6 +38,7 @@ const ExitButton = styled.div`
   @media ${device.phone} {
     margin-top: 10px;
     width: 380px;
+    justify-content: start;
   }
 
   .exit-icon {
