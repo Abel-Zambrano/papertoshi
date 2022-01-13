@@ -15,6 +15,7 @@ import {
   coinDecrease,
   assetsDecrease,
 } from "../actions";
+import SuccessCheck from "./UI/SuccessCheck";
 
 const MyTradeForm = styled.div`
   display: flex;
@@ -211,7 +212,10 @@ export default function TradeForm({ rawPrice }: Props) {
         <BottomPanel>
           {confirm ? (
             <ConfirmWrapper>
-              <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
+              <Confirm onClick={handleConfirm}>
+                CONFIRM
+                <SuccessCheck />
+              </Confirm>
             </ConfirmWrapper>
           ) : (
             <TradeButtons>
