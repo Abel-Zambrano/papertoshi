@@ -40,7 +40,7 @@ const ExitButton = styled.div`
   }
 
   .exit-icon {
-    width: auto;
+    width: 22px;
     height: 22px;
     margin: 12px 12px 0 0;
     color: var(--gray);

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import numberFormatter from "../JS/numberFormatter";
 import { useSelector, useDispatch } from "react-redux";
+import { device } from "../JS/device";
 import {
   changeAmount,
   changeValue,
@@ -60,12 +61,15 @@ const TradeValue = styled.p`
 const BottomPanel = styled.div`
   display: flex;
   justify-content: center;
-  /* margin-top: 120px; */
   background-color: var(--slate-light-2);
   width: 100%;
   height: 100%;
   border-radius: 30px 30px 14px 14px;
   box-shadow: 0px -6px 6px rgba(0, 0, 0, 0.2);
+
+  @media ${device.phone} {
+    border-radius: 30px 30px 0px 0px;
+  }
 `;
 
 const TradeButtons = styled.div`
