@@ -111,8 +111,6 @@ export default function Modal({
   closeModal,
   rawPrice,
 }: Props) {
-  // const USD = useSelector((state: any) => state.USD);
-  // const currentValue = formatter.format(USD);
   const dispatch = useDispatch();
 
   const handleExitModal = () => {

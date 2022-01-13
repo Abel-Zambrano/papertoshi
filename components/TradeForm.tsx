@@ -97,6 +97,15 @@ const Button = styled.button`
     transform: translateY(-1px);
   }
 
+  @media ${device.tablet} {
+    :hover {
+      transform: translateY(0);
+    }
+    :active {
+      transform: translateY(0);
+    }
+  }
+
   &.sell {
     margin-top: 40px;
   }
