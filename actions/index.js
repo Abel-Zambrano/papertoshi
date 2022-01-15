@@ -196,3 +196,37 @@ export const closeMenu = () => {
     });
   };
 };
+
+// success
+export const successTrue = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "SUCCESS_TRUE",
+    });
+  };
+};
+
+export const successFalse = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "SUCCESS_FALSE",
+    });
+  };
+};
+
+// tradeModal
+export const openModal = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "OPEN_MODAL",
+    });
+  };
+};
+
+export const closeModal = () => {
+  return (dispatch) => {
+    dispatch({
+      type: "CLOSE_MODAL",
+    });
+  };
+};

@@ -11,6 +11,8 @@ import purchaseReducer from "./purchaseReducer";
 import tradeLinkReducer from "./tradeLinkReducer";
 import coinsTradeReducer from "./coinsTradeReducer";
 import mobileMenuReducer from "./mobileMenuReducer";
+import successReducer from "./successReducer";
+import tradeModalReducer from "./tradeModalReducer";
 
 const allReducers = combineReducers({
   search: searchReducer,
@@ -25,6 +27,8 @@ const allReducers = combineReducers({
   tradeLink: tradeLinkReducer,
   coinsTrade: coinsTradeReducer,
   mobileMenu: mobileMenuReducer,
+  success: successReducer,
+  tradeModal: tradeModalReducer,
 });
 
 export default allReducers;
