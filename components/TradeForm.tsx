@@ -80,9 +80,8 @@ const BottomPanel = styled.div`
 const TradeButtons = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* width: 200px; */
+  justify-content: space-evenly;
+  height: 100%;
 `;
 
 const Button = styled.button`
@@ -110,10 +109,6 @@ const Button = styled.button`
       transform: translateY(0);
     }
   }
-
-  &.sell {
-    margin-top: 40px;
-  }
 `;
 
 const SCWrapper = styled.div`
@@ -125,14 +120,14 @@ const SuccessWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50%;
+  height: 100%;
 `;
 
 const ConfirmWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 50%;
+  height: 100%;
 `;
 
 const Confirm = styled.button`
@@ -273,22 +268,21 @@ export default function TradeForm({ rawPrice }: Props) {
         <BottomPanel>
           {confirm ? (
             <SCWrapper>
-              <SuccessWrapper>
-                {success ? <SuccessCheck /> : null}
-              </SuccessWrapper>
-              <ConfirmWrapper>
-                <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
-                <Cancel onClick={handleCancel}>CANCEL</Cancel>
-              </ConfirmWrapper>
+              {success ? (
+                <SuccessWrapper>
+                  <SuccessCheck />
+                </SuccessWrapper>
+              ) : (
+                <ConfirmWrapper>
+                  <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
+                  <Cancel onClick={handleCancel}>CANCEL</Cancel>
+                </ConfirmWrapper>
+              )}
             </SCWrapper>
           ) : (
             <TradeButtons>
-              <Button className="buy" onClick={handleBuy}>
-                BUY
-              </Button>
-              <Button className="sell" onClick={handleSell}>
-                SELL
-              </Button>
+              <Button onClick={handleBuy}>BUY</Button>
+              <Button onClick={handleSell}>SELL</Button>
             </TradeButtons>
           )}
         </BottomPanel>
