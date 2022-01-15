@@ -78,7 +78,7 @@ const CheckIcon = styled.div`
   position: relative;
   border-radius: 50%;
   box-sizing: content-box;
-  border: 4px solid #4caf50;
+  border: 4px solid var(--white);
 
   &::before {
     top: 3px;
@@ -116,7 +116,7 @@ const IconCircle = styled.div`
   border-radius: 50%;
   position: absolute;
   box-sizing: content-box;
-  border: 4px solid rgba(76, 175, 80, 0.5);
+  border: 4px solid rgba(255, 255, 255, 0.5);
 `;
 
 const IconFix = styled.div`
@@ -132,7 +132,7 @@ const IconFix = styled.div`
 
 const IconLine = styled.span`
   height: 5px;
-  background-color: #4caf50;
+  background-color: var(--white);
   display: block;
   border-radius: 2px;
   position: absolute;
