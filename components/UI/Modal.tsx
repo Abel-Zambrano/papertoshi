@@ -4,7 +4,12 @@ import Image from "next/image";
 import TradeForm from "../TradeForm";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { cancelConfirm, changeAmount, changeValue } from "../../actions/index";
+import {
+  cancelConfirm,
+  changeAmount,
+  changeValue,
+  closeModal,
+} from "../../actions/index";
 import { device } from "../../JS/device";
 
 const MyModal = styled.div`
@@ -15,16 +20,17 @@ const MyModal = styled.div`
   align-items: center;
   background-color: var(--white);
   border-radius: 14px 14px 16px 16px;
+  border: 2px solid var(--primary);
   display: flex;
   width: 400px;
   height: 600px;
   z-index: 1000;
-  box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.2);
 
   @media ${device.phone} {
     top: 0;
     height: 100%;
     border-radius: 0;
+    border: none;
   }
 `;
 
@@ -108,13 +114,12 @@ export default function Modal({
   image,
   currentPrice,
   tradeModal,
-  closeModal,
   rawPrice,
 }: Props) {
   const dispatch = useDispatch();
 
   const handleExitModal = () => {
-    closeModal();
+    dispatch(closeModal());
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
     dispatch(changeValue(0));
@@ -124,7 +129,7 @@ export default function Modal({
     <>
       {tradeModal ? (
         <>
-          <Backdrop closeModal={closeModal}></Backdrop>
+          <Backdrop />
           <MyModal key={id} id={id}>
             <ExitButton>
               <AiOutlineCloseCircle

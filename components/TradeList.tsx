@@ -11,10 +11,6 @@ const MyCryptoList = styled.ol`
   width: 100%;
   max-height: 100vh;
   overflow: scroll;
-
-  @media ${device.tablet} {
-    overflow: visible;
-  }
 `;
 
 type ListProps = {

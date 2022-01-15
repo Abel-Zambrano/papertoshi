@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Modal from "./UI/Modal";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { closeModal, openModal } from "../actions";
 import { device } from "../JS/device";
 
 const MyCryptoItem = styled.li`
@@ -120,11 +121,12 @@ export default function TradeItem({
   currentPrice,
   rawPrice,
 }: ListProps) {
-  const [tradeModal, setTradeModal] = useState(false);
+  const dispatch = useDispatch();
   const coins = useSelector((state: any) => state.coins);
+  const tradeModal = useSelector((state: any) => state.tradeModal);
 
   const tradeModalHandler = () => {
-    setTradeModal(!tradeModal);
+    dispatch(openModal());
     if (tradeModal === false) {
       document.body.style.overflow = "hidden";
     } else {
