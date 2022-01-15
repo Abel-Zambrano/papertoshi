@@ -1,6 +1,11 @@
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
-import { cancelConfirm, changeAmount, changeValue } from "../../actions/index";
+import {
+  cancelConfirm,
+  changeAmount,
+  changeValue,
+  closeModal,
+} from "../../actions/index";
 import { device } from "../../JS/device";
 
 const MyBackdrop = styled.div`
@@ -8,27 +13,22 @@ const MyBackdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.2);
   width: 100%;
   height: 100vh;
   z-index: 500;
   top: 0;
   left: 0;
-
-  @media ${device.phone} {
+  /* @media ${device.phone} {
     display: none;
-  }
+  } */
 `;
 
-type BackdropProps = {
-  closeModal: any;
-};
-
-export default function Backdrop({ closeModal }: BackdropProps) {
+export default function Backdrop() {
   const dispatch = useDispatch();
 
   const handleExitModal = () => {
-    closeModal();
+    dispatch(closeModal());
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
     dispatch(changeValue(0));
