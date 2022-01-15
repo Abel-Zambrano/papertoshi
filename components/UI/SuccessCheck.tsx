@@ -102,7 +102,7 @@ const CheckIcon = styled.div`
     content: "";
     height: 100px;
     position: absolute;
-    background: #ffffff;
+    background: var(--slate-light-2);
     transform: rotate(-45deg);
   }
 `;
@@ -127,7 +127,7 @@ const IconFix = styled.div`
   height: 85px;
   position: absolute;
   transform: rotate(-45deg);
-  background-color: #ffffff;
+  background-color: var(--slate-light-2);
 `;
 
 const IconLine = styled.span`
@@ -160,9 +160,13 @@ const IconLine = styled.span`
   }
 `;
 
-export default function SuccessCheck() {
+type Props = {
+  className?: string;
+};
+
+export default function SuccessCheck({ className }: Props) {
   return (
-    <SuccessCheckMark>
+    <SuccessCheckMark className={className}>
       <CheckIcon>
         <IconLine className="line-tip"></IconLine>
         <IconLine className="line-long"></IconLine>
