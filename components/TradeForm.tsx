@@ -9,11 +9,15 @@ import {
   USDSell,
   assetsIncrease,
   getConfirm,
+  cancelConfirm,
   processPurchase,
   cancelPurchase,
   coinIncrease,
   coinDecrease,
   assetsDecrease,
+  successTrue,
+  successFalse,
+  closeModal,
 } from "../actions";
 import SuccessCheck from "./UI/SuccessCheck";
 
@@ -78,12 +82,12 @@ const TradeButtons = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 200px;
+  /* width: 200px; */
 `;
 
 const Button = styled.button`
   height: 40px;
-  width: 100%;
+  width: 200px;
   border: none;
   border-radius: 14px;
   transition: all 0.3s ease 0s;
@@ -112,16 +116,54 @@ const Button = styled.button`
   }
 `;
 
-const ConfirmWrapper = styled.div`
+const SCWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const SuccessWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
+  height: 50%;
+`;
+
+const ConfirmWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 50%;
 `;
 
 const Confirm = styled.button`
   height: 40px;
-  width: 100%;
+  width: 200px;
+  border-radius: 14px;
+  background-color: var(--primary);
+  border: 1.5px solid var(--white);
+  color: white;
+  transition: all 0.3s ease 0s;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+  :hover {
+    transform: translateY(-7px);
+  }
+  :active {
+    transform: translateY(-1px);
+  }
+
+  @media ${device.tablet} {
+    :hover {
+      transform: translateY(0);
+    }
+    :active {
+      transform: translateY(0);
+    }
+  }
+`;
+
+const Cancel = styled.button`
+  height: 40px;
+  width: 200px;
   border-radius: 14px;
   background-color: var(--primary);
   border: 1.5px solid var(--white);
@@ -157,6 +199,8 @@ export default function TradeForm({ rawPrice }: Props) {
   const confirm = useSelector((state: any) => state.confirm);
   const purchase = useSelector((state: any) => state.purchase);
   const dispatch = useDispatch();
+  const success = useSelector((state: any) => state.success);
+
   let currentTradeValue = numberFormatter.format(tradeValue);
 
   const handleCoinChange = (e: any) => {
@@ -184,16 +228,33 @@ export default function TradeForm({ rawPrice }: Props) {
     }
   };
 
+  const handleCancel = () => {
+    dispatch(cancelConfirm());
+    dispatch(cancelPurchase());
+    dispatch(successFalse());
+  };
+
+  const handleSuccessExit = () => {
+    setTimeout(() => {
+      handleCancel();
+      dispatch(closeModal());
+    }, 3000);
+  };
+
   const handleConfirm = (e: any) => {
     e.preventDefault();
     if (purchase === true) {
       dispatch(coinIncrease(coinTradeAmount));
       dispatch(USDBuy(tradeValue));
       dispatch(assetsIncrease(tradeValue));
+      dispatch(successTrue());
+      handleSuccessExit();
     } else if (purchase === false) {
       dispatch(coinDecrease(coinTradeAmount));
       dispatch(assetsDecrease(tradeValue));
       dispatch(USDSell(tradeValue));
+      dispatch(successTrue());
+      handleSuccessExit();
     }
   };
 
@@ -211,12 +272,15 @@ export default function TradeForm({ rawPrice }: Props) {
         </TradeValue>
         <BottomPanel>
           {confirm ? (
-            <ConfirmWrapper>
-              <Confirm onClick={handleConfirm}>
-                CONFIRM
-                <SuccessCheck />
-              </Confirm>
-            </ConfirmWrapper>
+            <SCWrapper>
+              <SuccessWrapper>
+                {success ? <SuccessCheck /> : null}
+              </SuccessWrapper>
+              <ConfirmWrapper>
+                <Confirm onClick={handleConfirm}>CONFIRM</Confirm>
+                <Cancel onClick={handleCancel}>CANCEL</Cancel>
+              </ConfirmWrapper>
+            </SCWrapper>
           ) : (
             <TradeButtons>
               <Button className="buy" onClick={handleBuy}>
