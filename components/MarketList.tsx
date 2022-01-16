@@ -19,6 +19,7 @@ const TBody = styled.tbody`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 
   @media ${device.tablet} {
     width: 100vw;

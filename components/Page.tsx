@@ -58,6 +58,8 @@ const ContainerRow = styled.div`
   max-height: 100vh;
 
   @media ${device.tablet} {
+    overflow-y: scroll;
+    max-height: none;
     flex-direction: column;
   }
 `;
@@ -68,14 +70,12 @@ const ContainerColumn = styled.div`
   height: 100vh;
   width: 100%;
   max-height: 100vh;
-  overflow: hidden;
+  overflow: hidden; // stays hidden to prevent page nav scroll
 
   @media ${device.tablet} {
+    height: 100%;
+    max-height: none;
     width: 100vw;
-  }
-
-  @media ${device.tablet} {
-    overflow: visible;
   }
 `;
 
