@@ -20,6 +20,7 @@ const MyCryptoItem = styled.li`
 
   @media ${device.phone} {
     width: 94vw;
+    height: 140px;
   }
 
   .container {

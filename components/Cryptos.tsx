@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import axios from "axios";
 import TradeList from "./TradeList";
-import TradeLinks from "./TradeLinks";
+// import TradeLinks from "./TradeLinks"; // todo: remove
 import { useDispatch } from "react-redux";
 import { loadCoins } from "../actions";
 
@@ -26,7 +26,6 @@ export default function Cryptos() {
 
   return (
     <>
-      <TradeLinks />
       <TradeList />
     </>
   );
