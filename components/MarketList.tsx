@@ -8,6 +8,23 @@ import numberFormatter from "../JS/numberFormatter";
 import styled from "styled-components";
 import { device } from "../JS/device";
 
+const Table = styled.table`
+  @media ${device.tablet} {
+    width: 100vw;
+  }
+`;
+
+const TBody = styled.tbody`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media ${device.tablet} {
+    width: 100vw;
+  }
+`;
+
 export default function MarketList() {
   const [coins, setCoins] = useState<any[]>([]);
   const search = useSelector((state: any) => state.search);
@@ -31,23 +48,6 @@ export default function MarketList() {
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
-
-  const Table = styled.table`
-    @media ${device.tablet} {
-      width: 100vw;
-    }
-  `;
-
-  const TBody = styled.tbody`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    @media ${device.tablet} {
-      width: 100vw;
-    }
-  `;
 
   return (
     <Table>
