@@ -119,7 +119,7 @@ export default function AboutInfo() {
           We hope you enjoy trading and using our site to expand your knowledge
           and are welcoming suggestions on improving the site. To submit new
           ideas or suggestions please use the{" "}
-          <Link href="/contact">
+          <Link href="/contact" passHref>
             <Contact>Contact</Contact>
           </Link>{" "}
           page. Thank you, and Ape on!

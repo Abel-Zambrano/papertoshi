@@ -83,7 +83,13 @@ export default function TradeLinks() {
                 handleSetCoin(e.name);
               }}
             >
-              <Image className="logo" src={e.image} height="42" width="42" />
+              <Image
+                className="logo"
+                src={e.image}
+                height="42"
+                width="42"
+                alt="logo"
+              />
             </ListItem>
           );
         })}

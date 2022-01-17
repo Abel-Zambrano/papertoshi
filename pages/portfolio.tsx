@@ -24,6 +24,7 @@ export default function Portfolio() {
           height="500"
           blurDataURL="/portfolio.jpg"
           placeholder="blur"
+          alt="portfolio"
         />
       </ComingSoon>
     </Page>

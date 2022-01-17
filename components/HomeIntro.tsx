@@ -143,6 +143,7 @@ export default function HomeIntro() {
             height="340"
             blurDataURL="/bitcoins.png"
             placeholder="blur"
+            alt="bitcoins"
           />
         </BitcoinImages>
       </TopWrapper>
