@@ -13,15 +13,14 @@ import {
 import { device } from "../../JS/device";
 
 const MyModal = styled.div`
+  display: flex;
   position: fixed;
   top: 10%;
-  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: var(--white);
   border-radius: 14px 14px 16px 16px;
   border: 2px solid var(--primary);
-  display: flex;
   width: 400px;
   height: 600px;
   z-index: 1000;
@@ -120,6 +119,7 @@ export default function Modal({
 
   const handleExitModal = () => {
     dispatch(closeModal());
+    document.body.style.overflow = "unset";
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
     dispatch(changeValue(0));

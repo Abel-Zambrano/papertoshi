@@ -6,7 +6,6 @@ import {
   changeValue,
   closeModal,
 } from "../../actions/index";
-import { device } from "../../JS/device";
 
 const MyBackdrop = styled.div`
   position: fixed;
@@ -19,9 +18,6 @@ const MyBackdrop = styled.div`
   z-index: 500;
   top: 0;
   left: 0;
-  /* @media ${device.phone} {
-    display: none;
-  } */
 `;
 
 export default function Backdrop() {
@@ -29,6 +25,7 @@ export default function Backdrop() {
 
   const handleExitModal = () => {
     dispatch(closeModal());
+    document.body.style.overflow = "unset";
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
     dispatch(changeValue(0));
