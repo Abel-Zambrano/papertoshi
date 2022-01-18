@@ -9,6 +9,7 @@ const MyTradeLinks = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 60px;
   padding: 24px 0 24px 0;
   background: rgb(255, 255, 255);
