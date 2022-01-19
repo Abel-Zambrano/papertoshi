@@ -73,7 +73,6 @@ const ContainerColumn = styled.div`
   overflow: hidden; // stays hidden to prevent page nav scroll
 
   @media ${device.tablet} {
-    height: 100%;
     max-height: none;
     width: 100vw;
   }
