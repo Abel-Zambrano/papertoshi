@@ -9,6 +9,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  margin: 40px 0 40px 0;
 
   @media ${device.phone} {
     flex-direction: column;
@@ -67,6 +68,14 @@ const Text = styled.p`
   margin-left: 14px;
 `;
 
+const StyledContactForm = styled(ContactForm)`
+  margin-right: 50px;
+
+  @media ${device.phone} {
+    margin-right: 0;
+  }
+`;
+
 export default function ContactInfo() {
   return (
     <Container>
@@ -93,7 +102,7 @@ export default function ContactInfo() {
           </Item>
         </List>
       </InfoWrapper>
-      <ContactForm />
+      <StyledContactForm />
     </Container>
   );
 }

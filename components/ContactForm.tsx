@@ -80,9 +80,14 @@ const Button = styled.button`
   }
 `;
 
-export default function ContactInfo() {
+type Props = {
+  className?: string;
+};
+
+export default function ContactForm({ className }: Props) {
   return (
     <MyContactForm
+      className={className}
       name="contact v1"
       method="POST"
       data-netlify="true"
