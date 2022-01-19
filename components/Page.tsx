@@ -75,6 +75,8 @@ const ContainerColumn = styled.div`
   @media ${device.tablet} {
     max-height: none;
     width: 100vw;
+    height: 100%;
+    min-height: 100vh;
   }
 `;
 

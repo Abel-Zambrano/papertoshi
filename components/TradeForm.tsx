@@ -227,6 +227,7 @@ export default function TradeForm({ rawPrice }: Props) {
     dispatch(cancelConfirm());
     dispatch(cancelPurchase());
     dispatch(successFalse());
+    document.body.style.overflow = "unset";
   };
 
   const handleSuccessExit = () => {
