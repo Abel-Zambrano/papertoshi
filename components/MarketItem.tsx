@@ -43,6 +43,7 @@ const MyMarketItem = styled.tr`
 
     @media ${device.phone} {
       justify-content: center;
+      margin-left: 20px;
     }
 
     &.hidden {
