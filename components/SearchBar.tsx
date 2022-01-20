@@ -30,7 +30,8 @@ const MySearchBar = styled.div`
     width: 480px;
     height: 30px;
     border: none;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 100;
     color: var(--gray);
     background-color: var(--gray-light);
 
