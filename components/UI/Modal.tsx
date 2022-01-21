@@ -38,10 +38,10 @@ const ExitButton = styled.div`
   justify-content: end;
   align-items: center;
   width: 100%;
-  height: 30px;
+  /* height: 30px; */
 
   @media ${device.phone} {
-    margin-top: 10px;
+    /* margin-top: 10px; */
     width: 380px;
   }
 
