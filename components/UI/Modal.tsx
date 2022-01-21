@@ -84,7 +84,6 @@ const LogoWrapper = styled.div`
   margin-right: 16px;
   border-radius: 50%;
   background-color: var(--white);
-  /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); */
 `;
 
 type Props = {
