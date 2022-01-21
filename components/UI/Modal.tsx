@@ -35,17 +35,12 @@ const MyModal = styled.div`
 
 const ExitButton = styled.div`
   display: flex;
-  justify-content: end !important;
-  align-items: center;
+  justify-content: flex-end;
   width: 100%;
-
-  @media ${device.phone} {
-    width: 380px;
-  }
 
   .exit-icon {
     font-size: 2.5rem;
-    margin: 12px 12px 0 0;
+    margin: 20px 20px 0 0;
     color: var(--gray);
     :hover {
       color: var(--slate);
