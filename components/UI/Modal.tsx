@@ -35,13 +35,11 @@ const MyModal = styled.div`
 
 const ExitButton = styled.div`
   display: flex;
-  justify-content: end;
+  justify-content: end !important;
   align-items: center;
   width: 100%;
-  /* height: 30px; */
 
   @media ${device.phone} {
-    /* margin-top: 10px; */
     width: 380px;
   }
 
