@@ -78,7 +78,7 @@ const MyCryptoItem = styled.li`
       background-color: var(--off-white);
       border-radius: 14px;
       margin-right: 50px;
-      /* transition: 200ms ease-in; */
+      transition: 100ms ease-in;
 
       &:hover {
         background-color: var(--green-action);
