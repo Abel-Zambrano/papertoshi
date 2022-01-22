@@ -16,7 +16,9 @@ const MyModal = styled.div`
   display: flex;
   position: fixed;
   top: 10%;
-  left: 35%;
+  /* left: 30%; */
+  right: 40%;
+  left: 40%;
   flex-direction: column;
   align-items: center;
   background-color: var(--white);
@@ -25,6 +27,10 @@ const MyModal = styled.div`
   width: 400px;
   height: 600px;
   z-index: 1000;
+
+  @media ${device.tablet} {
+    left: 30%;
+  }
 
   @media ${device.phone} {
     top: 0;

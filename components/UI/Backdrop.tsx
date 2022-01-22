@@ -13,7 +13,7 @@ const MyBackdrop = styled.div`
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.2);
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   z-index: 500;
   top: 0;
