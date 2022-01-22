@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 import numberFormatter from "../JS/numberFormatter";
 import { useSelector, useDispatch } from "react-redux";
@@ -39,10 +40,15 @@ const Form = styled.form`
   width: 100%;
 `;
 
+const TopPanel = styled.div`
+  background-color: aliceblue;
+  height: 50%;
+`;
+
 const Input = styled.input`
   margin-top: 50px;
   width: 200px;
-  height: 70px;
+  height: 40px;
   font-size: 2rem;
   text-align: right;
 
@@ -57,18 +63,34 @@ const Input = styled.input`
   }
 `;
 
+const TradeErrorWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 158px;
+`;
+
 const TradeValue = styled.p`
   font-size: 2rem;
   padding: 10px;
-  margin: 50px;
+  margin-top: 20px;
+`;
+
+const Error = styled.p`
+  color: red;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 20px;
 `;
 
 const BottomPanel = styled.div`
+  background-color: pink;
   display: flex;
   justify-content: center;
   background-color: var(--slate-light-2);
   width: 100%;
   height: 100%;
+  height: 50%;
   border-radius: 30px 30px 14px 14px;
   box-shadow: 0px -6px 6px rgba(0, 0, 0, 0.2);
 
@@ -187,6 +209,7 @@ type Props = {
 };
 
 export default function TradeForm({ rawPrice }: Props) {
+  const [errorOutput, setErrorOutput] = useState("");
   const USD = useSelector((state: any) => state.USD);
   const assets = useSelector((state: any) => state.assets);
   const coinTradeAmount = useSelector((state: any) => state.coinTradeAmount);
@@ -206,7 +229,7 @@ export default function TradeForm({ rawPrice }: Props) {
   const handleBuy = (e: any) => {
     e.preventDefault();
     if (tradeValue > USD) {
-      alert("Insuffecient Funds");
+      setErrorOutput("Insufficient Funds");
     } else if (coinTradeAmount !== 0) {
       dispatch(getConfirm());
       dispatch(processPurchase());
@@ -216,7 +239,7 @@ export default function TradeForm({ rawPrice }: Props) {
   const handleSell = (e: any) => {
     e.preventDefault();
     if (tradeValue > assets) {
-      alert("You Don't Own Enough Coins");
+      setErrorOutput("Insufficient Assets");
     } else if (coinTradeAmount !== 0) {
       dispatch(cancelPurchase());
       dispatch(getConfirm());
@@ -257,15 +280,23 @@ export default function TradeForm({ rawPrice }: Props) {
   return (
     <MyTradeForm>
       <Form>
-        <Input
-          type="number"
-          min="0"
-          onChange={(e) => handleCoinChange(e)}
-          required
-        />
-        <TradeValue>
-          {currentTradeValue === "$NaN" ? "$0" : currentTradeValue}
-        </TradeValue>
+        <TopPanel>
+          <Input
+            type="number"
+            min="0"
+            onChange={(e) => handleCoinChange(e)}
+            required
+            onClick={() => {
+              setErrorOutput("");
+            }}
+          />
+          <TradeErrorWrapper>
+            <TradeValue>
+              {currentTradeValue === "$NaN" ? "$0" : currentTradeValue}
+            </TradeValue>
+            <Error>{errorOutput}</Error>
+          </TradeErrorWrapper>
+        </TopPanel>
         <BottomPanel>
           {confirm ? (
             <SCWrapper>
