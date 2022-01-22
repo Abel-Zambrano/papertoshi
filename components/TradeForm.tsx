@@ -224,6 +224,11 @@ export default function TradeForm({ rawPrice }: Props) {
     dispatch(changeValue(e.target.valueAsNumber * rawPrice));
   };
 
+  // fix NaN issue for coinTradeAmount
+  if (isNaN(coinTradeAmount)) {
+    dispatch(changeAmount(0));
+  }
+
   const handleBuy = (e: any) => {
     e.preventDefault();
     if (tradeValue > USD) {
