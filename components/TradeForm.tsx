@@ -41,7 +41,6 @@ const Form = styled.form`
 `;
 
 const TopPanel = styled.div`
-  background-color: aliceblue;
   height: 50%;
 `;
 
@@ -84,7 +83,6 @@ const Error = styled.p`
 `;
 
 const BottomPanel = styled.div`
-  background-color: pink;
   display: flex;
   justify-content: center;
   background-color: var(--slate-light-2);
