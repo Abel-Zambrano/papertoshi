@@ -204,9 +204,10 @@ const Cancel = styled.button`
 
 type Props = {
   rawPrice: number;
+  modalHandler: any;
 };
 
-export default function TradeForm({ rawPrice }: Props) {
+export default function TradeForm({ rawPrice, modalHandler }: Props) {
   const [errorOutput, setErrorOutput] = useState("");
   const USD = useSelector((state: any) => state.USD);
   const assets = useSelector((state: any) => state.assets);
@@ -260,7 +261,7 @@ export default function TradeForm({ rawPrice }: Props) {
   const handleSuccessExit = () => {
     setTimeout(() => {
       handleCancel();
-      dispatch(closeModal());
+      modalHandler();
     }, 3000);
   };
 

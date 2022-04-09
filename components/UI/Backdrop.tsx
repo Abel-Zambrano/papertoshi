@@ -12,7 +12,7 @@ const MyBackdrop = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.8);
   width: 100vw;
   height: 100vh;
   z-index: 500;
@@ -20,11 +20,16 @@ const MyBackdrop = styled.div`
   left: 0;
 `;
 
-export default function Backdrop() {
+type Props = {
+  modalOpen: boolean;
+  modalHandler: any;
+};
+
+export default function Backdrop({ modalOpen, modalHandler }: Props) {
   const dispatch = useDispatch();
 
   const handleExitModal = () => {
-    dispatch(closeModal());
+    modalHandler();
     document.body.style.overflow = "unset";
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));

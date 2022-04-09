@@ -131,7 +131,7 @@ export default function Modal({
     <>
       {modalOpen ? (
         <>
-          <Backdrop />
+          <Backdrop modalOpen={modalOpen} modalHandler={modalHandler} />
           <MyModal key={id} id={id}>
             <ExitButton>
               <AiOutlineCloseCircle
@@ -156,7 +156,7 @@ export default function Modal({
                 <p className="current-price">{currentPrice}</p>
               </div>
             </Heading>
-            <TradeForm rawPrice={rawPrice} />
+            <TradeForm modalHandler={modalHandler} rawPrice={rawPrice} />
           </MyModal>
         </>
       ) : null}
