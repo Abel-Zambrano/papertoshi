@@ -124,10 +124,19 @@ export default function TradeItem({
 }: ListProps) {
   const coins = useSelector((state: any) => state.coins);
   const [modalOpen, setModalOpen] = useState(false);
+  const [cryptoAmount, setCryptoAmount] = useState(0);
 
   const modalHandler = () => {
     setModalOpen(!modalOpen);
-    console.log(modalOpen);
+    // useDispatch()
+  };
+
+  const cryptoIncreaseHandler = (crypto: number) => {
+    setCryptoAmount(cryptoAmount + crypto);
+  };
+
+  const cryptoDecreaseHandler = (crypto: number) => {
+    setCryptoAmount(cryptoAmount - crypto);
   };
 
   return (
@@ -143,6 +152,8 @@ export default function TradeItem({
           rawPrice={rawPrice}
           modalOpen={modalOpen}
           modalHandler={modalHandler}
+          cryptoIncreaseHandler={cryptoIncreaseHandler}
+          cryptoDecreaseHandler={cryptoDecreaseHandler}
         />
       ) : null}
       <MyCryptoItem key={symbol} id={id}>
@@ -157,7 +168,7 @@ export default function TradeItem({
                 height={30}
                 priority
               />
-              <h3 className="shares">{coins}</h3>
+              <h3 className="shares">{cryptoAmount}</h3>
             </div>
             <h2 className="name">{name}</h2>
           </div>

@@ -18,7 +18,6 @@ import {
   assetsDecrease,
   successTrue,
   successFalse,
-  closeModal,
 } from "../actions";
 import SuccessCheck from "./UI/SuccessCheck";
 
@@ -60,6 +59,14 @@ const Input = styled.input`
     -webkit-appearance: none;
     margin: 0;
   }
+`;
+
+const InputSummary = styled.p`
+  text-align: center;
+  margin-top: 50px;
+  width: 200px;
+  height: 40px;
+  font-size: 2rem;
 `;
 
 const TradeErrorWrapper = styled.div`
@@ -205,10 +212,18 @@ const Cancel = styled.button`
 type Props = {
   rawPrice: number;
   modalHandler: any;
+  cryptoIncreaseHandler: any;
+  cryptoDecreaseHandler: any;
 };
 
-export default function TradeForm({ rawPrice, modalHandler }: Props) {
+export default function TradeForm({
+  rawPrice,
+  modalHandler,
+  cryptoIncreaseHandler,
+  cryptoDecreaseHandler,
+}: Props) {
   const [errorOutput, setErrorOutput] = useState("");
+  const [input, setInput] = useState(true);
   const USD = useSelector((state: any) => state.USD);
   const assets = useSelector((state: any) => state.assets);
   const coinTradeAmount = useSelector((state: any) => state.coinTradeAmount);
@@ -235,6 +250,7 @@ export default function TradeForm({ rawPrice, modalHandler }: Props) {
     if (tradeValue > USD) {
       setErrorOutput("Insufficient Funds");
     } else if (coinTradeAmount !== 0) {
+      setInput(false);
       dispatch(getConfirm());
       dispatch(processPurchase());
     }
@@ -245,6 +261,7 @@ export default function TradeForm({ rawPrice, modalHandler }: Props) {
     if (tradeValue > assets) {
       setErrorOutput("Insufficient Assets");
     } else if (coinTradeAmount !== 0) {
+      setInput(false);
       dispatch(cancelPurchase());
       dispatch(getConfirm());
     }
@@ -255,6 +272,8 @@ export default function TradeForm({ rawPrice, modalHandler }: Props) {
     dispatch(cancelPurchase());
     dispatch(successFalse());
     dispatch(changeValue(0));
+    dispatch(changeAmount(0));
+    setInput(true);
     document.body.style.overflow = "unset";
   };
 
@@ -268,13 +287,15 @@ export default function TradeForm({ rawPrice, modalHandler }: Props) {
   const handleConfirm = (e: any) => {
     e.preventDefault();
     if (purchase === true) {
-      dispatch(coinIncrease(coinTradeAmount));
+      dispatch(coinIncrease(coinTradeAmount)); // todo: remove
+      cryptoIncreaseHandler(coinTradeAmount);
       dispatch(USDBuy(tradeValue));
       dispatch(assetsIncrease(tradeValue));
       dispatch(successTrue());
       handleSuccessExit();
     } else if (purchase === false) {
-      dispatch(coinDecrease(coinTradeAmount));
+      dispatch(coinDecrease(coinTradeAmount)); // todo: remove
+      cryptoDecreaseHandler(coinTradeAmount);
       dispatch(assetsDecrease(tradeValue));
       dispatch(USDSell(tradeValue));
       dispatch(successTrue());
@@ -286,15 +307,19 @@ export default function TradeForm({ rawPrice, modalHandler }: Props) {
     <MyTradeForm>
       <Form>
         <TopPanel>
-          <Input
-            type="number"
-            min="0"
-            onChange={(e) => handleCoinChange(e)}
-            required
-            onClick={() => {
-              setErrorOutput("");
-            }}
-          />
+          {input ? (
+            <Input
+              type="number"
+              min="0"
+              onChange={(e) => handleCoinChange(e)}
+              required
+              onClick={() => {
+                setErrorOutput("");
+              }}
+            />
+          ) : (
+            <InputSummary>Trade Amount: {coinTradeAmount}</InputSummary>
+          )}
           <TradeErrorWrapper>
             <TradeValue>
               {currentTradeValue === "$NaN" ? "$0" : currentTradeValue}

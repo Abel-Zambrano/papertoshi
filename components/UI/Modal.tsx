@@ -105,6 +105,8 @@ type Props = {
   closeModal?: any; // todo: remove update
   rawPrice: number;
   modalHandler: any;
+  cryptoIncreaseHandler: any;
+  cryptoDecreaseHandler: any;
 };
 
 export default function Modal({
@@ -115,6 +117,8 @@ export default function Modal({
   modalOpen,
   rawPrice,
   modalHandler,
+  cryptoIncreaseHandler,
+  cryptoDecreaseHandler,
 }: Props) {
   const dispatch = useDispatch();
 
@@ -156,7 +160,12 @@ export default function Modal({
                 <p className="current-price">{currentPrice}</p>
               </div>
             </Heading>
-            <TradeForm modalHandler={modalHandler} rawPrice={rawPrice} />
+            <TradeForm
+              modalHandler={modalHandler}
+              rawPrice={rawPrice}
+              cryptoIncreaseHandler={cryptoIncreaseHandler}
+              cryptoDecreaseHandler={cryptoDecreaseHandler}
+            />
           </MyModal>
         </>
       ) : null}
