@@ -101,9 +101,10 @@ type Props = {
   name: string;
   image: string;
   currentPrice: any;
-  tradeModal: boolean;
-  closeModal: any;
+  modalOpen: boolean;
+  closeModal?: any; // todo: remove update
   rawPrice: number;
+  modalHandler: any;
 };
 
 export default function Modal({
@@ -111,13 +112,15 @@ export default function Modal({
   name,
   image,
   currentPrice,
-  tradeModal,
+  modalOpen,
   rawPrice,
+  modalHandler,
 }: Props) {
   const dispatch = useDispatch();
 
   const handleExitModal = () => {
-    dispatch(closeModal());
+    // dispatch(closeModal());
+    modalHandler();
     document.body.style.overflow = "unset";
     dispatch(cancelConfirm());
     dispatch(changeAmount(0));
@@ -126,7 +129,7 @@ export default function Modal({
 
   return (
     <>
-      {tradeModal ? (
+      {modalOpen ? (
         <>
           <Backdrop />
           <MyModal key={id} id={id}>

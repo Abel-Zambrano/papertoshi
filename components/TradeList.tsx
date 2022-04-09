@@ -1,7 +1,9 @@
+import React, { useState } from "react";
 import styled from "styled-components";
 import TradeItem from "./TradeItem";
 import { useSelector } from "react-redux";
 import numberFormatter from "../JS/numberFormatter";
+import { set } from "nprogress";
 
 const MyCryptoList = styled.ol`
   display: flex;

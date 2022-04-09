@@ -122,28 +122,29 @@ export default function TradeItem({
   currentPrice,
   rawPrice,
 }: ListProps) {
-  const dispatch = useDispatch();
   const coins = useSelector((state: any) => state.coins);
-  const tradeModal = useSelector((state: any) => state.tradeModal);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const tradeModalHandler = () => {
-    dispatch(openModal());
-    document.body.style.overflow = "hidden";
+  const modalHandler = () => {
+    setModalOpen(!modalOpen);
+    console.log(modalOpen);
   };
 
   return (
     <>
-      <Modal
-        key={id}
-        id={id}
-        symbol={symbol}
-        name={name}
-        image={image}
-        currentPrice={currentPrice}
-        tradeModal={tradeModal}
-        closeModal={tradeModalHandler}
-        rawPrice={rawPrice}
-      />
+      {modalOpen ? (
+        <Modal
+          key={id}
+          id={id}
+          symbol={symbol}
+          name={name}
+          image={image}
+          currentPrice={currentPrice}
+          rawPrice={rawPrice}
+          modalOpen={modalOpen}
+          modalHandler={modalHandler}
+        />
+      ) : null}
       <MyCryptoItem key={symbol} id={id}>
         <div className="container">
           <div className="wrapper">
@@ -163,7 +164,7 @@ export default function TradeItem({
         </div>
         <div className="asset-trade">
           <h2 className="asset-trade-value">$0</h2>
-          <button className="asset-trade-button" onClick={tradeModalHandler}>
+          <button className="asset-trade-button" onClick={modalHandler}>
             Trade
           </button>
         </div>
