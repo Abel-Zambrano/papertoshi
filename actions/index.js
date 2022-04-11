@@ -72,20 +72,11 @@ export const assetsDecrease = (tradeValue) => {
 };
 
 // coins
-export const coinIncrease = (tradeAmount) => {
+export const updateCoinAmount = (coinAmount) => {
   return (dispatch) => {
     dispatch({
-      type: "COIN_INCREASE",
-      payload: tradeAmount,
-    });
-  };
-};
-
-export const coinDecrease = (tradeAmount) => {
-  return (dispatch) => {
-    dispatch({
-      type: "COIN_DECREASE",
-      payload: tradeAmount,
+      type: "UPDATE_COIN_AMOUNT",
+      payload: coinAmount,
     });
   };
 };

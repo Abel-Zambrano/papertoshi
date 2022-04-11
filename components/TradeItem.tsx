@@ -2,9 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Image from "next/image";
 import Modal from "./UI/Modal";
-import { useSelector, useDispatch } from "react-redux";
-import { closeModal, openModal } from "../actions";
+import { useDispatch } from "react-redux";
+import { updateCoinAmount } from "../actions";
 import { device } from "../JS/device";
+import numberFormatter from "../JS/numberFormatter";
 
 const MyCryptoItem = styled.li`
   display: flex;
@@ -122,13 +123,14 @@ export default function TradeItem({
   currentPrice,
   rawPrice,
 }: ListProps) {
-  const coins = useSelector((state: any) => state.coins);
+  const dispatch = useDispatch();
   const [modalOpen, setModalOpen] = useState(false);
   const [cryptoAmount, setCryptoAmount] = useState(0);
+  const [cryptoAsset, setCryptoAsset] = useState(0);
 
   const modalHandler = () => {
     setModalOpen(!modalOpen);
-    // useDispatch()
+    dispatch(updateCoinAmount(cryptoAmount));
   };
 
   const cryptoIncreaseHandler = (crypto: number) => {
@@ -138,6 +140,16 @@ export default function TradeItem({
   const cryptoDecreaseHandler = (crypto: number) => {
     setCryptoAmount(cryptoAmount - crypto);
   };
+
+  const assetIncreaseHandler = (asset: number) => {
+    setCryptoAsset(cryptoAsset + asset);
+  };
+
+  const assetDecreaseHandler = (asset: number) => {
+    setCryptoAsset(cryptoAsset - asset);
+  };
+
+  let currentAsset = numberFormatter.format(cryptoAsset);
 
   return (
     <>
@@ -154,6 +166,8 @@ export default function TradeItem({
           modalHandler={modalHandler}
           cryptoIncreaseHandler={cryptoIncreaseHandler}
           cryptoDecreaseHandler={cryptoDecreaseHandler}
+          assetIncreaseHandler={assetIncreaseHandler}
+          assetDecreaseHandler={assetDecreaseHandler}
         />
       ) : null}
       <MyCryptoItem key={symbol} id={id}>
@@ -174,7 +188,7 @@ export default function TradeItem({
           </div>
         </div>
         <div className="asset-trade">
-          <h2 className="asset-trade-value">$0</h2>
+          <h2 className="asset-trade-value">{currentAsset}</h2>
           <button className="asset-trade-button" onClick={modalHandler}>
             Trade
           </button>

@@ -107,6 +107,8 @@ type Props = {
   modalHandler: any;
   cryptoIncreaseHandler: any;
   cryptoDecreaseHandler: any;
+  assetIncreaseHandler: any;
+  assetDecreaseHandler: any;
 };
 
 export default function Modal({
@@ -119,6 +121,8 @@ export default function Modal({
   modalHandler,
   cryptoIncreaseHandler,
   cryptoDecreaseHandler,
+  assetIncreaseHandler,
+  assetDecreaseHandler,
 }: Props) {
   const dispatch = useDispatch();
 
@@ -165,6 +169,8 @@ export default function Modal({
               rawPrice={rawPrice}
               cryptoIncreaseHandler={cryptoIncreaseHandler}
               cryptoDecreaseHandler={cryptoDecreaseHandler}
+              assetIncreaseHandler={assetIncreaseHandler}
+              assetDecreaseHandler={assetDecreaseHandler}
             />
           </MyModal>
         </>

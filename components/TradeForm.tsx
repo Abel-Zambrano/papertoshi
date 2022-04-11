@@ -13,8 +13,6 @@ import {
   cancelConfirm,
   processPurchase,
   cancelPurchase,
-  coinIncrease,
-  coinDecrease,
   assetsDecrease,
   successTrue,
   successFalse,
@@ -214,6 +212,8 @@ type Props = {
   modalHandler: any;
   cryptoIncreaseHandler: any;
   cryptoDecreaseHandler: any;
+  assetIncreaseHandler: any;
+  assetDecreaseHandler: any;
 };
 
 export default function TradeForm({
@@ -221,6 +221,8 @@ export default function TradeForm({
   modalHandler,
   cryptoIncreaseHandler,
   cryptoDecreaseHandler,
+  assetIncreaseHandler,
+  assetDecreaseHandler,
 }: Props) {
   const [errorOutput, setErrorOutput] = useState("");
   const [input, setInput] = useState(true);
@@ -232,6 +234,7 @@ export default function TradeForm({
   const purchase = useSelector((state: any) => state.purchase);
   const dispatch = useDispatch();
   const success = useSelector((state: any) => state.success);
+  const coins = useSelector((state: any) => state.coins);
 
   let currentTradeValue = numberFormatter.format(tradeValue);
 
@@ -258,7 +261,7 @@ export default function TradeForm({
 
   const handleSell = (e: any) => {
     e.preventDefault();
-    if (tradeValue > assets) {
+    if (coinTradeAmount > coins) {
       setErrorOutput("Insufficient Assets");
     } else if (coinTradeAmount !== 0) {
       setInput(false);
@@ -287,15 +290,15 @@ export default function TradeForm({
   const handleConfirm = (e: any) => {
     e.preventDefault();
     if (purchase === true) {
-      dispatch(coinIncrease(coinTradeAmount)); // todo: remove
       cryptoIncreaseHandler(coinTradeAmount);
+      assetIncreaseHandler(tradeValue);
       dispatch(USDBuy(tradeValue));
       dispatch(assetsIncrease(tradeValue));
       dispatch(successTrue());
       handleSuccessExit();
     } else if (purchase === false) {
-      dispatch(coinDecrease(coinTradeAmount)); // todo: remove
       cryptoDecreaseHandler(coinTradeAmount);
+      assetDecreaseHandler(assetDecreaseHandler);
       dispatch(assetsDecrease(tradeValue));
       dispatch(USDSell(tradeValue));
       dispatch(successTrue());

@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Page from "../components/Page";
 import Cryptos from "../components/Cryptos";
 import { device } from "../JS/device";
-import TradeLinks from "../components/TradeLinks";
 
 const Wrapper = styled.div`
   display: flex;
@@ -21,7 +20,6 @@ export default function Trade() {
   return (
     <Page>
       <Wrapper>
-        <TradeLinks />
         <Cryptos />
       </Wrapper>
     </Page>
