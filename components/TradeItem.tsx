@@ -151,6 +151,11 @@ export default function TradeItem({
 
   let currentAsset = numberFormatter.format(cryptoAsset);
 
+  // fix NaN issue
+  if (isNaN(cryptoAsset)) {
+    setCryptoAsset(0);
+  }
+
   return (
     <>
       {modalOpen ? (
