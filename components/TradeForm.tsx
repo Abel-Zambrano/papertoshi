@@ -98,7 +98,7 @@ const BottomPanel = styled.div`
   box-shadow: 0px -6px 6px rgba(0, 0, 0, 0.2);
 
   @media ${device.phone} {
-    border-radius: 30px 30px 0px 0px;
+    border-radius: 30px 30px 0 0;
   }
 `;
 
