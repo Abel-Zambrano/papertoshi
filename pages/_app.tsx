@@ -24,20 +24,20 @@ Router.events.on("routeChangeError", () => NProgress.done());
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      {/* google analytics script */}
-      <Script
-        strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-X8ZYDP8K2F"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
+      <Provider store={store}>
+        {/* google analytics script */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-X8ZYDP8K2F"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-X8ZYDP8K2F');
         `}
-      </Script>
-      <Provider store={store}>
+        </Script>
         <Component {...pageProps} />
       </Provider>
     </>
